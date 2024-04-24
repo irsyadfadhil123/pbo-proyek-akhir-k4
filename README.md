@@ -36,4 +36,5 @@
 
 ## Bahan Belajar
 
+  - Tutorial [Git & Github](https://www.youtube.com/watch?v=lTMZxWMjXQU&list=PLFIM0718LjIVknj6sgsSceMqlq242-jNf&index=1)
   - Tutorial [Java Swing](https://www.youtube.com/watch?v=Kmgo00avvEw)
