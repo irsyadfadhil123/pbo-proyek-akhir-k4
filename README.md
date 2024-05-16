@@ -34,7 +34,7 @@
   - Pemilik Usaha
   - Memberi sebuah panduan singkat untuk menuntun pengguna dalam menggunakan aplikasi.
 
-  PAPER GDOCS
+## GDocs Paper
 https://docs.google.com/document/d/19q0HLx2ILo-N7_btEXQm4UnD8hpvG5lMpzQ0jYMjQ70/edit?usp=sharing 
 
 ## Bahan Belajar
