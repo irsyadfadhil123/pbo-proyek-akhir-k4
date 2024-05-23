@@ -4,6 +4,8 @@
  */
 package com.kelompok4.app;
 
+import java.awt.Color;
+
 /**
  *
  * @author Irsyad Fadhil
@@ -15,6 +17,7 @@ public class LandingPage extends javax.swing.JFrame {
      */
     public LandingPage() {
         initComponents();
+        jPanel2.setBackground(new Color(255,255,255,200));
         setLocationRelativeTo(null);
         setResizable(false);
     }
@@ -32,7 +35,7 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -42,7 +45,11 @@ public class LandingPage extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setMaximumSize(new java.awt.Dimension(854, 480));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel2.setName(""); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel2.setRequestFocusEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -78,7 +85,7 @@ public class LandingPage extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(743, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,9 +101,10 @@ public class LandingPage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 600, 400));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 480));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
+        Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        Background.setName(""); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,10 +152,10 @@ public class LandingPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
