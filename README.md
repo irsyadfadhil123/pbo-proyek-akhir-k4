@@ -1,5 +1,5 @@
 # Repository untuk project akhir Pemrograman Berbasis Objek Kelompok 4
-# Aplikasi Manajemen Kuangan Toko
+# Aplikasi Manajemen Keuangan Toko
 ## To do List Fitur
 
 - [ ] **1. Laporan Keuangan**
