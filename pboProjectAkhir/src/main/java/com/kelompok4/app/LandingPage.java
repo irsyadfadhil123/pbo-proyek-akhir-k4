@@ -4,6 +4,7 @@
  */
 package com.kelompok4.app;
 
+import com.kelompok4.design.RoundedBorder;
 import java.awt.Color;
 
 /**
@@ -55,6 +56,9 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Selamat Datang di Artha");
 
+        jButton1.setBorder(new RoundedBorder(200));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
         jButton1.setBackground(new java.awt.Color(124, 195, 223));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
