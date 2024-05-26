@@ -1,9 +1,10 @@
 # Repository untuk project akhir Pemrograman Berbasis Objek Kelompok 4
 # Aplikasi Manajemen Keuangan Toko
-## To do List Fitur
 
 JUDUL PAPER
-# Optimalisasi Efektivitas Manajemen Keuangan Toko melalui Penerapan Konsep Object-Oriented Programming
+Optimalisasi Efektivitas Manajemen Keuangan Toko melalui Penerapan Konsep Object-Oriented Programming
+
+## To do List Fitur
 
 - [ ] **1. Laporan Keuangan**
   - Pemilik Usaha
