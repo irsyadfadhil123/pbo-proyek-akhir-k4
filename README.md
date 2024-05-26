@@ -2,6 +2,9 @@
 # Aplikasi Manajemen Keuangan Toko
 ## To do List Fitur
 
+JUDUL PAPER
+# Optimalisasi Efektivitas Manajemen Keuangan Toko melalui Penerapan Konsep Object-Oriented Programming
+
 - [ ] **1. Laporan Keuangan**
   - Pemilik Usaha
   - Menyediakan laporan keuangan yang terperinci, termasuk laporan penjualan dan pembelian.
