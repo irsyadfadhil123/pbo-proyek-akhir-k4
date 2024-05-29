@@ -340,6 +340,9 @@ private void show_table() {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -361,10 +364,19 @@ private void show_table() {
     }//GEN-LAST:event_ButtonTambahMouseClicked
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
-        int penjualan_id = 1;
+        // TODO add your handling code here:
+        int selectedRow = TabelPenjualan.getSelectedRow();
+    
+    if (selectedRow != -1) {
+        
+        String penjualan_id_str = TabelPenjualan.getValueAt(selectedRow, 0).toString();
+        int penjualan_id = Integer.parseInt(penjualan_id_str);
         EditCatatanPenjualan editCatatanPenjualanFrame = new EditCatatanPenjualan(penjualan_id);
         editCatatanPenjualanFrame.setVisible(true);
         dispose();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
+      }
     }//GEN-LAST:event_ButtonEditMouseClicked
 
     /**
