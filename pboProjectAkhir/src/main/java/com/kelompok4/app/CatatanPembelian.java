@@ -121,8 +121,8 @@ private void show_table() {
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
         backbutton = new javax.swing.JPanel();
-        logobuttonback = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        logobuttonback = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelPembelian = new javax.swing.JTable();
         ButtonTambah = new com.kelompok4.design.PanelRound();
@@ -251,12 +251,12 @@ private void show_table() {
         });
         backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Catatan Pembelian");
         backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 130, 20));
+
+        logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
+        backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
 
         contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 180, 30));
 
@@ -301,12 +301,17 @@ private void show_table() {
         contentpanel.add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 200, 40));
 
         ButtonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonEditMouseClicked(evt);
+            }
+        });
         ButtonEdit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Edit");
-        ButtonEdit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 210, -1));
+        ButtonEdit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 210, 20));
 
         contentpanel.add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 210, 40));
 
@@ -334,6 +339,9 @@ private void show_table() {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -351,6 +359,21 @@ private void show_table() {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_ButtonTambahMouseClicked
+
+    private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
+        // TODO add your handling code here:
+      int selectedRow = TabelPembelian.getSelectedRow();
+    
+    if (selectedRow != -1) {
+        String pembelian_id_str = TabelPembelian.getValueAt(selectedRow, 0).toString();
+        int pembelian_id = Integer.parseInt(pembelian_id_str);
+        EditCatatanPembelian editCatatanPembelianFrame = new EditCatatanPembelian(pembelian_id);
+        editCatatanPembelianFrame.setVisible(true);
+        dispose();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
+      }
+    }//GEN-LAST:event_ButtonEditMouseClicked
 
     /**
      * @param args the command line arguments
