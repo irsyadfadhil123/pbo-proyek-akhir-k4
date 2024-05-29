@@ -14,25 +14,41 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Irsyad Fadhil
  */
-public class TambahCatatanPenjualan extends javax.swing.JFrame {
+public class EditCatatanPenjualan extends javax.swing.JFrame {
 
     /**
      * Creates new form landingPage
      */
-    public TambahCatatanPenjualan() {
+    public EditCatatanPenjualan() {
+        setTitle("Artha: Aplikasi Keuangan Bisnis");
+        String jumlah_barang = "1";
+        initComponents();
+        dataNamaBarang();
+        setImageToLabel();
+        inputJumlahBarang.setText(jumlah_barang);
+        jPanel1.setBackground(new Color(255,255,255,200));
+        setLocationRelativeTo(null);
+        setResizable(false);
+    }
+    
+    public EditCatatanPenjualan(int penjualan_id) {
         setTitle("Artha: Aplikasi Keuangan Bisnis");
         initComponents();
         dataNamaBarang();
+        dataPenjualan(penjualan_id);
         setImageToLabel();
         jPanel1.setBackground(new Color(255,255,255,200));
         setLocationRelativeTo(null);
         setResizable(false);
+        System.out.println(penjualan_id);
+
     }
     
     private void dataNamaBarang () {
@@ -56,6 +72,43 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }        
+    }
+    
+    private void dataPenjualan(int penjualan_id) {
+        try (Connection conn = Database.getConnection()) {
+            String sql = "SELECT * FROM penjualan WHERE id_penjualan = ?";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setInt(1, penjualan_id);
+            
+            ResultSet rs = stm.executeQuery();
+            
+            if (rs.next()) {
+                Date tanggal = rs.getDate("tanggal");
+                int id_barang = rs.getInt("id_barang");
+                String jumlah_barang = Integer.toString(rs.getInt("jumlah_barang"));
+                String uang_masuk = Integer.toString(rs.getInt("uang_masuk"));
+                String catatan = rs.getString("catatan");
+                
+                String sql2 = "SELECT nama_barang FROM stokbarang WHERE id_barang = ?";
+                PreparedStatement stm2 = conn.prepareStatement(sql2);
+                stm2.setInt(1, id_barang);
+                
+                ResultSet rs2 = stm2.executeQuery();
+                
+                if (rs2.next()) {
+                    String nama_barang = rs2.getString("nama_barang");
+                    inputNamaBarang.setSelectedItem(nama_barang);
+                }
+                
+                inputTanggal.setDate(tanggal);
+                inputJumlahBarang.setText(jumlah_barang);
+                inputUangMasuk.setText(uang_masuk);
+                inputCatatan.setText(catatan);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());            
+        }
     }
     
     private void setImageToLabel() {
@@ -91,7 +144,7 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
         inputNamaBarang = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         inputTanggal = new com.toedter.calendar.JDateChooser();
-        buttonTambah = new javax.swing.JButton();
+        buttonEdit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -132,7 +185,7 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Tambah Catatan Penjualan");
+        jLabel7.setText("Edit Catatan Penjualan");
 
         inputJumlahBarang.setBackground(new java.awt.Color(255, 255, 255));
         inputJumlahBarang.setForeground(new java.awt.Color(0, 0, 0));
@@ -166,14 +219,14 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
 
         inputTanggal.setBackground(new java.awt.Color(255, 255, 255));
 
-        buttonTambah.setBackground(new java.awt.Color(124, 195, 223));
-        buttonTambah.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonTambah.setForeground(new java.awt.Color(0, 0, 0));
-        buttonTambah.setText("Tambah");
-        buttonTambah.setBorder(null);
-        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
+        buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        buttonEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        buttonEdit.setForeground(new java.awt.Color(0, 0, 0));
+        buttonEdit.setText("Edit");
+        buttonEdit.setBorder(null);
+        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTambahActionPerformed(evt);
+                buttonEditActionPerformed(evt);
             }
         });
 
@@ -205,7 +258,7 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(264, Short.MAX_VALUE)
-                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(262, 262, 262))
         );
         jPanel1Layout.setVerticalGroup(
@@ -236,7 +289,7 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(inputCatatan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
 
@@ -424,7 +477,7 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseClicked
 
-    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
+    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
         String tanggal = null;
         if (inputTanggal.getDate() != null) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -466,7 +519,7 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
                     int id_barang = idBarangResult.getInt("id_barang");
                     
                     if (tanggal == null) {
-                        String sql2 = "INSERT INTO penjualan (id_barang, jumlah_barang, uang_masuk, catatan) VALUES (?, ?, ?, ?)";
+                        String sql2 = "UPDATE penjualan SET tanggal = ?, id_barang = ?, jumlah_barang = ?, uang_keluar = ?, catatan = ? WHERE id_pembelian = ?";
                         PreparedStatement stm2 = conn.prepareStatement(sql2);
                         
                         if (nama_barang == null || nama_barang.isEmpty()) {
@@ -540,15 +593,8 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
 
         } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());            
-        }
-        
-//        System.out.println(tanggal);
-//        System.out.println(nama_barang);
-//        System.out.println(jumlah);
-//        System.out.println(uang_masuk);
-//        System.out.println(catatan);
-        
-    }//GEN-LAST:event_buttonTambahActionPerformed
+        }        
+    }//GEN-LAST:event_buttonEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -568,14 +614,22 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TambahCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TambahCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TambahCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TambahCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditCatatanPenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -588,14 +642,14 @@ public class TambahCatatanPenjualan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TambahCatatanPenjualan().setVisible(true);
+                new EditCatatanPenjualan().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JButton buttonTambah;
+    private javax.swing.JButton buttonEdit;
     private javax.swing.JTextField inputCatatan;
     private javax.swing.JTextField inputJumlahBarang;
     private javax.swing.JComboBox<String> inputNamaBarang;

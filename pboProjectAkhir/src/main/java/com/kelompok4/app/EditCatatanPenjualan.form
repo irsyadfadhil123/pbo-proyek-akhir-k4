@@ -79,7 +79,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="264" max="32767" attributes="0"/>
-                  <Component id="buttonTambah" min="-2" pref="214" max="-2" attributes="0"/>
+                  <Component id="buttonEdit" min="-2" pref="214" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -118,7 +118,7 @@
                       <Component id="inputCatatan" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="41" max="32767" attributes="0"/>
-                  <Component id="buttonTambah" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="buttonEdit" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -191,7 +191,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tambah Catatan Penjualan"/>
+            <Property name="text" type="java.lang.String" value="Edit Catatan Penjualan"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="inputJumlahBarang">
@@ -263,7 +263,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonTambah">
+        <Component class="javax.swing.JButton" name="buttonEdit">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="df" green="c3" red="7c" type="rgb"/>
@@ -274,13 +274,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tambah"/>
+            <Property name="text" type="java.lang.String" value="Edit"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonTambahActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

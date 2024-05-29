@@ -302,6 +302,11 @@ private void show_table() {
         contentpanel.add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 200, 40));
 
         ButtonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonEditMouseClicked(evt);
+            }
+        });
         ButtonEdit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -354,6 +359,13 @@ private void show_table() {
         TambahCatatanPenjualan tambahcatatanpenjualanFrame = new TambahCatatanPenjualan();
         tambahcatatanpenjualanFrame.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
+
+    private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
+        int penjualan_id = 1;
+        EditCatatanPenjualan editCatatanPenjualanFrame = new EditCatatanPenjualan(penjualan_id);
+        editCatatanPenjualanFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ButtonEditMouseClicked
 
     /**
      * @param args the command line arguments

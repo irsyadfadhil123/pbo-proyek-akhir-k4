@@ -54,8 +54,7 @@
                   <Component id="jLabel8" min="-2" pref="21" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel7" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="jLabel4" min="-2" pref="129" max="-2" attributes="0"/>
@@ -68,12 +67,13 @@
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="inputJumlahBarang" max="32767" attributes="0"/>
-                              <Component id="inputUangMasuk" pref="447" max="32767" attributes="0"/>
+                              <Component id="inputUangKeluar" pref="447" max="32767" attributes="0"/>
                               <Component id="inputCatatan" pref="447" max="32767" attributes="0"/>
                               <Component id="inputNamaBarang" alignment="0" max="32767" attributes="0"/>
                               <Component id="inputTanggal" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="jLabel7" min="-2" pref="244" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -110,7 +110,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <Component id="inputUangMasuk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="inputUangKeluar" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -169,7 +169,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Uang Masuk:"/>
+            <Property name="text" type="java.lang.String" value="Uang Keluar:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -191,7 +191,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tambah Catatan Penjualan"/>
+            <Property name="text" type="java.lang.String" value="Tambah Catatan Pembelian"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="inputJumlahBarang">
@@ -207,7 +207,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputJumlahBarangActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="inputUangMasuk">
+        <Component class="javax.swing.JTextField" name="inputUangKeluar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
