@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,20 +22,35 @@ import javax.swing.JOptionPane;
  * @author Irsyad Fadhil
  */
 public class EditCatatanPembelian extends javax.swing.JFrame {
+    private int id_pembelian;
 
     /**
      * Creates new form landingPage
      */
     public EditCatatanPembelian() {
         setTitle("Artha: Aplikasi Keuangan Bisnis");
+        String jumlah_barang = "1";
         initComponents();
         dataNamaBarang();
+        setImageToLabel();
+        inputJumlahBarang.setText(jumlah_barang);
+        jPanel1.setBackground(new Color(255,255,255,200));
+        setLocationRelativeTo(null);
+        setResizable(false);
+    }
+    
+    public EditCatatanPembelian(int id_pembelian) {
+        this.id_pembelian = id_pembelian;
+        setTitle("Artha: Aplikasi Keuangan Bisnis");
+        initComponents();
+        dataNamaBarang();
+        dataPenjualan(id_pembelian);
         setImageToLabel();
         jPanel1.setBackground(new Color(255,255,255,200));
         setLocationRelativeTo(null);
         setResizable(false);
     }
-        
+    
     private void dataNamaBarang () {
         try (Connection conn = Database.getConnection()) {
             String sql = "SELECT nama_barang FROM stokbarang";
@@ -56,6 +72,43 @@ public class EditCatatanPembelian extends javax.swing.JFrame {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }        
+    }
+    
+    private void dataPenjualan(int id_pembelian) {
+        try (Connection conn = Database.getConnection()) {
+            String sql = "SELECT * FROM pembelian WHERE id_pembelian = ?";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setInt(1, id_pembelian);
+            
+            ResultSet rs = stm.executeQuery();
+            
+            if (rs.next()) {
+                Date tanggal = rs.getDate("tanggal");
+                int id_barang = rs.getInt("id_barang");
+                String jumlah_barang = Integer.toString(rs.getInt("jumlah_barang"));
+                String uang_keluar = Integer.toString(rs.getInt("uang_keluar"));
+                String catatan = rs.getString("catatan");
+                
+                String sql2 = "SELECT nama_barang FROM stokbarang WHERE id_barang = ?";
+                PreparedStatement stm2 = conn.prepareStatement(sql2);
+                stm2.setInt(1, id_barang);
+                
+                ResultSet rs2 = stm2.executeQuery();
+                
+                if (rs2.next()) {
+                    String nama_barang = rs2.getString("nama_barang");
+                    inputNamaBarang.setSelectedItem(nama_barang);
+                }
+                
+                inputTanggal.setDate(tanggal);
+                inputJumlahBarang.setText(jumlah_barang);
+                inputUangKeluar.setText(uang_keluar);
+                inputCatatan.setText(catatan);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());            
+        }
     }
     
     private void setImageToLabel() {
@@ -186,6 +239,7 @@ public class EditCatatanPembelian extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -200,8 +254,7 @@ public class EditCatatanPembelian extends javax.swing.JFrame {
                             .addComponent(inputUangKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
                             .addComponent(inputCatatan, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
                             .addComponent(inputNamaBarang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inputTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(264, Short.MAX_VALUE)
@@ -466,7 +519,7 @@ public class EditCatatanPembelian extends javax.swing.JFrame {
                     int id_barang = idBarangResult.getInt("id_barang");
                     
                     if (tanggal == null) {
-                        String sql2 = "INSERT INTO pembelian (id_barang, jumlah_barang, uang_keluar, catatan) VALUES (?, ?, ?, ?)";
+                        String sql2 = "UPDATE pembelian SET id_barang = ?, jumlah_barang = ?, uang_keluar = ?, catatan = ? WHERE id_pembelian = ?";
                         PreparedStatement stm2 = conn.prepareStatement(sql2);
                         
                         if (nama_barang == null || nama_barang.isEmpty()) {
@@ -487,16 +540,18 @@ public class EditCatatanPembelian extends javax.swing.JFrame {
                             stm2.setNull(4, java.sql.Types.VARCHAR);
                         } else {
                             stm2.setString(4, catatan);
-                        }                    
+                        }
+                        
+                        stm2.setInt(5, id_pembelian);
 
                         int rowsInserted = stm2.executeUpdate();
                         if (rowsInserted > 0) {
-                            JOptionPane.showMessageDialog(null, "Berhasil Menambahkan Catatan Pembelian");
+                            JOptionPane.showMessageDialog(null, "Berhasil Memperbarui Catatan Pembelian");
                         } else {
-                            JOptionPane.showMessageDialog(null, "Gagal Menambahkan Catatan Pembelian");
+                            JOptionPane.showMessageDialog(null, "Gagal Memperbarui Catatan Pembelian");
                         }
                     } else {
-                        String sql2 = "INSERT INTO pembelian (tanggal, id_barang, jumlah_barang, uang_keluar, catatan) VALUES (?, ?, ?, ?, ?)";
+                        String sql2 = "UPDATE pembelian SET tanggal = ?, id_barang = ?, jumlah_barang = ?, uang_keluar = ?, catatan = ? WHERE id_pembelian = ?";
                         PreparedStatement stm2 = conn.prepareStatement(sql2);
                         
                         stm2.setString(1, tanggal);
@@ -519,13 +574,15 @@ public class EditCatatanPembelian extends javax.swing.JFrame {
                             stm2.setNull(5, java.sql.Types.VARCHAR);
                         } else {
                             stm2.setString(5, catatan);
-                        }                    
+                        }
+                        
+                        stm2.setInt(6, id_pembelian);                        
 
                         int rowsInserted = stm2.executeUpdate();
                         if (rowsInserted > 0) {
-                            JOptionPane.showMessageDialog(null, "Berhasil Menambahkan Catatan Pembelian");
+                            JOptionPane.showMessageDialog(null, "Berhasil Memperbarui Catatan Pembelian");
                         } else {
-                            JOptionPane.showMessageDialog(null, "Gagal Menambahkan Catatan Pembelian");
+                            JOptionPane.showMessageDialog(null, "Gagal Memperbarui Catatan Pembelian");
                         }
                     }
                     

@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  * @author Irsyad Fadhil
  */
 public class EditCatatanPenjualan extends javax.swing.JFrame {
+    private int id_penjualan;
 
     /**
      * Creates new form landingPage
@@ -38,16 +39,17 @@ public class EditCatatanPenjualan extends javax.swing.JFrame {
         setResizable(false);
     }
     
-    public EditCatatanPenjualan(int penjualan_id) {
+    public EditCatatanPenjualan(int id_penjualan) {
+        this.id_penjualan = id_penjualan;
         setTitle("Artha: Aplikasi Keuangan Bisnis");
         initComponents();
         dataNamaBarang();
-        dataPenjualan(penjualan_id);
+        dataPenjualan(id_penjualan);
         setImageToLabel();
         jPanel1.setBackground(new Color(255,255,255,200));
         setLocationRelativeTo(null);
         setResizable(false);
-        System.out.println(penjualan_id);
+        System.out.println(id_penjualan);
 
     }
     
@@ -519,7 +521,7 @@ public class EditCatatanPenjualan extends javax.swing.JFrame {
                     int id_barang = idBarangResult.getInt("id_barang");
                     
                     if (tanggal == null) {
-                        String sql2 = "UPDATE penjualan SET tanggal = ?, id_barang = ?, jumlah_barang = ?, uang_keluar = ?, catatan = ? WHERE id_pembelian = ?";
+                        String sql2 = "UPDATE penjualan SET id_barang = ?, jumlah_barang = ?, uang_masuk = ?, catatan = ? WHERE id_penjualan = ?";
                         PreparedStatement stm2 = conn.prepareStatement(sql2);
                         
                         if (nama_barang == null || nama_barang.isEmpty()) {
@@ -540,16 +542,18 @@ public class EditCatatanPenjualan extends javax.swing.JFrame {
                             stm2.setNull(4, java.sql.Types.VARCHAR);
                         } else {
                             stm2.setString(4, catatan);
-                        }                    
+                        }
+                        
+                        stm2.setInt(5, id_penjualan);
 
                         int rowsInserted = stm2.executeUpdate();
                         if (rowsInserted > 0) {
-                            JOptionPane.showMessageDialog(null, "Berhasil Menambahkan Catatan Penjualan");
+                            JOptionPane.showMessageDialog(null, "Berhasil Memperbarui Catatan Penjualan");
                         } else {
-                            JOptionPane.showMessageDialog(null, "Gagal Menambahkan Catatan Penjualan");
+                            JOptionPane.showMessageDialog(null, "Gagal Memperbarui Catatan Penjualan");
                         }
                     } else {
-                        String sql2 = "INSERT INTO penjualan (tanggal, id_barang, jumlah_barang, uang_masuk, catatan) VALUES (?, ?, ?, ?, ?)";
+                        String sql2 = "UPDATE penjualan SET tanggal = ?, id_barang = ?, jumlah_barang = ?, uang_masuk = ?, catatan = ? WHERE id_penjualan = ?";
                         PreparedStatement stm2 = conn.prepareStatement(sql2);
                         
                         stm2.setString(1, tanggal);
@@ -572,13 +576,15 @@ public class EditCatatanPenjualan extends javax.swing.JFrame {
                             stm2.setNull(5, java.sql.Types.VARCHAR);
                         } else {
                             stm2.setString(5, catatan);
-                        }                    
+                        }
+                        
+                        stm2.setInt(6, id_penjualan);                        
 
                         int rowsInserted = stm2.executeUpdate();
                         if (rowsInserted > 0) {
-                            JOptionPane.showMessageDialog(null, "Berhasil Menambahkan Catatan Penjualan");
+                            JOptionPane.showMessageDialog(null, "Berhasil Memperbarui Catatan Penjualan");
                         } else {
-                            JOptionPane.showMessageDialog(null, "Gagal Menambahkan Catatan Penjualan");
+                            JOptionPane.showMessageDialog(null, "Gagal Memperbarui Catatan Penjualan");
                         }
                     }
                     

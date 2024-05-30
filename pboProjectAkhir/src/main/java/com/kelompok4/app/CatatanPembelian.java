@@ -20,6 +20,7 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -68,6 +69,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
     private static final Logger LOGGER = Logger.getLogger(CatatanPembelian.class.getName());
     private Connection con;
     private PreparedStatement pst;
+    private PreparedStatement pst2;
     private ResultSet rs;
     
 private void show_table() {
@@ -291,6 +293,11 @@ private void show_table() {
         contentpanel.add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 200, 40));
 
         ButtonHapus.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonHapus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonHapusMouseClicked(evt);
+            }
+        });
         ButtonHapus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -338,7 +345,6 @@ private void show_table() {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
         dispose();
         CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
         catatantransaksiFrame.setVisible(true);
@@ -349,31 +355,63 @@ private void show_table() {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
-        // TODO add your handling code here:
         dispose();
         CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
         catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_backbuttonMouseClicked
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
-        // TODO add your handling code here:
-        
+        dispose();
+        TambahCatatanPembelian tambahCatatanPembelianFrame = new TambahCatatanPembelian();
+        tambahCatatanPembelianFrame.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
-        // TODO add your handling code here:
-      int selectedRow = TabelPembelian.getSelectedRow();
-    
-    if (selectedRow != -1) {
-        String pembelian_id_str = TabelPembelian.getValueAt(selectedRow, 0).toString();
-        int pembelian_id = Integer.parseInt(pembelian_id_str);
-        EditCatatanPembelian editCatatanPembelianFrame = new EditCatatanPembelian(pembelian_id);
-        editCatatanPembelianFrame.setVisible(true);
-        dispose();
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
-      }
+        int selectedRow = TabelPembelian.getSelectedRow();
+
+        if (selectedRow != -1) {
+            String pembelian_id_str = TabelPembelian.getValueAt(selectedRow, 0).toString();
+            int pembelian_id = Integer.parseInt(pembelian_id_str);
+            EditCatatanPembelian editCatatanPembelianFrame = new EditCatatanPembelian(pembelian_id);
+            editCatatanPembelianFrame.setVisible(true);
+            dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
+        }
     }//GEN-LAST:event_ButtonEditMouseClicked
+
+    private void ButtonHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonHapusMouseClicked
+        int selectedRow = TabelPembelian.getSelectedRow();
+
+        if (selectedRow != -1) {
+            int response = JOptionPane.showConfirmDialog(null, "Apakah anda yakin menghapus data ini?", "konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (response == JOptionPane.YES_OPTION) {
+                String pembelian_id_str = TabelPembelian.getValueAt(selectedRow, 0).toString();
+                int pembelian_id = Integer.parseInt(pembelian_id_str);
+                try  {
+                    String sql2 = "DELETE FROM pembelian WHERE id_pembelian = ?";
+                    pst2 = con.prepareStatement(sql2);
+                    pst2.setInt(1, pembelian_id);
+                    int rowsAffected = pst2.executeUpdate();
+                    
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Berhasil Menghapus Catatan Pembelian");
+                        dispose();
+                        CatatanPembelian catatanPembelianFrame = new CatatanPembelian();
+                        catatanPembelianFrame.setVisible(true);
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Gagal Menghapus Catatan Pembelian");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+                }
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
+        }
+    }//GEN-LAST:event_ButtonHapusMouseClicked
 
     /**
      * @param args the command line arguments
