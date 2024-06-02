@@ -5,41 +5,86 @@
 package com.kelompok4.app;
 
 import com.kelompok4.design.PanelRound;
+import com.kelompok4.pboprojectakhir.Database;
 import java.awt.Color;
-import javax.swing.border.Border;
-
+import java.awt.geom.RoundRectangle2D;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Irsyad Fadhil
  */
-public class PelangganSupplier extends javax.swing.JFrame {
+public class Stok extends javax.swing.JFrame {
     
     
     
     /**
      * Creates new form landingPage
      */
-    public PelangganSupplier() {
+    public Stok() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);   
-        
-        ((PanelRound) tmblpelanggan).setRoundTopLeft(40); //set round
-        ((PanelRound) tmblpelanggan).setRoundTopRight(40);
-        ((PanelRound) tmblpelanggan).setRoundBottomLeft(40);
-        ((PanelRound) tmblpelanggan).setRoundBottomRight(40);
-        
-        ((PanelRound) tmblsupplier).setRoundTopLeft(40); // set round
-        ((PanelRound) tmblsupplier).setRoundTopRight(40);
-        ((PanelRound) tmblsupplier).setRoundBottomLeft(40);
-        ((PanelRound) tmblsupplier).setRoundBottomRight(40);
+        Database db = new Database();
+        con = db.getConnection();
+        show_table();
+
         
         ((PanelRound) contentpanel).setRoundTopLeft(40); // set round
         ((PanelRound) contentpanel).setRoundTopRight(40);
         ((PanelRound) contentpanel).setRoundBottomLeft(40);
         ((PanelRound) contentpanel).setRoundBottomRight(40);
         ((PanelRound) contentpanel).setOpacity(0.7f); // set opacity
+    }
+    
+    private static final Logger LOGGER = Logger.getLogger(Piutang.class.getName());
+    private Connection con;
+    private PreparedStatement pst;
+    private PreparedStatement pst2;
+    private ResultSet rs;
+    
+    private void show_table() {
+        int CC;
+
+        try {
+            pst = con.prepareStatement("SELECT * FROM stokbarang");
+            rs = pst.executeQuery();
+            ResultSetMetaData RSMD = rs.getMetaData();
+            CC = RSMD.getColumnCount();
+
+            DefaultTableModel DFT = (DefaultTableModel) TabelStok.getModel();
+
+            DFT.setRowCount(0);
+
+            while (rs.next()) {
+                Vector v2 = new Vector();
+
+                for (int i = 1; i <= CC; i++) {
+                    v2.add(rs.getString("id_barang"));
+                    v2.add(rs.getString("nama_barang"));
+                    v2.add(rs.getString("jumlah"));
+                    v2.add(rs.getString("harga_satuan"));
+                    v2.add(rs.getString("peringatan_minimum"));
+                }
+
+                DFT.addRow(v2);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Piutang.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
@@ -60,11 +105,8 @@ public class PelangganSupplier extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        tmblpelanggan = new com.kelompok4.design.PanelRound();
-        lblpelanggan = new javax.swing.JLabel();
-        tmblsupplier = new com.kelompok4.design.PanelRound();
-        lblpiutang = new javax.swing.JLabel();
+        TabelStok = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,7 +177,7 @@ public class PelangganSupplier extends javax.swing.JFrame {
         });
         header.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 6, -1, 32));
 
-        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton8.setText("Stok");
         jButton8.setBorder(null);
         jButton8.setBorderPainted(false);
@@ -175,52 +217,25 @@ public class PelangganSupplier extends javax.swing.JFrame {
         contentpanel.setAlignmentX(0.0F);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TabelStok.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Barang", "Nama Barang", "Jumlah", "Harga Satuan", "Peringatan Minimum"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(TabelStok);
 
-        contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 670, 280));
+        contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 670, 300));
 
-        tmblpelanggan.setBackground(new java.awt.Color(124, 195, 223));
-        tmblpelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tmblpelangganMouseClicked(evt);
-            }
-        });
-        tmblpelanggan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblpelanggan.setBackground(new java.awt.Color(255, 255, 255));
-        lblpelanggan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblpelanggan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblpelanggan.setText("Pelanggan");
-        tmblpelanggan.add(lblpelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 40));
-
-        contentpanel.add(tmblpelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 230, 40));
-
-        tmblsupplier.setBackground(new java.awt.Color(124, 195, 223));
-        tmblsupplier.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tmblsupplierMouseClicked(evt);
-            }
-        });
-        tmblsupplier.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblpiutang.setBackground(new java.awt.Color(124, 195, 223));
-        lblpiutang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblpiutang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblpiutang.setText("Supplier");
-        tmblsupplier.add(lblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 40));
-
-        contentpanel.add(tmblsupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 230, 40));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("STOK BARANG");
+        contentpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 260, -1));
 
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 770, 370));
 
@@ -246,34 +261,17 @@ public class PelangganSupplier extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         dispose();
-        PelangganSupplier utangpiutangFrame = new PelangganSupplier();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
         utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        dispose();
-        Stok stokFrame = new Stok();
-        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void tmblpelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblpelangganMouseClicked
-        // TODO add your handling code here:
-        dispose();
-        Pelanggan pelangganFrame = new Pelanggan();
-        pelangganFrame.setVisible(true);
-    }//GEN-LAST:event_tmblpelangganMouseClicked
-
-    private void tmblsupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblsupplierMouseClicked
-        // TODO add your handling code here:
-        dispose();
-        Supplier supplierFrame = new Supplier();
-        supplierFrame.setVisible(true);
-    }//GEN-LAST:event_tmblsupplierMouseClicked
 
     /**
      * @param args the command line arguments
@@ -294,13 +292,13 @@ public class PelangganSupplier extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PelangganSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PelangganSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PelangganSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PelangganSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stok.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -322,7 +320,7 @@ public class PelangganSupplier extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PelangganSupplier().setVisible(true);
+                new Stok().setVisible(true);
             }
         });
     }
@@ -330,6 +328,7 @@ public class PelangganSupplier extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JTable TabelStok;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton5;
@@ -338,11 +337,7 @@ public class PelangganSupplier extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblpelanggan;
-    private javax.swing.JLabel lblpiutang;
-    private javax.swing.JPanel tmblpelanggan;
-    private javax.swing.JPanel tmblsupplier;
     // End of variables declaration//GEN-END:variables
 }
