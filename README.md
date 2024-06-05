@@ -18,11 +18,11 @@ Optimalisasi Efektivitas Manajemen Keuangan Toko melalui Penerapan Konsep Object
   - Pemilik Usaha 
   - Mencatat utang kepada supplier dan piutang dari pelanggan.
 
-- [ ] **4. Pencatatan Penjualan**
+- [x] **4. Pencatatan Penjualan**
   - Pemilik Usaha
   - Mencatat semua transaksi penjualan, termasuk jumlah, barang yang dijual, dan harga.
 
-- [ ] **5. Pencatatan Pembelian** 
+- [x] **5. Pencatatan Pembelian** 
   - Pemilik Usaha
   - Mencatat semua pembelian barang dagangan, termasuk jumlah, harga, dan supplier.
 
