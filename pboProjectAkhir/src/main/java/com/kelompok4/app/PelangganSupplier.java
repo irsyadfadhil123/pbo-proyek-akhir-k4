@@ -33,7 +33,7 @@ public class PelangganSupplier extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        tabbedPane = new JTabbedPane();
+        tabbedPane = new JTabbedPane(); 
 
         panelPelanggan = new JPanel();
         panelPelanggan.setLayout(new BorderLayout());
