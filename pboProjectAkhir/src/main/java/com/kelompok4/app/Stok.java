@@ -12,9 +12,6 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.awt.event.*;
 import com.kelompok4.design.PanelRound;
-import java.awt.Color;
-import java.awt.Component;
-import javax.swing.table.DefaultTableCellRenderer;
 /**
  *
  * @author Ari Family
@@ -62,10 +59,10 @@ public class Stok extends javax.swing.JFrame {
 
             while (rs.next()) {
                 model.addRow(new Object[]{
-                    rs.getInt("id_barang"),
+                    rs.getString("id_barang"),
                     rs.getString("nama_barang"),
                     rs.getInt("jumlah"),
-                    rs.getBigDecimal("harga_satuan"),
+                    rs.getDouble("harga_satuan"),
                     rs.getInt("peringatan_minimum")
                 });
             }
@@ -73,28 +70,6 @@ public class Stok extends javax.swing.JFrame {
             conn.close();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        
-        TabelStok.setDefaultRenderer(Object.class, new CustomCellRenderer());
-    }
-     
-     private class CustomCellRenderer extends DefaultTableCellRenderer {
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
-            int jumlah = (int) table.getModel().getValueAt(row, 2);
-            int peringatanMinimum = (int) table.getModel().getValueAt(row, 4);
-
-            if (jumlah < peringatanMinimum) {
-                cell.setBackground(Color.RED);
-                cell.setForeground(Color.WHITE);
-            } else {
-                cell.setBackground(Color.WHITE);
-                cell.setForeground(Color.BLACK);
-            }
-
-            return cell;
         }
     }
 
@@ -129,6 +104,9 @@ public class Stok extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(854, 480));
+        setPreferredSize(new java.awt.Dimension(854, 480));
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -268,15 +246,7 @@ public class Stok extends javax.swing.JFrame {
             new String [] {
                 "ID Barang", "Nama Barang", "Jumlah", "Harga Satuan", "Peringatan Minimum"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(TabelStok);
 
         contentpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 670, 260));
@@ -338,30 +308,18 @@ public class Stok extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.out.println("ini tombol dasbor");
-        dispose();
-        dashboard1 dashboardFrame = new dashboard1();
-        dashboardFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        dispose();
-        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
-        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        dispose();
-        UtangPiutang utangpiutangFrame = new UtangPiutang();
-        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        dispose();
-        Stok stokFrame = new Stok();
-        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -374,19 +332,23 @@ public class Stok extends javax.swing.JFrame {
     }//GEN-LAST:event_backbuttonMouseClicked
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
-    TambahStok tambahStokWindow = new TambahStok();
+        dispose();
+        TambahStok tambahStokWindow = new TambahStok();
                 tambahStokWindow.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
-    int selectedRow = TabelStok.getSelectedRow();
+        
+        int selectedRow = TabelStok.getSelectedRow();
         if (selectedRow != -1) {
-            String idBarang = TabelStok.getValueAt(selectedRow, 0).toString();
+            String idBarang_str = TabelStok.getValueAt(selectedRow, 0).toString();
+            int idBarang = Integer.parseInt(idBarang_str);
             
 
             try {
-                EditStok editStokWindow = new EditStok();
+                EditStok editStokWindow = new EditStok(idBarang);
                 editStokWindow.setVisible(true);
+                dispose();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -396,7 +358,8 @@ public class Stok extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonEditMouseClicked
 
     private void ButtonHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonHapusMouseClicked
-    int selectedRow = TabelStok.getSelectedRow();
+        
+        int selectedRow = TabelStok.getSelectedRow();
         if (selectedRow != -1) {
             String idBarang = TabelStok.getValueAt(selectedRow, 0).toString();
 

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.kelompok4.app;
+import com.kelompok4.design.PanelRound;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,19 +11,79 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import com.kelompok4.pboprojectakhir.Database;
+import java.sql.ResultSet;
 /**
  *
  * @author Ari Family
  */
 public class EditStok extends javax.swing.JFrame {
-
+private int barangId;
     /**
      * Creates new form EditStok
      */
-    public EditStok() {
+    public EditStok(int id) {
+        this.barangId = id;
         initComponents();
+        tampilkanDataBarang();
+        
+        ((PanelRound) panelContent).setOpacity(0.7f);
+        ((PanelRound) panelContent).setRoundTopLeft(40);
+        ((PanelRound) panelContent).setRoundTopRight(40);
+        ((PanelRound) panelContent).setRoundBottomLeft(40);
+        ((PanelRound) panelContent).setRoundBottomRight(40);
+        ((PanelRound) buttonEdit).setRoundTopLeft(40);
+        ((PanelRound) buttonEdit).setRoundTopRight(40);
+        ((PanelRound) buttonEdit).setRoundBottomLeft(40);
+        ((PanelRound) buttonEdit).setRoundBottomRight(40);
     }
 
+    private void tampilkanDataBarang() {
+         try {
+            Connection conn = Database.getConnection();
+            String query = "SELECT nama_barang, jumlah, harga_satuan, peringatan_minimum FROM stokbarang WHERE id_barang = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, barangId);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String nama = rs.getString("nama_barang");
+                String jumlah = rs.getString("jumlah");
+                String harga = rs.getString("harga_satuan");
+                String peringatan = rs.getString("peringatan_minimum");
+                inputNamaBarang.setText(nama);
+                inputJumlahBarang.setText(jumlah);
+                inputHargaSatuan.setText(harga);
+                inputPeringatanMinimum.setText(peringatan);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error saat mengambil data stok barang: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void updateDataBarang() {
+        String nama = inputNamaBarang.getText();
+        String jumlah = inputJumlahBarang.getText();
+        String harga = inputHargaSatuan.getText();
+        String peringatan = inputPeringatanMinimum.getText();
+
+        try {
+            Connection conn = Database.getConnection();
+            String query = "UPDATE stokbarang SET nama_barang = ?, jumlah = ?, harga_satuan = ?, peringatan_minimum = ? WHERE id_barang = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, nama);
+            pst.setString(2, jumlah);
+            pst.setString(3, harga);
+            pst.setString(4, peringatan);
+            pst.setInt(5, barangId);
+            int result = pst.executeUpdate();
+            if (result > 0) {
+                JOptionPane.showMessageDialog(this, "Data stok barang berhasil diperbarui", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Gagal memperbarui data stok barang", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error saat memperbarui data stok barang: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +93,20 @@ public class EditStok extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContent = new com.kelompok4.design.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inputJumlahBarang = new javax.swing.JTextField();
+        inputHargaSatuan = new javax.swing.JTextField();
+        inputPeringatanMinimum = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        buttonEdit = new com.kelompok4.design.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
+        inputNamaBarang = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -39,23 +114,156 @@ public class EditStok extends javax.swing.JFrame {
         toUtangPiutangButton = new javax.swing.JButton();
         toStokButton = new javax.swing.JButton();
         toProfilButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        inputJumlahBarang = new javax.swing.JTextField();
-        inputPeringatanMinimum = new javax.swing.JTextField();
-        buttonEdit = new javax.swing.JButton();
-        inputIDBarang = new javax.swing.JTextField();
-        inputNamaBarang = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        inputHargaSatuan = new javax.swing.JTextField();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(854, 480));
+        setPreferredSize(new java.awt.Dimension(854, 480));
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Nama Barang:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Jumlah Barang:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Harga Satuan:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Peringatan Minimum:");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Edit Stok Barang");
+
+        inputJumlahBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputJumlahBarangActionPerformed(evt);
+            }
+        });
+
+        inputHargaSatuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputHargaSatuanActionPerformed(evt);
+            }
+        });
+
+        inputPeringatanMinimum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPeringatanMinimumActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        buttonEdit.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonEditMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Edit");
+
+        javax.swing.GroupLayout buttonEditLayout = new javax.swing.GroupLayout(buttonEdit);
+        buttonEdit.setLayout(buttonEditLayout);
+        buttonEditLayout.setHorizontalGroup(
+            buttonEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonEditLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
+        buttonEditLayout.setVerticalGroup(
+            buttonEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonEditLayout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addContainerGap())
+        );
+
+        inputNamaBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNamaBarangActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
+        panelContent.setLayout(panelContentLayout);
+        panelContentLayout.setHorizontalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                                    .addComponent(inputNamaBarang)))
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        panelContentLayout.setVerticalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(inputNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+
+        getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 740, 380));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -185,120 +393,6 @@ public class EditStok extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 854, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Nama Barang:");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("ID Barang:");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Jumlah Barang:");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Peringatan Minimum:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Edit Stok Barang");
-
-        inputJumlahBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputJumlahBarangActionPerformed(evt);
-            }
-        });
-
-        buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
-        buttonEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonEdit.setText("Edit");
-        buttonEdit.setBorder(null);
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
-            }
-        });
-
-        inputIDBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputIDBarangActionPerformed(evt);
-            }
-        });
-
-        inputNamaBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNamaBarangActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Harga Satuan:");
-
-        inputHargaSatuan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputHargaSatuanActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputJumlahBarang)
-                            .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-                            .addComponent(inputIDBarang)
-                            .addComponent(inputNamaBarang)
-                            .addComponent(inputHargaSatuan, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(257, 257, 257))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel7)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(inputIDBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inputNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 740, 370));
-
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
@@ -320,52 +414,42 @@ public class EditStok extends javax.swing.JFrame {
     }//GEN-LAST:event_toUtangPiutangButtonActionPerformed
 
     private void toStokButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toStokButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Stok StokWindow = new Stok();
+            StokWindow.setVisible(true);
     }//GEN-LAST:event_toStokButtonActionPerformed
 
     private void toProfilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toProfilButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
-    private void inputHargaSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHargaSatuanActionPerformed
+    private void inputJumlahBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJumlahBarangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputHargaSatuanActionPerformed
+    }//GEN-LAST:event_inputJumlahBarangActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void buttonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditMouseClicked
+        
+        updateDataBarang();
+        Stok StokWindow = new Stok();
+            StokWindow.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_buttonEditMouseClicked
 
     private void inputNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaBarangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaBarangActionPerformed
 
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        String idBarang = inputIDBarang.getText();
-        String namaBarang = inputNamaBarang.getText();
-        int jumlahBarang = Integer.parseInt(inputJumlahBarang.getText());
-        int hargaSatuan = Integer.parseInt(inputHargaSatuan.getText());
-        int peringatanMinimum = Integer.parseInt(inputPeringatanMinimum.getText());
-
-        try (Connection connection = Database.getConnection()) {
-            String query = "UPDATE stokbarang SET nama_barang = ?, jumlah = ?, harga_satuan = ?, peringatan_minimum = ? WHERE id_barang = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, namaBarang);
-            preparedStatement.setInt(2, jumlahBarang);
-            preparedStatement.setInt(3, hargaSatuan);
-            preparedStatement.setInt(4, peringatanMinimum);
-            preparedStatement.setString(5, idBarang);
-            preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Data berhasil diperbarui");
-            Stok StokWindow = new Stok();
-            StokWindow.setVisible(true);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Terjadi kesalahan: " + e.getMessage());
-        }
-    }//GEN-LAST:event_buttonEditActionPerformed
-
-    private void inputJumlahBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJumlahBarangActionPerformed
+    private void inputHargaSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHargaSatuanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputJumlahBarangActionPerformed
+    }//GEN-LAST:event_inputHargaSatuanActionPerformed
 
-    private void inputIDBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDBarangActionPerformed
+    private void inputPeringatanMinimumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPeringatanMinimumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputIDBarangActionPerformed
+    }//GEN-LAST:event_inputPeringatanMinimumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,18 +479,13 @@ public class EditStok extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditStok().setVisible(true);
-            }
-        });
+     
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JButton buttonEdit;
+    private javax.swing.JPanel buttonEdit;
     private javax.swing.JTextField inputHargaSatuan;
-    private javax.swing.JTextField inputIDBarang;
     private javax.swing.JTextField inputJumlahBarang;
     private javax.swing.JTextField inputNamaBarang;
     private javax.swing.JTextField inputPeringatanMinimum;
@@ -417,8 +496,10 @@ public class EditStok extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel panelContent;
     private javax.swing.JButton toCatatanTransaksiButton;
     private javax.swing.JButton toDasborButton;
     private javax.swing.JButton toProfilButton;
