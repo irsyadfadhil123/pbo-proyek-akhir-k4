@@ -76,7 +76,7 @@ private void show_table() {
         int CC;
 
         try {
-            pst = con.prepareStatement("SELECT * FROM utang");
+            pst = con.prepareStatement("SELECT u.id_utang, s.nama_supplier, u.tanggal, u.jumlah, u.catatan FROM utang u JOIN supplier s ON u.id_supplier = s.id_supplier ORDER BY u.tanggal DESC");
             rs = pst.executeQuery();
             ResultSetMetaData RSMD = rs.getMetaData();
             CC = RSMD.getColumnCount();
@@ -89,10 +89,11 @@ private void show_table() {
                 Vector v2 = new Vector();
 
                 for (int i = 1; i <= CC; i++) {
-                    v2.add(rs.getString("id_utang"));
-                    v2.add(rs.getString("id_supplier"));
+                    v2.add(rs.getInt("id_utang"));
+                    v2.add(rs.getString("nama_supplier"));
                     v2.add(rs.getString("tanggal"));
-                    v2.add(rs.getString("jumlah"));
+                    v2.add(rs.getInt("jumlah"));
+                    v2.add(rs.getString("catatan"));
                 }
 
                 DFT.addRow(v2);
@@ -262,15 +263,23 @@ private void show_table() {
 
         TabelUtang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID Utang", "ID Supplier", "Tanggal", "Jumlah"
+                "ID Utang", "Nama Supplier", "Tanggal", "Jumlah", "Catatan"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TabelUtang);
 
         contentpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 670, 260));

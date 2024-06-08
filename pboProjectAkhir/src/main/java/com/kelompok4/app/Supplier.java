@@ -45,9 +45,21 @@ public class Supplier extends javax.swing.JFrame {
         ((PanelRound) ButtonEdit).setRoundTopRight(40);
         ((PanelRound) ButtonEdit).setRoundBottomLeft(40);
         ((PanelRound) ButtonEdit).setRoundBottomRight(40);
+        
+        ((PanelRound) tombolpelanggan).setRoundTopLeft(40);
+        ((PanelRound) tombolpelanggan).setRoundTopRight(40);
+        ((PanelRound) tombolpelanggan).setRoundBottomLeft(40);
+        ((PanelRound) tombolpelanggan).setRoundBottomRight(40);
+        
+        ((PanelRound) tombolsupplier).setRoundTopLeft(40);
+        ((PanelRound) tombolsupplier).setRoundTopRight(40);
+        ((PanelRound) tombolsupplier).setRoundBottomLeft(40);
+        ((PanelRound) tombolsupplier).setRoundBottomRight(40);
     }
     
-    private void loadData() {
+
+    
+     private void loadData() {
         DefaultTableModel model = (DefaultTableModel) tabelSupplier.getModel();
         model.setRowCount(0);
 
@@ -61,7 +73,7 @@ public class Supplier extends javax.swing.JFrame {
                 model.addRow(new Object[]{
                     rs.getString("id_supplier"),
                     rs.getString("nama_supplier"),
-                    rs.getInt("kontak_supplier"),
+                    rs.getString("kontak_supplier"),
                 });
             }
 
@@ -69,7 +81,7 @@ public class Supplier extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -223,7 +235,15 @@ public class Supplier extends javax.swing.JFrame {
             new String [] {
                 "ID Supplier", "Nama Supplier", "Kontak Supplier"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tabelSupplier);
 
         contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 670, 260));
@@ -316,19 +336,30 @@ public class Supplier extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+        dispose();
+        dashboard1 dashboardFrame = new dashboard1();
+        dashboardFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -336,6 +367,7 @@ public class Supplier extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
+        dispose();
         TambahSupplier TambahSupplierWindow = new TambahSupplier();
         TambahSupplierWindow.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
@@ -346,6 +378,7 @@ public class Supplier extends javax.swing.JFrame {
             String idSupplier = tabelSupplier.getValueAt(selectedRow, 0).toString();
 
             try {
+                dispose();
             EditSupplier EditSupplierWindow = new EditSupplier();
             EditSupplierWindow.setVisible(true);
             } catch (Exception e) {
@@ -379,11 +412,13 @@ public class Supplier extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonHapusMouseClicked
 
     private void tombolpelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolpelangganMouseClicked
+        dispose();
         Pelanggan PelangganWindow = new Pelanggan();
         PelangganWindow.setVisible(true);
     }//GEN-LAST:event_tombolpelangganMouseClicked
 
     private void tombolsupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolsupplierMouseClicked
+        dispose();
         Supplier SupplierWindow = new Supplier();
         SupplierWindow.setVisible(true);
     }//GEN-LAST:event_tombolsupplierMouseClicked
