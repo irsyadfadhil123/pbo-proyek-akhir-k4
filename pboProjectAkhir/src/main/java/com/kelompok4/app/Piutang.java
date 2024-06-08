@@ -252,6 +252,11 @@ private void show_table() {
         backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
+        logobuttonback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logobuttonbackMouseClicked(evt);
+            }
+        });
         backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -325,7 +330,7 @@ private void show_table() {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,18 +368,18 @@ private void show_table() {
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
         dispose();
-        TambahCatatanPenjualan tambahcatatanpenjualanFrame = new TambahCatatanPenjualan();
-        tambahcatatanpenjualanFrame.setVisible(true);
+        TambahPiutang tambahPiutangFrame = new TambahPiutang();
+        tambahPiutangFrame.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
         int selectedRow = TabelPiutang.getSelectedRow();
 
         if (selectedRow != -1) {
-            String penjualan_id_str = TabelPiutang.getValueAt(selectedRow, 0).toString();
-            int penjualan_id = Integer.parseInt(penjualan_id_str);
-            EditCatatanPenjualan editCatatanPenjualanFrame = new EditCatatanPenjualan(penjualan_id);
-            editCatatanPenjualanFrame.setVisible(true);
+            String id_piutang_str = TabelPiutang.getValueAt(selectedRow, 0).toString();
+            int id_piutang = Integer.parseInt(id_piutang_str);
+            EditPiutang editPiutangFrame = new EditPiutang(id_piutang);
+            editPiutangFrame.setVisible(true);
             dispose();
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
@@ -387,22 +392,21 @@ private void show_table() {
         if (selectedRow != -1) {
             int response = JOptionPane.showConfirmDialog(null, "Apakah anda yakin menghapus data ini?", "konfirmasi", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
-                String penjualan_id_str = TabelPiutang.getValueAt(selectedRow, 0).toString();
-                int penjualan_id = Integer.parseInt(penjualan_id_str);                
+                String id_piutang_str = TabelPiutang.getValueAt(selectedRow, 0).toString();
+                int id_piutang = Integer.parseInt(id_piutang_str);                
                 try  {
-                    String sql2 = "DELETE FROM penjualan WHERE id_penjualan = ?";
+                    String sql2 = "DELETE FROM piutang WHERE id_piutang = ?";
                     pst2 = con.prepareStatement(sql2);
-                    pst2.setInt(1, penjualan_id);
+                    pst2.setInt(1, id_piutang);
                     int rowsAffected = pst2.executeUpdate();
                     
                     if (rowsAffected > 0) {
-                        JOptionPane.showMessageDialog(null, "Berhasil Menghapus Catatan Penjualan");
+                        JOptionPane.showMessageDialog(null, "Berhasil Menghapus data Piutang");
                         dispose();
-                        Piutang catatanPenjualanFrame = new Piutang();
-                        catatanPenjualanFrame.setVisible(true);
-                        
+                        Piutang piutangFrame = new Piutang();
+                        piutangFrame.setVisible(true);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Gagal Menghapus Catatan Penjualan");
+                        JOptionPane.showMessageDialog(null, "Gagal Menghapus data Piutang");
                     }
                 } catch (SQLException ex) {
                     ex.printStackTrace();
@@ -413,6 +417,10 @@ private void show_table() {
             javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
         }
     }//GEN-LAST:event_ButtonHapusMouseClicked
+
+    private void logobuttonbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logobuttonbackMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logobuttonbackMouseClicked
 
     /**
      * @param args the command line arguments

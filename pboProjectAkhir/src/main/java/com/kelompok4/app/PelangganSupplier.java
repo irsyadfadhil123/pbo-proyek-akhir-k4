@@ -8,15 +8,11 @@ import com.kelompok4.design.PanelRound;
 import java.awt.Color;
 import javax.swing.border.Border;
 
-
 /**
  *
  * @author Irsyad Fadhil
  */
 public class PelangganSupplier extends javax.swing.JFrame {
-    
-    
-    
     /**
      * Creates new form landingPage
      */

@@ -325,7 +325,7 @@ private void show_table() {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,18 +363,18 @@ private void show_table() {
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
         dispose();
-        TambahCatatanPenjualan tambahcatatanpenjualanFrame = new TambahCatatanPenjualan();
-        tambahcatatanpenjualanFrame.setVisible(true);
+        TambahUtang tambahutang = new TambahUtang();
+        tambahutang.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
         int selectedRow = TabelUtang.getSelectedRow();
 
         if (selectedRow != -1) {
-            String penjualan_id_str = TabelUtang.getValueAt(selectedRow, 0).toString();
-            int penjualan_id = Integer.parseInt(penjualan_id_str);
-            EditCatatanPenjualan editCatatanPenjualanFrame = new EditCatatanPenjualan(penjualan_id);
-            editCatatanPenjualanFrame.setVisible(true);
+            String id_utang_str = TabelUtang.getValueAt(selectedRow, 0).toString();
+            int id_utang = Integer.parseInt(id_utang_str);
+            EditUtang editUtangFrame = new EditUtang(id_utang);
+            editUtangFrame.setVisible(true);
             dispose();
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Tidak ada data yang anda pilih");
@@ -385,24 +385,24 @@ private void show_table() {
         int selectedRow = TabelUtang.getSelectedRow();
 
         if (selectedRow != -1) {
-            int response = JOptionPane.showConfirmDialog(null, "Apakah anda yakin menghapus data ini?", "konfirmasi", JOptionPane.YES_NO_OPTION);
+            int response = JOptionPane.showConfirmDialog(null, "Apakah anda yakin menghapus data ini?", "Hapus Data?", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
-                String penjualan_id_str = TabelUtang.getValueAt(selectedRow, 0).toString();
-                int penjualan_id = Integer.parseInt(penjualan_id_str);                
+                String id_utang_str = TabelUtang.getValueAt(selectedRow, 0).toString();
+                int id_utang = Integer.parseInt(id_utang_str);                
                 try  {
-                    String sql2 = "DELETE FROM penjualan WHERE id_penjualan = ?";
+                    String sql2 = "DELETE FROM utang WHERE id_utang = ?";
                     pst2 = con.prepareStatement(sql2);
-                    pst2.setInt(1, penjualan_id);
+                    pst2.setInt(1, id_utang);
                     int rowsAffected = pst2.executeUpdate();
                     
                     if (rowsAffected > 0) {
-                        JOptionPane.showMessageDialog(null, "Berhasil Menghapus Catatan Penjualan");
+                        JOptionPane.showMessageDialog(null, "Berhasil Menghapus Utang");
                         dispose();
                         Utang catatanPenjualanFrame = new Utang();
                         catatanPenjualanFrame.setVisible(true);
                         
                     } else {
-                        JOptionPane.showMessageDialog(null, "Gagal Menghapus Catatan Penjualan");
+                        JOptionPane.showMessageDialog(null, "Gagal Menghapus Utang");
                     }
                 } catch (SQLException ex) {
                     ex.printStackTrace();
