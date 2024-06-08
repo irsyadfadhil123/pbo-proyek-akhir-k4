@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 04:11 AM
+-- Generation Time: Jun 08, 2024 at 03:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `managemen_keuangan`
+-- Database: `pengatur_keuangan`
 --
 
 -- --------------------------------------------------------
@@ -46,6 +46,13 @@ CREATE TABLE `pelanggan` (
   `kontak_pelanggan` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `kontak_pelanggan`) VALUES
+(1, 'Kalfin Syah', '1234567890');
+
 -- --------------------------------------------------------
 
 --
@@ -54,12 +61,51 @@ CREATE TABLE `pelanggan` (
 
 CREATE TABLE `pembelian` (
   `id_pembelian` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` date DEFAULT current_timestamp(),
   `id_barang` int(11) DEFAULT NULL,
   `jumlah_barang` int(11) DEFAULT NULL,
-  `uang_keluar` decimal(15,2) NOT NULL,
+  `uang_keluar` int(20) NOT NULL,
   `catatan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pembelian`
+--
+
+INSERT INTO `pembelian` (`id_pembelian`, `tanggal`, `id_barang`, `jumlah_barang`, `uang_keluar`, `catatan`) VALUES
+(1, '2024-05-29', 1, 0, 10000, NULL),
+(2, '2024-05-30', 1, 10, 50000, 'ini tes');
+
+--
+-- Triggers `pembelian`
+--
+DELIMITER $$
+CREATE TRIGGER `after_pembelian_delete` AFTER DELETE ON `pembelian` FOR EACH ROW BEGIN
+    UPDATE stokbarang
+    SET jumlah = jumlah - OLD.jumlah_barang
+    WHERE id_barang = OLD.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_pembelian_insert` AFTER INSERT ON `pembelian` FOR EACH ROW BEGIN
+    UPDATE stokbarang SET jumlah = jumlah + NEW.jumlah_barang
+    WHERE id_barang = NEW.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_pembelian_update` AFTER UPDATE ON `pembelian` FOR EACH ROW BEGIN
+    UPDATE stokbarang
+    SET jumlah = jumlah - OLD.jumlah_barang
+    WHERE id_barang = OLD.id_barang;
+
+    UPDATE stokbarang
+    SET jumlah = jumlah + NEW.jumlah_barang
+    WHERE id_barang = NEW.id_barang;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -89,12 +135,53 @@ INSERT INTO `pemilikusaha` (`id_pemilik`, `nama`, `username`, `password`) VALUES
 
 CREATE TABLE `penjualan` (
   `id_penjualan` int(11) NOT NULL,
-  `tanggal` date DEFAULT NULL,
+  `tanggal` date DEFAULT current_timestamp(),
   `id_barang` int(11) DEFAULT NULL,
   `jumlah_barang` int(11) DEFAULT NULL,
-  `uang_masuk` decimal(15,2) DEFAULT NULL,
+  `uang_masuk` int(20) NOT NULL,
   `catatan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `penjualan`
+--
+
+INSERT INTO `penjualan` (`id_penjualan`, `tanggal`, `id_barang`, `jumlah_barang`, `uang_masuk`, `catatan`) VALUES
+(1, '2024-05-30', 3, 5, 10000, 'tes1234'),
+(2, '2024-05-26', 3, 5, 15000, 'roti 5'),
+(9, '2024-05-29', 1, 3, 25000, 'tes123'),
+(11, '2024-06-05', 3, 10, 30000, NULL);
+
+--
+-- Triggers `penjualan`
+--
+DELIMITER $$
+CREATE TRIGGER `after_penjualan_delete` AFTER DELETE ON `penjualan` FOR EACH ROW BEGIN
+    UPDATE stokbarang
+    SET jumlah = jumlah + OLD.jumlah_barang
+    WHERE id_barang = OLD.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_penjualan_insert` AFTER INSERT ON `penjualan` FOR EACH ROW BEGIN
+    UPDATE stokbarang SET jumlah = jumlah - NEW.jumlah_barang
+    WHERE id_barang = NEW.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_penjualan_update` AFTER UPDATE ON `penjualan` FOR EACH ROW BEGIN
+    UPDATE stokbarang
+    SET jumlah = jumlah + OLD.jumlah_barang
+    WHERE id_barang = OLD.id_barang;
+
+    UPDATE stokbarang
+    SET jumlah = jumlah - NEW.jumlah_barang
+    WHERE id_barang = NEW.id_barang;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -106,8 +193,16 @@ CREATE TABLE `piutang` (
   `id_piutang` int(11) NOT NULL,
   `id_pelanggan` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `jumlah` int(11) NOT NULL
+  `jumlah` int(11) NOT NULL,
+  `catatan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `piutang`
+--
+
+INSERT INTO `piutang` (`id_piutang`, `id_pelanggan`, `tanggal`, `jumlah`, `catatan`) VALUES
+(1, 1, '2024-06-07', 9000, 'soto besar');
 
 -- --------------------------------------------------------
 
@@ -123,6 +218,14 @@ CREATE TABLE `stokbarang` (
   `peringatan_minimum` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `stokbarang`
+--
+
+INSERT INTO `stokbarang` (`id_barang`, `nama_barang`, `jumlah`, `harga_satuan`, `peringatan_minimum`) VALUES
+(1, 'snack', 100, 5000.00, 10),
+(3, 'Roti', 0, 3000.00, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +237,13 @@ CREATE TABLE `supplier` (
   `nama_supplier` varchar(100) DEFAULT NULL,
   `kontak_supplier` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `kontak_supplier`) VALUES
+(1, 'Kalfin', 'kalpinkenjeran@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -156,9 +266,17 @@ CREATE TABLE `targetkeuangan` (
 CREATE TABLE `utang` (
   `id_utang` int(11) NOT NULL,
   `id_supplier` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `jumlah` int(11) NOT NULL
+  `tanggal` date DEFAULT NULL,
+  `jumlah` int(11) NOT NULL,
+  `catatan` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `utang`
+--
+
+INSERT INTO `utang` (`id_utang`, `id_supplier`, `tanggal`, `jumlah`, `catatan`) VALUES
+(2, 1, '2024-06-08', 100000, 'testing123');
 
 --
 -- Indexes for dumped tables
@@ -207,7 +325,8 @@ ALTER TABLE `piutang`
 -- Indexes for table `stokbarang`
 --
 ALTER TABLE `stokbarang`
-  ADD PRIMARY KEY (`id_barang`);
+  ADD PRIMARY KEY (`id_barang`),
+  ADD UNIQUE KEY `nama_barang` (`nama_barang`);
 
 --
 -- Indexes for table `supplier`
@@ -242,13 +361,13 @@ ALTER TABLE `laporankeuangan`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pemilikusaha`
@@ -260,25 +379,25 @@ ALTER TABLE `pemilikusaha`
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `piutang`
 --
 ALTER TABLE `piutang`
-  MODIFY `id_piutang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_piutang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `stokbarang`
 --
 ALTER TABLE `stokbarang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `targetkeuangan`
@@ -290,7 +409,7 @@ ALTER TABLE `targetkeuangan`
 -- AUTO_INCREMENT for table `utang`
 --
 ALTER TABLE `utang`
-  MODIFY `id_utang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
