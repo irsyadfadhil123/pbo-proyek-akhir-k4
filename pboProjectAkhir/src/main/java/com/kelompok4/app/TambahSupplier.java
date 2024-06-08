@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.kelompok4.app;
+import com.kelompok4.design.PanelRound;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,10 +18,19 @@ import com.kelompok4.pboprojectakhir.Database;
 public class TambahSupplier extends javax.swing.JFrame {
 
     /**
-     * Creates new form TambahPelanggan
+     * Creates new form TambahSupplier
      */
     public TambahSupplier() {
         initComponents();
+        ((PanelRound) panelContent).setOpacity(0.7f);
+        ((PanelRound) panelContent).setRoundTopLeft(40);
+        ((PanelRound) panelContent).setRoundTopRight(40);
+        ((PanelRound) panelContent).setRoundBottomLeft(40);
+        ((PanelRound) panelContent).setRoundBottomRight(40);
+        ((PanelRound) buttonTambah).setRoundTopLeft(40);
+        ((PanelRound) buttonTambah).setRoundTopRight(40);
+        ((PanelRound) buttonTambah).setRoundBottomLeft(40);
+        ((PanelRound) buttonTambah).setRoundBottomRight(40);
     }
 
     /**
@@ -32,6 +42,18 @@ public class TambahSupplier extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContent = new com.kelompok4.design.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inputNamaSupplier = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        buttonTambah = new com.kelompok4.design.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
+        inputKontakSupplier = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -39,19 +61,140 @@ public class TambahSupplier extends javax.swing.JFrame {
         toUtangPiutangButton = new javax.swing.JButton();
         toStokButton = new javax.swing.JButton();
         toProfilButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        buttonTambah = new javax.swing.JButton();
-        inputNamaSupplier = new javax.swing.JTextField();
-        inputKontakSupplier = new javax.swing.JTextField();
-        inputIDSupplier = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(854, 480));
+        setPreferredSize(new java.awt.Dimension(854, 480));
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Nama Supplier:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Kontak Supplier:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Tambah Supplier");
+
+        inputNamaSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNamaSupplierActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        buttonTambah.setBackground(new java.awt.Color(124, 195, 223));
+        buttonTambah.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonTambah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonTambahMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Tambah");
+
+        javax.swing.GroupLayout buttonTambahLayout = new javax.swing.GroupLayout(buttonTambah);
+        buttonTambah.setLayout(buttonTambahLayout);
+        buttonTambahLayout.setHorizontalGroup(
+            buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonTambahLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel9)
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        buttonTambahLayout.setVerticalGroup(
+            buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonTambahLayout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addContainerGap())
+        );
+
+        inputKontakSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputKontakSupplierActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
+        panelContent.setLayout(panelContentLayout);
+        panelContentLayout.setHorizontalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContentLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelContentLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelContentLayout.createSequentialGroup()
+                                    .addGap(58, 58, 58)
+                                    .addComponent(inputNamaSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(panelContentLayout.createSequentialGroup()
+                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputKontakSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        panelContentLayout.setVerticalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(inputNamaSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(inputKontakSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 740, 270));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -181,94 +324,6 @@ public class TambahSupplier extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Kontak Supplier:");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Nama Supplier:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Tambah Supplier");
-
-        buttonTambah.setBackground(new java.awt.Color(124, 195, 223));
-        buttonTambah.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonTambah.setText("Tambah");
-        buttonTambah.setBorder(null);
-        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTambahActionPerformed(evt);
-            }
-        });
-
-        inputNamaSupplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNamaSupplierActionPerformed(evt);
-            }
-        });
-
-        inputKontakSupplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputKontakSupplierActionPerformed(evt);
-            }
-        });
-
-        inputIDSupplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputIDSupplierActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("ID Pelanggan:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(inputNamaSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-                                .addComponent(inputKontakSupplier))
-                            .addComponent(inputIDSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel7)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(inputNamaSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inputKontakSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputIDSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 740, 280));
-
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
@@ -297,46 +352,45 @@ public class TambahSupplier extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
-    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
-    String namaSupplier = inputNamaSupplier.getText();
-    String idSupplier = inputIDSupplier.getText();
-        int kontakSupplier;
-
-        try {
-            kontakSupplier = Integer.parseInt(inputKontakSupplier.getText());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Harap masukkan angka yang valid untuk id supplier, nama supplier, dan kontak supplier.");
-            return;
-        }
-
-        try {
-            Connection conn = Database.getConnection();
-            String sql = "INSERT INTO supplier (id_supplier, nama_supplier, kontak_supplier) VALUES (?, ?, ?)";
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, idSupplier); // Gunakan idPelanggan yang digenerate secara acak
-            pst.setString(2, namaSupplier);
-            pst.setInt(3, kontakSupplier);
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Supplier berhasil ditambahkan!");
-            Supplier SupplierWindow = new Supplier();
-            SupplierWindow.setVisible(true);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat menambahkan supplier: " + e.getMessage());
-        }
-    }//GEN-LAST:event_buttonTambahActionPerformed
-
     private void inputNamaSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaSupplierActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaSupplierActionPerformed
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void buttonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTambahMouseClicked
+        
+        String namaSupplier = inputNamaSupplier.getText();
+        String kontakSupplier = inputKontakSupplier.getText();
+
+        if (namaSupplier.isEmpty() || kontakSupplier.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Input tidak boleh kosong");
+            return;
+        }
+
+        try {
+            Connection connection = Database.getConnection();
+            String query = "INSERT INTO supplier (nama_supplier, kontak_supplier) VALUES (?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, namaSupplier);
+            preparedStatement.setString(2, kontakSupplier);
+            preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Data berhasil ditambahkan");
+            Supplier supplierWindow = new Supplier();
+            supplierWindow.setVisible(true);
+            connection.close();
+            dispose();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan: " + e.getMessage());
+        }
+    }//GEN-LAST:event_buttonTambahMouseClicked
+
     private void inputKontakSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputKontakSupplierActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputKontakSupplierActionPerformed
-
-    private void inputIDSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDSupplierActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputIDSupplierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,17 +430,20 @@ public class TambahSupplier extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JButton buttonTambah;
-    private javax.swing.JTextField inputIDSupplier;
+    private javax.swing.JPanel buttonTambah;
     private javax.swing.JTextField inputKontakSupplier;
     private javax.swing.JTextField inputNamaSupplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel panelContent;
     private javax.swing.JButton toCatatanTransaksiButton;
     private javax.swing.JButton toDasborButton;
     private javax.swing.JButton toProfilButton;

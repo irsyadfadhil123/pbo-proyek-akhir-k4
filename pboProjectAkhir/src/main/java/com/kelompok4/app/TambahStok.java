@@ -3,13 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.kelompok4.app;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import com.kelompok4.design.PanelRound;
+import com.kelompok4.pboprojectakhir.Database;
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.kelompok4.pboprojectakhir.Database;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Ari Family
@@ -21,6 +26,17 @@ public class TambahStok extends javax.swing.JFrame {
      */
     public TambahStok() {
         initComponents();
+        ((PanelRound) panelContent).setOpacity(0.7f);
+        ((PanelRound) panelContent).setRoundTopLeft(40);
+        ((PanelRound) panelContent).setRoundTopRight(40);
+        ((PanelRound) panelContent).setRoundBottomLeft(40);
+        ((PanelRound) panelContent).setRoundBottomRight(40);
+        
+        ((PanelRound) buttonTambah).setRoundTopLeft(40);
+        ((PanelRound) buttonTambah).setRoundTopRight(40);
+        ((PanelRound) buttonTambah).setRoundBottomLeft(40);
+        ((PanelRound) buttonTambah).setRoundBottomRight(40);
+
     }
 
     /**
@@ -32,6 +48,20 @@ public class TambahStok extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContent = new com.kelompok4.design.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inputJumlahBarang = new javax.swing.JTextField();
+        inputHargaSatuan = new javax.swing.JTextField();
+        inputPeringatanMinimum = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        buttonTambah = new com.kelompok4.design.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
+        inputNamaBarang = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -39,23 +69,156 @@ public class TambahStok extends javax.swing.JFrame {
         toUtangPiutangButton = new javax.swing.JButton();
         toStokButton = new javax.swing.JButton();
         toProfilButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        inputJumlahBarang = new javax.swing.JTextField();
-        inputPeringatanMinimum = new javax.swing.JTextField();
-        buttonTambah = new javax.swing.JButton();
-        inputIDBarang = new javax.swing.JTextField();
-        inputNamaBarang = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        inputHargaSatuan = new javax.swing.JTextField();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(854, 480));
+        setPreferredSize(new java.awt.Dimension(854, 480));
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Nama Barang:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Jumlah Barang:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Harga Satuan:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Peringatan Minimum:");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Tambah Stok Barang");
+
+        inputJumlahBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputJumlahBarangActionPerformed(evt);
+            }
+        });
+
+        inputHargaSatuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputHargaSatuanActionPerformed(evt);
+            }
+        });
+
+        inputPeringatanMinimum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPeringatanMinimumActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        buttonTambah.setBackground(new java.awt.Color(124, 195, 223));
+        buttonTambah.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonTambah.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonTambahMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Tambah");
+
+        javax.swing.GroupLayout buttonTambahLayout = new javax.swing.GroupLayout(buttonTambah);
+        buttonTambah.setLayout(buttonTambahLayout);
+        buttonTambahLayout.setHorizontalGroup(
+            buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonTambahLayout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(73, 73, 73))
+        );
+        buttonTambahLayout.setVerticalGroup(
+            buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonTambahLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        inputNamaBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNamaBarangActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
+        panelContent.setLayout(panelContentLayout);
+        panelContentLayout.setHorizontalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                                    .addComponent(inputNamaBarang)))
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        panelContentLayout.setVerticalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(inputNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+
+        getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 740, 380));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -185,120 +348,6 @@ public class TambahStok extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Nama Barang:");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("ID Barang:");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Jumlah Barang:");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Peringatan Minimum:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Tambah Stok Barang");
-
-        inputJumlahBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputJumlahBarangActionPerformed(evt);
-            }
-        });
-
-        buttonTambah.setBackground(new java.awt.Color(124, 195, 223));
-        buttonTambah.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonTambah.setText("Tambah");
-        buttonTambah.setBorder(null);
-        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTambahActionPerformed(evt);
-            }
-        });
-
-        inputIDBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputIDBarangActionPerformed(evt);
-            }
-        });
-
-        inputNamaBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNamaBarangActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Harga Satuan:");
-
-        inputHargaSatuan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputHargaSatuanActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputJumlahBarang)
-                            .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-                            .addComponent(inputIDBarang)
-                            .addComponent(inputNamaBarang)
-                            .addComponent(inputHargaSatuan, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(257, 257, 257))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel7)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(inputIDBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inputNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 740, 370));
-
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
@@ -331,52 +380,54 @@ public class TambahStok extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputJumlahBarangActionPerformed
 
-    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
-    String idBarang = inputIDBarang.getText();
-    String namaBarang = inputNamaBarang.getText();
-    int jumlahBarang;
-    int hargaSatuan;
-    int peringatanMinimum;
-
-    try {
-        jumlahBarang = Integer.parseInt(inputJumlahBarang.getText());
-        hargaSatuan = Integer.parseInt(inputHargaSatuan.getText());
-        peringatanMinimum = Integer.parseInt(inputPeringatanMinimum.getText());
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "Harap masukkan angka yang valid untuk jumlah barang, harga satuan, dan peringatan minimum.");
-        return;
-    }
-
-    try {
-        Connection conn = Database.getConnection();
-        String sql = "INSERT INTO stokbarang (id_barang, nama_barang, jumlah, harga_satuan, peringatan_minimum) VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(1, idBarang);
-        pst.setString(2, namaBarang);
-        pst.setInt(3, jumlahBarang);
-        pst.setInt(4, hargaSatuan);
-        pst.setInt(5, peringatanMinimum);
-        pst.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Stok berhasil ditambahkan!");
-        Stok StokWindow = new Stok();
-                StokWindow.setVisible(true);
-    } catch (SQLException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat menambahkan stok: " + e.getMessage());
-    }
-    }//GEN-LAST:event_buttonTambahActionPerformed
-
-    private void inputIDBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDBarangActionPerformed
+    private void inputHargaSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHargaSatuanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputIDBarangActionPerformed
+    }//GEN-LAST:event_inputHargaSatuanActionPerformed
+
+    private void inputPeringatanMinimumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPeringatanMinimumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPeringatanMinimumActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void buttonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTambahMouseClicked
+        
+        String nama = inputNamaBarang.getText();
+        String jumlah = inputJumlahBarang.getText();
+        String harga = inputHargaSatuan.getText();
+        String peringatan = inputPeringatanMinimum.getText();
+        
+
+        if (nama.isEmpty() || jumlah.isEmpty() || harga.isEmpty() || peringatan.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Input tidak boleh kosong");
+            return;
+        }
+
+        try {
+            Connection connection = Database.getConnection();
+            String query = "INSERT INTO stokbarang (nama_barang, jumlah, harga_satuan, peringatan_minimum) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, nama);
+            preparedStatement.setString(2, jumlah);
+            preparedStatement.setString(3, harga);
+            preparedStatement.setString(4, peringatan);
+            preparedStatement.executeUpdate();
+            this.dispose(); // Tutup frame ini setelah proses selesai
+
+            JOptionPane.showMessageDialog(null, "Data berhasil ditambahkan");
+            Stok StokWindow = new Stok();
+            StokWindow.setVisible(true);
+            connection.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan: " + e.getMessage());
+        }
+    }//GEN-LAST:event_buttonTambahMouseClicked
 
     private void inputNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaBarangActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaBarangActionPerformed
-
-    private void inputHargaSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHargaSatuanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputHargaSatuanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,9 +470,8 @@ public class TambahStok extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JButton buttonTambah;
+    private javax.swing.JPanel buttonTambah;
     private javax.swing.JTextField inputHargaSatuan;
-    private javax.swing.JTextField inputIDBarang;
     private javax.swing.JTextField inputJumlahBarang;
     private javax.swing.JTextField inputNamaBarang;
     private javax.swing.JTextField inputPeringatanMinimum;
@@ -432,12 +482,16 @@ public class TambahStok extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel panelContent;
     private javax.swing.JButton toCatatanTransaksiButton;
     private javax.swing.JButton toDasborButton;
     private javax.swing.JButton toProfilButton;
     private javax.swing.JButton toStokButton;
     private javax.swing.JButton toUtangPiutangButton;
     // End of variables declaration//GEN-END:variables
+
+   
 }
