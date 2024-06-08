@@ -76,7 +76,7 @@ private void show_table() {
         int CC;
 
         try {
-            pst = con.prepareStatement("SELECT * FROM piutang");
+            pst = con.prepareStatement("SELECT pi.id_piutang, p.nama_pelanggan, pi.tanggal, pi.jumlah, pi.catatan FROM piutang pi JOIN pelanggan p ON pi.id_pelanggan = p.id_pelanggan ORDER BY pi.tanggal DESC");
             rs = pst.executeQuery();
             ResultSetMetaData RSMD = rs.getMetaData();
             CC = RSMD.getColumnCount();
@@ -90,9 +90,10 @@ private void show_table() {
 
                 for (int i = 1; i <= CC; i++) {
                     v2.add(rs.getString("id_piutang"));
-                    v2.add(rs.getString("id_pelanggan"));
+                    v2.add(rs.getString("nama_pelanggan"));
                     v2.add(rs.getString("tanggal"));
                     v2.add(rs.getString("jumlah"));
+                    v2.add(rs.getString("catatan"));
                 }
 
                 DFT.addRow(v2);
@@ -267,15 +268,23 @@ private void show_table() {
 
         TabelPiutang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID Piutang", "ID Pelanggan", "Tanggal", "Jumlah"
+                "ID Piutang", "Nama Pelanggan", "Tanggal", "Jumlah", "Catatan"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TabelPiutang);
 
         contentpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 670, 260));

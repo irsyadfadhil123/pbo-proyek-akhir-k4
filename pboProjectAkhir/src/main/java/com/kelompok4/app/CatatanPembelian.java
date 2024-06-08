@@ -6,17 +6,11 @@ package com.kelompok4.app;
 
 import com.kelompok4.design.PanelRound;
 import com.kelompok4.pboprojectakhir.Database;
-import java.awt.Color;
-import java.awt.geom.RoundRectangle2D;
-import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,7 +34,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         Database db = new Database();
-        con = db.getConnection();
+        con = Database.getConnection();
         show_table();
         
         ((PanelRound) contentpanel).setOpacity(0.7f);
@@ -67,7 +61,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
     }
     
     private static final Logger LOGGER = Logger.getLogger(CatatanPembelian.class.getName());
-    private Connection con;
+    private final Connection con;
     private PreparedStatement pst;
     private PreparedStatement pst2;
     private ResultSet rs;
@@ -76,7 +70,7 @@ private void show_table() {
         int CC;
 
         try {
-            pst = con.prepareStatement("SELECT * FROM pembelian");
+            pst = con.prepareStatement("SELECT p.id_pembelian, p.tanggal, sb.nama_barang, p.jumlah_barang, p.uang_keluar, p.catatan FROM pembelian p JOIN stokbarang sb ON p.id_barang = sb.id_barang ORDER BY p.tanggal DESC");
             rs = pst.executeQuery();
             ResultSetMetaData RSMD = rs.getMetaData();
             CC = RSMD.getColumnCount();
@@ -91,7 +85,7 @@ private void show_table() {
                 for (int i = 1; i <= CC; i++) {
                     v2.add(rs.getString("id_pembelian"));
                     v2.add(rs.getString("tanggal"));
-                    v2.add(rs.getString("id_barang"));
+                    v2.add(rs.getString("nama_barang"));
                     v2.add(rs.getString("jumlah_barang"));
                     v2.add(rs.getString("uang_keluar"));
                     v2.add(rs.getString("catatan"));
@@ -270,9 +264,17 @@ private void show_table() {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID Pembelian", "Tanggal", "ID Barang", "Jumlah Barang", "Uang Keluar", "Catatan"
+                "ID Pembelian", "Tanggal", "Nama Barang", "Jumlah Barang", "Uang Keluar", "Catatan"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TabelPembelian);
 
         contentpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 670, 260));
@@ -338,10 +340,16 @@ private void show_table() {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -351,7 +359,9 @@ private void show_table() {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        System.out.println("ini tombol dasbor");
+        dispose();
+        dashboard1 dashboardFrame = new dashboard1();
+        dashboardFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
