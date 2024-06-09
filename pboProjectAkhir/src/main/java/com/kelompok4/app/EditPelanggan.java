@@ -4,25 +4,77 @@
  */
 package com.kelompok4.app;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.kelompok4.pboprojectakhir.Database;
+import com.kelompok4.design.PanelRound;
 /**
  *
  * @author Ari Family
  */
 public class EditPelanggan extends javax.swing.JFrame {
-
+private int pelangganId;
     /**
      * Creates new form EditPelanggan
      */
-    public EditPelanggan() {
+    public EditPelanggan(int id) {
+        this.pelangganId = id;
         initComponents();
+        tampilkanDataPelanggan();
+        ((PanelRound) panelContent).setOpacity(0.7f);
+        ((PanelRound) panelContent).setRoundTopLeft(40);
+        ((PanelRound) panelContent).setRoundTopRight(40);
+        ((PanelRound) panelContent).setRoundBottomLeft(40);
+        ((PanelRound) panelContent).setRoundBottomRight(40);
+        ((PanelRound) buttonEdit).setRoundTopLeft(40);
+        ((PanelRound) buttonEdit).setRoundTopRight(40);
+        ((PanelRound) buttonEdit).setRoundBottomLeft(40);
+        ((PanelRound) buttonEdit).setRoundBottomRight(40);
+    }
+  
+
+private void tampilkanDataPelanggan() {
+         try {
+            Connection conn = Database.getConnection();
+            String query = "SELECT nama_pelanggan, kontak_pelanggan FROM pelanggan WHERE id_pelanggan = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, pelangganId);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String nama = rs.getString("nama_pelanggan");
+                String kontak = rs.getString("kontak_pelanggan");
+                inputNamaPelanggan.setText(nama);
+                inputKontakPelanggan.setText(kontak);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error saat mengambil data pelanggan: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
+    private void updateDataPelanggan() {
+        String nama = inputNamaPelanggan.getText();
+        String kontak = inputKontakPelanggan.getText();
+
+        try {
+            Connection conn = Database.getConnection();
+            String query = "UPDATE pelanggan SET nama_pelanggan = ?, kontak_pelanggan = ? WHERE id_pelanggan = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, nama);
+            pst.setString(2, kontak);
+            pst.setInt(3, pelangganId);
+            int result = pst.executeUpdate();
+            if (result > 0) {
+                JOptionPane.showMessageDialog(this, "Data pelanggan berhasil diperbarui", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Gagal memperbarui data pelanggan", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error saat memperbarui data pelanggan: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +84,18 @@ public class EditPelanggan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContent = new com.kelompok4.design.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inputNamaPelanggan = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        buttonEdit = new com.kelompok4.design.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
+        inputKontakPelanggan = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -39,19 +103,140 @@ public class EditPelanggan extends javax.swing.JFrame {
         toUtangPiutangButton = new javax.swing.JButton();
         toStokButton = new javax.swing.JButton();
         toProfilButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        buttonEdit = new javax.swing.JButton();
-        inputNamaPelanggan = new javax.swing.JTextField();
-        inputKontakPelanggan = new javax.swing.JTextField();
-        inputIDPelanggan = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(854, 480));
+        setPreferredSize(new java.awt.Dimension(854, 480));
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Nama Pelanggan:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Kontak Pelanggan:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Edit Pelanggan");
+
+        inputNamaPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNamaPelangganActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        buttonEdit.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonEditMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Edit");
+
+        javax.swing.GroupLayout buttonEditLayout = new javax.swing.GroupLayout(buttonEdit);
+        buttonEdit.setLayout(buttonEditLayout);
+        buttonEditLayout.setHorizontalGroup(
+            buttonEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonEditLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jLabel9)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        buttonEditLayout.setVerticalGroup(
+            buttonEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonEditLayout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addContainerGap())
+        );
+
+        inputKontakPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputKontakPelangganActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
+        panelContent.setLayout(panelContentLayout);
+        panelContentLayout.setHorizontalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContentLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelContentLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelContentLayout.createSequentialGroup()
+                                    .addGap(58, 58, 58)
+                                    .addComponent(inputNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(panelContentLayout.createSequentialGroup()
+                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputKontakPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        panelContentLayout.setVerticalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(inputNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(inputKontakPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 740, 270));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -181,94 +366,6 @@ public class EditPelanggan extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 854, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Kontak Pelanggan:");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Nama Pelanggan:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Edit Pelanggan");
-
-        buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
-        buttonEdit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        buttonEdit.setText("Edit");
-        buttonEdit.setBorder(null);
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
-            }
-        });
-
-        inputNamaPelanggan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNamaPelangganActionPerformed(evt);
-            }
-        });
-
-        inputKontakPelanggan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputKontakPelangganActionPerformed(evt);
-            }
-        });
-
-        inputIDPelanggan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputIDPelangganActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("ID Pelanggan:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(inputNamaPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-                                .addComponent(inputKontakPelanggan))
-                            .addComponent(inputIDPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE))))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel7)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(inputNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inputKontakPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputIDPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 740, 280));
-
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
@@ -299,45 +396,24 @@ public class EditPelanggan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-    String namaPelanggan = inputNamaPelanggan.getText();
-    String idPelanggan = inputIDPelanggan.getText();
-    String kontakPelanggan = inputKontakPelanggan.getText(); // Ubah tipe data menjadi String
-
-    try {
-        Connection conn = Database.getConnection();
-        String sql = "UPDATE pelanggan SET nama_pelanggan = ?, kontak_pelanggan = ? WHERE id_pelanggan = ?";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(1, namaPelanggan);
-        pst.setString(2, kontakPelanggan); // Menggunakan tipe data String
-        pst.setString(3, idPelanggan);
-        int rowsUpdated = pst.executeUpdate();
-        
-        if (rowsUpdated > 0) {
-            JOptionPane.showMessageDialog(null, "Data berhasil diperbarui!");
-            this.dispose(); // Tutup frame ini setelah proses selesai
-            Pelanggan pelangganWindow = new Pelanggan();
-            pelangganWindow.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Gagal memperbarui data. Pastikan ID Pelanggan benar.");
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat memperbarui data: " + e.getMessage());
-    }
-    }//GEN-LAST:event_buttonEditActionPerformed
-
     private void inputNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaPelangganActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaPelangganActionPerformed
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void buttonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditMouseClicked
+
+        updateDataPelanggan();
+        Pelanggan pelangganWindow = new Pelanggan();
+        pelangganWindow.setVisible(true);
+    }//GEN-LAST:event_buttonEditMouseClicked
+
     private void inputKontakPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputKontakPelangganActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputKontakPelangganActionPerformed
-
-    private void inputIDPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIDPelangganActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputIDPelangganActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,26 +443,25 @@ public class EditPelanggan extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditPelanggan().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JTextField inputIDPelanggan;
+    private javax.swing.JPanel buttonEdit;
     private javax.swing.JTextField inputKontakPelanggan;
     private javax.swing.JTextField inputNamaPelanggan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel panelContent;
     private javax.swing.JButton toCatatanTransaksiButton;
     private javax.swing.JButton toDasborButton;
     private javax.swing.JButton toProfilButton;
