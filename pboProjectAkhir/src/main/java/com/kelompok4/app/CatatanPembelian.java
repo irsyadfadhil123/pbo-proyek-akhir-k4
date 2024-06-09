@@ -6,6 +6,7 @@ package com.kelompok4.app;
 
 import com.kelompok4.design.PanelRound;
 import com.kelompok4.pboprojectakhir.Database;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,6 +35,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        setImageToLabel();
         Database db = new Database();
         con = Database.getConnection();
         show_table();
@@ -66,7 +69,19 @@ public class CatatanPembelian extends javax.swing.JFrame {
     private PreparedStatement pst2;
     private ResultSet rs;
     
-private void show_table() {
+    private void setImageToLabel() {
+        String imagePath = "/back_icon.png";
+        
+        ImageIcon originalIcon = new ImageIcon(getClass().getResource(imagePath));
+        Image image = originalIcon.getImage();
+        Image resizedImage = image.getScaledInstance(logobuttonback.getWidth(), logobuttonback.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        
+        logobuttonback.setIcon(resizedIcon);
+    }
+
+    
+    private void show_table() {
         int CC;
 
         try {
@@ -247,14 +262,14 @@ private void show_table() {
         });
         backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Catatan Pembelian");
-        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 130, 20));
+        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 170, 20));
 
         logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
         backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
 
-        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 180, 30));
+        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 30));
 
         TabelPembelian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

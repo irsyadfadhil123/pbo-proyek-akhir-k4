@@ -195,16 +195,16 @@ public class TambahCatatanPembelian extends javax.swing.JFrame {
         buttonTambahLayout.setHorizontalGroup(
             buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonTambahLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel9)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         buttonTambahLayout.setVerticalGroup(
             buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonTambahLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+            .addGroup(buttonTambahLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel9)
-                .addContainerGap())
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);

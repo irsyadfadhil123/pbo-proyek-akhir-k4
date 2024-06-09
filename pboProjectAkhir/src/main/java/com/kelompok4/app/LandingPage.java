@@ -4,6 +4,7 @@
  */
 package com.kelompok4.app;
 
+import com.kelompok4.design.PanelRound;
 import com.kelompok4.design.RoundedBorder;
 import java.awt.Color;
 
@@ -18,9 +19,21 @@ public class LandingPage extends javax.swing.JFrame {
      */
     public LandingPage() {
         initComponents();
-        jPanel2.setBackground(new Color(255,255,255,200));
+        panelContent.setBackground(new Color(255,255,255,200));
         setLocationRelativeTo(null);
         setResizable(false);
+        
+        ((PanelRound) panelContent).setOpacity(0.7f);
+        ((PanelRound) panelContent).setRoundTopLeft(40);
+        ((PanelRound) panelContent).setRoundTopRight(40);
+        ((PanelRound) panelContent).setRoundBottomLeft(40);
+        ((PanelRound) panelContent).setRoundBottomRight(40);
+        
+        ((PanelRound) buttonMulai).setRoundTopLeft(40);
+        ((PanelRound) buttonMulai).setRoundTopRight(40);
+        ((PanelRound) buttonMulai).setRoundBottomLeft(40);
+        ((PanelRound) buttonMulai).setRoundBottomRight(40);
+
     }
 
     /**
@@ -32,10 +45,11 @@ public class LandingPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        panelContent = new com.kelompok4.design.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        buttonMulai = new com.kelompok4.design.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,65 +58,82 @@ public class LandingPage extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        jPanel2.setMinimumSize(new java.awt.Dimension(1280, 720));
-        jPanel2.setName(""); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(1280, 720));
-        jPanel2.setRequestFocusEnabled(false);
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        panelContent.setMinimumSize(new java.awt.Dimension(1280, 720));
+        panelContent.setName(""); // NOI18N
+        panelContent.setPreferredSize(new java.awt.Dimension(1280, 720));
+        panelContent.setRequestFocusEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Selamat Datang di Artha");
 
-        jButton1.setBorder(new RoundedBorder(200));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setBackground(new java.awt.Color(124, 195, 223));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Mulai");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("<html>Artha adalah aplikasi keuangan usaha yang dirancang untuk membantu pemilik usaha dalam mengelola keuangan  dengan lebih efisien dan terorganisir.  Dengan fitur-fitur yang komprehensif, Artha memberikan  solusi yang lengkap untuk kebutuhan keuangan bisnis Anda. </html>");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        buttonMulai.setBackground(new java.awt.Color(124, 195, 223));
+        buttonMulai.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonMulai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonMulaiMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Masuk");
+
+        javax.swing.GroupLayout buttonMulaiLayout = new javax.swing.GroupLayout(buttonMulai);
+        buttonMulai.setLayout(buttonMulaiLayout);
+        buttonMulaiLayout.setHorizontalGroup(
+            buttonMulaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonMulaiLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel9)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        buttonMulaiLayout.setVerticalGroup(
+            buttonMulaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonMulaiLayout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
+        panelContent.setLayout(panelContentLayout);
+        panelContentLayout.setHorizontalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelContentLayout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(panelContentLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(buttonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(743, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelContentLayout.setVerticalGroup(
+            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelContentLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(113, 113, 113)
+                .addComponent(buttonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(344, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 600, 400));
+        getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 600, 400));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -112,9 +143,11 @@ public class LandingPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void buttonMulaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMulaiMouseClicked
+        dispose();
+        LoginPage loginFrame = new LoginPage();
+        loginFrame.setVisible(true);
+    }//GEN-LAST:event_buttonMulaiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -156,9 +189,10 @@ public class LandingPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel buttonMulai;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
 }
