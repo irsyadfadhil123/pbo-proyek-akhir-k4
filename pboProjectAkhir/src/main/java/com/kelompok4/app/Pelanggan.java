@@ -389,7 +389,7 @@ public class Pelanggan extends javax.swing.JFrame {
             
 
             try {
-                EditPelanggan editPelangganWindow = new EditPelanggan();
+                EditPelanggan editPelangganWindow = new EditPelanggan(idPelanggan);
                 editPelangganWindow.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();

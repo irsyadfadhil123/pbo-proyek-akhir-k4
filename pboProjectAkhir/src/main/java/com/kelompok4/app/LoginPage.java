@@ -48,6 +48,7 @@ public class LoginPage extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -157,7 +158,7 @@ public class LoginPage extends javax.swing.JFrame {
                     dsh.setLocationRelativeTo(null);
                     this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(new JFrame(), "Incorrect email or password", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(new JFrame(), "Email atau Password salah: ", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 password.setText("");
             }

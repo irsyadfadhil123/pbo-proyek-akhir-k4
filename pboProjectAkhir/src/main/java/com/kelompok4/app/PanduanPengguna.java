@@ -31,6 +31,10 @@ public class PanduanPengguna extends javax.swing.JFrame {
         cardPanel.add(panelGuideUtangPiutang2, "Utang Piutang 2");
         cardPanel.add(panelGuideUtangPiutang3, "Utang Piutang 3");
         cardPanel.add(panelGuideStok1, "Stok 1");
+        cardPanel.add(panelGuideDasbor1, "Dasbor 1");
+        cardPanel.add(panelGuideLaporanKeuangan1, "Laporan Keuangan 1");
+        cardPanel.add(panelGuideTargetKeuangan1, "Target Keuangan 1");
+        cardPanel.add(panelGuideProfil1, "Profil 1");
         
         //Design
         ((PanelRound) cardPanel).setOpacity(0.0f);
@@ -64,12 +68,22 @@ public class PanduanPengguna extends javax.swing.JFrame {
         setRoundedCorners((PanelRound) buttonBack4, 1.0f, 40);     
         setRoundedCorners((PanelRound) buttonBack5, 1.0f, 40);     
         setRoundedCorners((PanelRound) buttonBack6, 1.0f, 40);     
+        setRoundedCorners((PanelRound) buttonBack7, 1.0f, 40);     
+        setRoundedCorners((PanelRound) buttonBack8, 1.0f, 40);     
+        setRoundedCorners((PanelRound) buttonBack9, 1.0f, 40);     
+        setRoundedCorners((PanelRound) buttonBack10, 1.0f, 40);     
+        setRoundedCorners((PanelRound) buttonBack11, 1.0f, 40);     
 
         //button next design
         setRoundedCorners((PanelRound) buttonNextCT1, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextCT2, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextUP1, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextUP2, 1.0f, 20);
+        setRoundedCorners((PanelRound) buttonNextS1, 1.0f, 20);
+        setRoundedCorners((PanelRound) buttonNextD1, 1.0f, 20);
+        setRoundedCorners((PanelRound) buttonNextLK1, 1.0f, 20);
+        setRoundedCorners((PanelRound) buttonNextTK1, 1.0f, 20);
+        setRoundedCorners((PanelRound) buttonNextP1, 1.0f, 20);
 
         //button previous design
         setRoundedCorners((PanelRound) buttonPreviousCT2, 1.0f, 20);
@@ -120,6 +134,20 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         buttonGuideProfil = new com.kelompok4.design.PanelRound();
         jLabel18 = new javax.swing.JLabel();
+        panelGuideLogin1 = new com.kelompok4.design.PanelRound();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        buttonBack7 = new com.kelompok4.design.PanelRound();
+        jLabel45 = new javax.swing.JLabel();
+        buttonNextL1 = new com.kelompok4.design.PanelRound();
+        jLabel46 = new javax.swing.JLabel();
+        panelGuideDasbor1 = new com.kelompok4.design.PanelRound();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        buttonBack8 = new com.kelompok4.design.PanelRound();
+        jLabel49 = new javax.swing.JLabel();
+        buttonNextD1 = new com.kelompok4.design.PanelRound();
+        jLabel50 = new javax.swing.JLabel();
         panelGuideCatatanTransaksi1 = new com.kelompok4.design.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -173,6 +201,27 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         buttonNextS1 = new com.kelompok4.design.PanelRound();
         jLabel42 = new javax.swing.JLabel();
+        panelGuideLaporanKeuangan1 = new com.kelompok4.design.PanelRound();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        buttonBack9 = new com.kelompok4.design.PanelRound();
+        jLabel53 = new javax.swing.JLabel();
+        buttonNextLK1 = new com.kelompok4.design.PanelRound();
+        jLabel54 = new javax.swing.JLabel();
+        panelGuideTargetKeuangan1 = new com.kelompok4.design.PanelRound();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        buttonBack10 = new com.kelompok4.design.PanelRound();
+        jLabel57 = new javax.swing.JLabel();
+        buttonNextTK1 = new com.kelompok4.design.PanelRound();
+        jLabel58 = new javax.swing.JLabel();
+        panelGuideProfil1 = new com.kelompok4.design.PanelRound();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        buttonBack11 = new com.kelompok4.design.PanelRound();
+        jLabel61 = new javax.swing.JLabel();
+        buttonNextP1 = new com.kelompok4.design.PanelRound();
+        jLabel62 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -563,13 +612,217 @@ public class PanduanPengguna extends javax.swing.JFrame {
 
         cardPanel.add(panelGuideMain, "card2");
 
+        panelGuideLogin1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel43.setText("<html>Login diperlukan untuk mengakses Aplikasi, gunakan email dan password yang terdaftar dan tekan tombol login. Gunakan email <b>admin</b> dan password <b>admin</b> jika pertama kali menggunakan aplikasi</html>");
+
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel44.setText("jLabel5");
+
+        buttonBack7.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack7.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBack7MouseClicked(evt);
+            }
+        });
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("<");
+        jLabel45.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonBack7Layout = new javax.swing.GroupLayout(buttonBack7);
+        buttonBack7.setLayout(buttonBack7Layout);
+        buttonBack7Layout.setHorizontalGroup(
+            buttonBack7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack7Layout.createSequentialGroup()
+                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBack7Layout.setVerticalGroup(
+            buttonBack7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack7Layout.createSequentialGroup()
+                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        buttonNextL1.setBackground(new java.awt.Color(124, 195, 223));
+        buttonNextL1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNextL1.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonNextL1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonNextL1MouseClicked(evt);
+            }
+        });
+
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel46.setText("->");
+        jLabel46.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonNextL1Layout = new javax.swing.GroupLayout(buttonNextL1);
+        buttonNextL1.setLayout(buttonNextL1Layout);
+        buttonNextL1Layout.setHorizontalGroup(
+            buttonNextL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextL1Layout.createSequentialGroup()
+                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonNextL1Layout.setVerticalGroup(
+            buttonNextL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextL1Layout.createSequentialGroup()
+                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGuideLogin1Layout = new javax.swing.GroupLayout(panelGuideLogin1);
+        panelGuideLogin1.setLayout(panelGuideLogin1Layout);
+        panelGuideLogin1Layout.setHorizontalGroup(
+            panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideLogin1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(buttonBack7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLogin1Layout.createSequentialGroup()
+                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNextL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        panelGuideLogin1Layout.setVerticalGroup(
+            panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideLogin1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel44)
+                    .addComponent(buttonBack7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonNextL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(panelGuideLogin1, "card3");
+
+        panelGuideDasbor1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel47.setText("<html>Dasbor memiliki fungsi untuk menampilkan target keuangan dan laporan keuangan. Pilih periode waktu untuk target keuangan dan laporan keuangan yang sudah dibuat. </html>");
+
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel48.setText("jLabel5");
+
+        buttonBack8.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack8.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBack8MouseClicked(evt);
+            }
+        });
+
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel49.setText("<");
+        jLabel49.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonBack8Layout = new javax.swing.GroupLayout(buttonBack8);
+        buttonBack8.setLayout(buttonBack8Layout);
+        buttonBack8Layout.setHorizontalGroup(
+            buttonBack8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack8Layout.createSequentialGroup()
+                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBack8Layout.setVerticalGroup(
+            buttonBack8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack8Layout.createSequentialGroup()
+                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        buttonNextD1.setBackground(new java.awt.Color(124, 195, 223));
+        buttonNextD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNextD1.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonNextD1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonNextD1MouseClicked(evt);
+            }
+        });
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel50.setText("->");
+        jLabel50.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonNextD1Layout = new javax.swing.GroupLayout(buttonNextD1);
+        buttonNextD1.setLayout(buttonNextD1Layout);
+        buttonNextD1Layout.setHorizontalGroup(
+            buttonNextD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextD1Layout.createSequentialGroup()
+                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonNextD1Layout.setVerticalGroup(
+            buttonNextD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextD1Layout.createSequentialGroup()
+                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGuideDasbor1Layout = new javax.swing.GroupLayout(panelGuideDasbor1);
+        panelGuideDasbor1.setLayout(panelGuideDasbor1Layout);
+        panelGuideDasbor1Layout.setHorizontalGroup(
+            panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideDasbor1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(buttonBack8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideDasbor1Layout.createSequentialGroup()
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNextD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        panelGuideDasbor1Layout.setVerticalGroup(
+            panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideDasbor1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel48)
+                    .addComponent(buttonBack8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonNextD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(panelGuideDasbor1, "card3");
+
         panelGuideCatatanTransaksi1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("<html>Catatan Transaksi menampilkan sebuah tabel yang berisi Catatan Penjualan dan Pembelian. Catatan yang ditampilkan sudah diurutkan sesuai dengan tanggal terbaru Catatan tersebut ditambahkan.</html>");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/catatanTransaksipng.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideCatatanTransaksi2.png"))); // NOI18N
         jLabel7.setText("jLabel5");
 
         buttonBack0.setBackground(new java.awt.Color(124, 195, 223));
@@ -907,9 +1160,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel31.setText("<html>tes</html>");
+        jLabel31.setText("<html>Utang/Piutang menampilkan tabel yang berisi data Utang dan Piutang yang diurutkan berdasarkan tanggal terbaru. Menekan tombol Utang/Piutang akan menampilkan data Utang/Piutang secara spesifik.</html>");
 
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/catatanTransaksipng.png"))); // NOI18N
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideCatatanTransaksi2.png"))); // NOI18N
         jLabel32.setText("jLabel5");
 
         buttonBack3.setBackground(new java.awt.Color(124, 195, 223));
@@ -1009,7 +1262,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("<html>Catatan Pembelian memiliki fungsi untuk mencatat pengeluaran uang, setiap catatan yang ditambahkan dapat diedit maupun dihapus</html>");
+        jLabel10.setText("<html>Setelah menekan tombol Utang/Piutang terdapat tombol untuk tambah, edit, dan hapus Utang/Piutang. Pilih data yang ingin dihapus/diedit pada tabel lalu tekan tombol Edit/Hapus.</html>");
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideUtangPiutang2.png"))); // NOI18N
         jLabel26.setText("jLabel5");
@@ -1144,7 +1397,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel36.setText("<html>Catatan Pembelian memiliki fungsi untuk mencatat pengeluaran uang, setiap catatan yang ditambahkan dapat diedit maupun dihapus</html>");
+        jLabel36.setText("<html>Menambah atau Mengedit Utang/Piutang akan menampilkan jendela untuk mengisi data, masukkan data sesuai yang diinginkan.</html>");
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideUtangPiutang3.png"))); // NOI18N
         jLabel37.setText("jLabel5");
@@ -1344,6 +1597,312 @@ public class PanduanPengguna extends javax.swing.JFrame {
 
         cardPanel.add(panelGuideStok1, "card3");
 
+        panelGuideLaporanKeuangan1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel51.setText("<html>Laporan Keuangan akan menampilkan informasi seputar keuangan sesuai tanggal yang diinginkan. </html>");
+
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel52.setText("jLabel5");
+
+        buttonBack9.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack9.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBack9MouseClicked(evt);
+            }
+        });
+
+        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel53.setText("<");
+        jLabel53.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonBack9Layout = new javax.swing.GroupLayout(buttonBack9);
+        buttonBack9.setLayout(buttonBack9Layout);
+        buttonBack9Layout.setHorizontalGroup(
+            buttonBack9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack9Layout.createSequentialGroup()
+                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBack9Layout.setVerticalGroup(
+            buttonBack9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack9Layout.createSequentialGroup()
+                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        buttonNextLK1.setBackground(new java.awt.Color(124, 195, 223));
+        buttonNextLK1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNextLK1.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonNextLK1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonNextLK1MouseClicked(evt);
+            }
+        });
+
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel54.setText("->");
+        jLabel54.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonNextLK1Layout = new javax.swing.GroupLayout(buttonNextLK1);
+        buttonNextLK1.setLayout(buttonNextLK1Layout);
+        buttonNextLK1Layout.setHorizontalGroup(
+            buttonNextLK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextLK1Layout.createSequentialGroup()
+                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonNextLK1Layout.setVerticalGroup(
+            buttonNextLK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextLK1Layout.createSequentialGroup()
+                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGuideLaporanKeuangan1Layout = new javax.swing.GroupLayout(panelGuideLaporanKeuangan1);
+        panelGuideLaporanKeuangan1.setLayout(panelGuideLaporanKeuangan1Layout);
+        panelGuideLaporanKeuangan1Layout.setHorizontalGroup(
+            panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideLaporanKeuangan1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(buttonBack9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLaporanKeuangan1Layout.createSequentialGroup()
+                        .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNextLK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        panelGuideLaporanKeuangan1Layout.setVerticalGroup(
+            panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideLaporanKeuangan1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel52)
+                    .addComponent(buttonBack9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonNextLK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(panelGuideLaporanKeuangan1, "card3");
+
+        panelGuideTargetKeuangan1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel55.setText("<html>Target Keuangan melacak penghasilan/pengeluaran dalam bisnis pada periode yang diinginkan.</html>");
+
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel56.setText("jLabel5");
+
+        buttonBack10.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack10.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBack10MouseClicked(evt);
+            }
+        });
+
+        jLabel57.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel57.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel57.setText("<");
+        jLabel57.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonBack10Layout = new javax.swing.GroupLayout(buttonBack10);
+        buttonBack10.setLayout(buttonBack10Layout);
+        buttonBack10Layout.setHorizontalGroup(
+            buttonBack10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack10Layout.createSequentialGroup()
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBack10Layout.setVerticalGroup(
+            buttonBack10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack10Layout.createSequentialGroup()
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        buttonNextTK1.setBackground(new java.awt.Color(124, 195, 223));
+        buttonNextTK1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNextTK1.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonNextTK1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonNextTK1MouseClicked(evt);
+            }
+        });
+
+        jLabel58.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel58.setText("->");
+        jLabel58.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonNextTK1Layout = new javax.swing.GroupLayout(buttonNextTK1);
+        buttonNextTK1.setLayout(buttonNextTK1Layout);
+        buttonNextTK1Layout.setHorizontalGroup(
+            buttonNextTK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextTK1Layout.createSequentialGroup()
+                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonNextTK1Layout.setVerticalGroup(
+            buttonNextTK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextTK1Layout.createSequentialGroup()
+                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGuideTargetKeuangan1Layout = new javax.swing.GroupLayout(panelGuideTargetKeuangan1);
+        panelGuideTargetKeuangan1.setLayout(panelGuideTargetKeuangan1Layout);
+        panelGuideTargetKeuangan1Layout.setHorizontalGroup(
+            panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideTargetKeuangan1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(buttonBack10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideTargetKeuangan1Layout.createSequentialGroup()
+                        .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNextTK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        panelGuideTargetKeuangan1Layout.setVerticalGroup(
+            panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideTargetKeuangan1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel56)
+                    .addComponent(buttonBack10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonNextTK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(panelGuideTargetKeuangan1, "card3");
+
+        panelGuideProfil1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel59.setText("<html>Profil menampilkan informasi pengguna serta opsi untuk mengedit informasi tersebut.</html>");
+
+        jLabel60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel60.setText("jLabel5");
+
+        buttonBack11.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack11.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBack11MouseClicked(evt);
+            }
+        });
+
+        jLabel61.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel61.setText("<");
+        jLabel61.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonBack11Layout = new javax.swing.GroupLayout(buttonBack11);
+        buttonBack11.setLayout(buttonBack11Layout);
+        buttonBack11Layout.setHorizontalGroup(
+            buttonBack11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack11Layout.createSequentialGroup()
+                .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBack11Layout.setVerticalGroup(
+            buttonBack11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBack11Layout.createSequentialGroup()
+                .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        buttonNextP1.setBackground(new java.awt.Color(124, 195, 223));
+        buttonNextP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNextP1.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonNextP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonNextP1MouseClicked(evt);
+            }
+        });
+
+        jLabel62.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel62.setText("->");
+        jLabel62.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonNextP1Layout = new javax.swing.GroupLayout(buttonNextP1);
+        buttonNextP1.setLayout(buttonNextP1Layout);
+        buttonNextP1Layout.setHorizontalGroup(
+            buttonNextP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextP1Layout.createSequentialGroup()
+                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonNextP1Layout.setVerticalGroup(
+            buttonNextP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonNextP1Layout.createSequentialGroup()
+                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelGuideProfil1Layout = new javax.swing.GroupLayout(panelGuideProfil1);
+        panelGuideProfil1.setLayout(panelGuideProfil1Layout);
+        panelGuideProfil1Layout.setHorizontalGroup(
+            panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideProfil1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(buttonBack11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideProfil1Layout.createSequentialGroup()
+                        .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNextP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        panelGuideProfil1Layout.setVerticalGroup(
+            panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideProfil1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel60)
+                    .addComponent(buttonBack11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonNextP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        cardPanel.add(panelGuideProfil1, "card3");
+
         getContentPane().add(cardPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 600, 400));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
@@ -1363,7 +1922,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonGuideCatatanTransaksiMouseClicked
 
     private void buttonGuideDasborMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideDasborMouseClicked
-        // TODO add your handling code here:
+        cardLayout.show(cardPanel, "Dasbor 1");        
     }//GEN-LAST:event_buttonGuideDasborMouseClicked
 
     private void buttonGuideUtangPiutangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideUtangPiutangMouseClicked
@@ -1375,15 +1934,15 @@ public class PanduanPengguna extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonGuideStokMouseClicked
 
     private void buttonGuideLaporanKeuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideLaporanKeuanganMouseClicked
-        // TODO add your handling code here:
+        cardLayout.show(cardPanel, "Laporan Keuangan 1");        
     }//GEN-LAST:event_buttonGuideLaporanKeuanganMouseClicked
 
     private void buttonGuideTargetKeuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideTargetKeuanganMouseClicked
-        // TODO add your handling code here:
+        cardLayout.show(cardPanel, "Target Keuangan 1");        
     }//GEN-LAST:event_buttonGuideTargetKeuanganMouseClicked
 
     private void buttonGuideProfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideProfilMouseClicked
-        // TODO add your handling code here:
+        cardLayout.show(cardPanel, "Profil 1");        
     }//GEN-LAST:event_buttonGuideProfilMouseClicked
 
     private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
@@ -1455,6 +2014,46 @@ public class PanduanPengguna extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonNextS1MouseClicked
 
+    private void buttonBack7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack7MouseClicked
+        cardLayout.show(cardPanel, "Main");        
+    }//GEN-LAST:event_buttonBack7MouseClicked
+
+    private void buttonNextL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextL1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNextL1MouseClicked
+
+    private void buttonBack8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack8MouseClicked
+        cardLayout.show(cardPanel, "Main");        
+    }//GEN-LAST:event_buttonBack8MouseClicked
+
+    private void buttonNextD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextD1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNextD1MouseClicked
+
+    private void buttonBack9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack9MouseClicked
+        cardLayout.show(cardPanel, "Main");        
+    }//GEN-LAST:event_buttonBack9MouseClicked
+
+    private void buttonNextLK1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextLK1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNextLK1MouseClicked
+
+    private void buttonBack10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack10MouseClicked
+        cardLayout.show(cardPanel, "Main");        
+    }//GEN-LAST:event_buttonBack10MouseClicked
+
+    private void buttonNextTK1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextTK1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNextTK1MouseClicked
+
+    private void buttonBack11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack11MouseClicked
+        cardLayout.show(cardPanel, "Main");        
+    }//GEN-LAST:event_buttonBack11MouseClicked
+
+    private void buttonNextP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextP1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonNextP1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1500,11 +2099,16 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel buttonBack0;
     private javax.swing.JPanel buttonBack1;
+    private javax.swing.JPanel buttonBack10;
+    private javax.swing.JPanel buttonBack11;
     private javax.swing.JPanel buttonBack2;
     private javax.swing.JPanel buttonBack3;
     private javax.swing.JPanel buttonBack4;
     private javax.swing.JPanel buttonBack5;
     private javax.swing.JPanel buttonBack6;
+    private javax.swing.JPanel buttonBack7;
+    private javax.swing.JPanel buttonBack8;
+    private javax.swing.JPanel buttonBack9;
     private javax.swing.JPanel buttonGuideCatatanTransaksi;
     private javax.swing.JPanel buttonGuideDasbor;
     private javax.swing.JPanel buttonGuideLaporanKeuangan;
@@ -1515,7 +2119,12 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JPanel buttonGuideUtangPiutang;
     private javax.swing.JPanel buttonNextCT1;
     private javax.swing.JPanel buttonNextCT2;
+    private javax.swing.JPanel buttonNextD1;
+    private javax.swing.JPanel buttonNextL1;
+    private javax.swing.JPanel buttonNextLK1;
+    private javax.swing.JPanel buttonNextP1;
     private javax.swing.JPanel buttonNextS1;
+    private javax.swing.JPanel buttonNextTK1;
     private javax.swing.JPanel buttonNextUP1;
     private javax.swing.JPanel buttonNextUP2;
     private javax.swing.JPanel buttonPreviousCT2;
@@ -1560,16 +2169,41 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel panelGuideCatatanTransaksi1;
     private javax.swing.JPanel panelGuideCatatanTransaksi2;
     private javax.swing.JPanel panelGuideCatatanTransaksi3;
+    private javax.swing.JPanel panelGuideDasbor1;
+    private javax.swing.JPanel panelGuideLaporanKeuangan1;
+    private javax.swing.JPanel panelGuideLogin1;
     private javax.swing.JPanel panelGuideMain;
+    private javax.swing.JPanel panelGuideProfil1;
     private javax.swing.JPanel panelGuideStok1;
+    private javax.swing.JPanel panelGuideTargetKeuangan1;
     private javax.swing.JPanel panelGuideUtangPiutang1;
     private javax.swing.JPanel panelGuideUtangPiutang2;
     private javax.swing.JPanel panelGuideUtangPiutang3;
