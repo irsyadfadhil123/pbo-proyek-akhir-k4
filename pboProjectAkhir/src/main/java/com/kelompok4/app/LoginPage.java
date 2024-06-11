@@ -152,7 +152,7 @@ public class LoginPage extends javax.swing.JFrame {
                 }
 
                 if (notFound == 1 && Password.equals(passDb)) {
-                    dashboard1 dsh = new dashboard1();
+                    Dasbor dsh = new Dasbor();
                     dsh.setVisible (true);
                     dsh.pack();
                     dsh.setLocationRelativeTo(null);

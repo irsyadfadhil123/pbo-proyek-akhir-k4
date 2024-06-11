@@ -402,33 +402,39 @@ private int barangId;
     }// </editor-fold>//GEN-END:initComponents
 
     private void toDasborButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toDasborButtonActionPerformed
-
+        dispose();
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_toDasborButtonActionPerformed
 
     private void toCatatanTransaksiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toCatatanTransaksiButtonActionPerformed
-       
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_toCatatanTransaksiButtonActionPerformed
 
     private void toUtangPiutangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toUtangPiutangButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_toUtangPiutangButtonActionPerformed
 
     private void toStokButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toStokButtonActionPerformed
         dispose();
-        Stok StokWindow = new Stok();
-            StokWindow.setVisible(true);
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toStokButtonActionPerformed
 
     private void toProfilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toProfilButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil stokFrame = new Profil();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
     private void inputJumlahBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJumlahBarangActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputJumlahBarangActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void buttonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditMouseClicked
@@ -440,15 +446,12 @@ private int barangId;
     }//GEN-LAST:event_buttonEditMouseClicked
 
     private void inputNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaBarangActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaBarangActionPerformed
 
     private void inputHargaSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHargaSatuanActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputHargaSatuanActionPerformed
 
     private void inputPeringatanMinimumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPeringatanMinimumActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputPeringatanMinimumActionPerformed
 
     /**

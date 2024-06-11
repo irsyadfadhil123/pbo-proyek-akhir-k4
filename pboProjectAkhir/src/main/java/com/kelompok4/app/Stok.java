@@ -307,23 +307,33 @@ public class Stok extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        System.out.println("ini tombol dasbor");
+        dispose();
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil profilrame = new Profil();
+        profilrame.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
@@ -354,7 +364,7 @@ public class Stok extends javax.swing.JFrame {
             }
         } else {
             JOptionPane.showMessageDialog(this, "Pilih baris yang ingin diedit.");
-        }    // TODO add your handling code here:
+        }
     }//GEN-LAST:event_ButtonEditMouseClicked
 
     private void ButtonHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonHapusMouseClicked

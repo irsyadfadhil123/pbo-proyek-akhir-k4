@@ -279,7 +279,7 @@ private void tampilkanDataPelanggan() {
             }
         });
 
-        toUtangPiutangButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        toUtangPiutangButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         toUtangPiutangButton.setText("Utang/Piutang");
         toUtangPiutangButton.setBorder(null);
         toUtangPiutangButton.setBorderPainted(false);
@@ -344,7 +344,7 @@ private void tampilkanDataPelanggan() {
                 .addComponent(toStokButton)
                 .addGap(36, 36, 36)
                 .addComponent(toProfilButton)
-                .addGap(0, 460, Short.MAX_VALUE))
+                .addGap(0, 451, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,23 +385,27 @@ private void tampilkanDataPelanggan() {
     }//GEN-LAST:event_toCatatanTransaksiButtonActionPerformed
 
     private void toUtangPiutangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toUtangPiutangButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_toUtangPiutangButtonActionPerformed
 
     private void toStokButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toStokButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toStokButtonActionPerformed
 
     private void toProfilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toProfilButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil stokFrame = new Profil();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
     private void inputNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaPelangganActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaPelangganActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void buttonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditMouseClicked
@@ -412,7 +416,6 @@ private void tampilkanDataPelanggan() {
     }//GEN-LAST:event_buttonEditMouseClicked
 
     private void inputKontakPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputKontakPelangganActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputKontakPelangganActionPerformed
 
     /**

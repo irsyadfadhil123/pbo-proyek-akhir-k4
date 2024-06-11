@@ -235,41 +235,41 @@ public class CatatanTransaksi extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         dispose();
-        dashboard1 dashboardFrame = new dashboard1();
-        dashboardFrame.setVisible(true);
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
         dispose();
         UtangPiutang utangpiutangFrame = new UtangPiutang();
         utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
         dispose();
         Stok stokFrame = new Stok();
         stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil stokFrame = new Profil();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void tmblcttjualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblcttjualMouseClicked
-        // TODO add your handling code here:
         dispose();
         CatatanPenjualan catatanpenjualanFrame = new CatatanPenjualan();
         catatanpenjualanFrame.setVisible(true);
     }//GEN-LAST:event_tmblcttjualMouseClicked
 
     private void tmblcttbeliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblcttbeliMouseClicked
-        // TODO add your handling code here:
         dispose();
         CatatanPembelian catatanpembelianFrame = new CatatanPembelian();
         catatanpembelianFrame.setVisible(true);

@@ -470,7 +470,9 @@ public class EditPiutang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void toDasborButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toDasborButtonActionPerformed
-
+        dispose();
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_toDasborButtonActionPerformed
 
     private void toCatatanTransaksiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toCatatanTransaksiButtonActionPerformed
@@ -480,19 +482,24 @@ public class EditPiutang extends javax.swing.JFrame {
     }//GEN-LAST:event_toCatatanTransaksiButtonActionPerformed
 
     private void toUtangPiutangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toUtangPiutangButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_toUtangPiutangButtonActionPerformed
 
     private void toStokButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toStokButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toStokButtonActionPerformed
 
     private void toProfilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toProfilButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil stokFrame = new Profil();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
     private void inputNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaPelangganActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaPelangganActionPerformed
 
     private void labelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBackMouseClicked

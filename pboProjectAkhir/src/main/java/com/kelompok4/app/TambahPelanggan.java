@@ -241,7 +241,7 @@ public class TambahPelanggan extends javax.swing.JFrame {
             }
         });
 
-        toUtangPiutangButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        toUtangPiutangButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         toUtangPiutangButton.setText("Utang/Piutang");
         toUtangPiutangButton.setBorder(null);
         toUtangPiutangButton.setBorderPainted(false);
@@ -337,31 +337,39 @@ public class TambahPelanggan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void toDasborButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toDasborButtonActionPerformed
-
+        dispose();
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_toDasborButtonActionPerformed
 
     private void toCatatanTransaksiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toCatatanTransaksiButtonActionPerformed
-
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_toCatatanTransaksiButtonActionPerformed
 
     private void toUtangPiutangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toUtangPiutangButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangpiutangFrame = new UtangPiutang();
+        utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_toUtangPiutangButtonActionPerformed
 
     private void toStokButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toStokButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_toStokButtonActionPerformed
 
     private void toProfilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toProfilButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil profilrame = new Profil();
+        profilrame.setVisible(true);
     }//GEN-LAST:event_toProfilButtonActionPerformed
 
     private void inputNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaPelangganActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputNamaPelangganActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void buttonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTambahMouseClicked
@@ -394,7 +402,6 @@ public class TambahPelanggan extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTambahMouseClicked
 
     private void inputKontakPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputKontakPelangganActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_inputKontakPelangganActionPerformed
 
     /**

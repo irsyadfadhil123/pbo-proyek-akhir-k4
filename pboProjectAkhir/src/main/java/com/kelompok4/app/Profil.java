@@ -13,28 +13,18 @@ import javax.swing.border.Border;
  *
  * @author Irsyad Fadhil
  */
-public class UtangPiutang extends javax.swing.JFrame {
+public class Profil extends javax.swing.JFrame {
     
     
     
     /**
      * Creates new form landingPage
      */
-    public UtangPiutang() {
+    public Profil() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);   
-        
-        ((PanelRound) tmblutang).setRoundTopLeft(40); //set round
-        ((PanelRound) tmblutang).setRoundTopRight(40);
-        ((PanelRound) tmblutang).setRoundBottomLeft(40);
-        ((PanelRound) tmblutang).setRoundBottomRight(40);
-        
-        ((PanelRound) tmblpiutang).setRoundTopLeft(40); // set round
-        ((PanelRound) tmblpiutang).setRoundTopRight(40);
-        ((PanelRound) tmblpiutang).setRoundBottomLeft(40);
-        ((PanelRound) tmblpiutang).setRoundBottomRight(40);
-        
+                
         ((PanelRound) contentpanel).setRoundTopLeft(40); // set round
         ((PanelRound) contentpanel).setRoundTopRight(40);
         ((PanelRound) contentpanel).setRoundBottomLeft(40);
@@ -59,12 +49,6 @@ public class UtangPiutang extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        tmblutang = new com.kelompok4.design.PanelRound();
-        lblutang = new javax.swing.JLabel();
-        tmblpiutang = new com.kelompok4.design.PanelRound();
-        lblpiutang = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,7 +102,7 @@ public class UtangPiutang extends javax.swing.JFrame {
         });
         header.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 6, -1, 32));
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton7.setText("Utang/Piutang");
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
@@ -152,7 +136,7 @@ public class UtangPiutang extends javax.swing.JFrame {
         });
         header.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 6, -1, 32));
 
-        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton9.setText("Profil");
         jButton9.setBorder(null);
         jButton9.setBorderPainted(false);
@@ -174,60 +158,12 @@ public class UtangPiutang extends javax.swing.JFrame {
         contentpanel.setBackground(new java.awt.Color(255, 255, 255));
         contentpanel.setAlignmentX(0.0F);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
-
-        contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 670, 280));
-
-        tmblutang.setBackground(new java.awt.Color(124, 195, 223));
-        tmblutang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tmblutangMouseClicked(evt);
-            }
-        });
-        tmblutang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblutang.setBackground(new java.awt.Color(255, 255, 255));
-        lblutang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblutang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblutang.setText("Catatan Utang");
-        tmblutang.add(lblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 40));
-
-        contentpanel.add(tmblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 230, 40));
-
-        tmblpiutang.setBackground(new java.awt.Color(124, 195, 223));
-        tmblpiutang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tmblpiutangMouseClicked(evt);
-            }
-        });
-        tmblpiutang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblpiutang.setBackground(new java.awt.Color(124, 195, 223));
-        lblpiutang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblpiutang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblpiutang.setText("Catatan Piutang");
-        tmblpiutang.add(lblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 40));
-
-        contentpanel.add(tmblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 230, 40));
-
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 770, 370));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -262,22 +198,11 @@ public class UtangPiutang extends javax.swing.JFrame {
         profilrame.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void tmblutangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblutangMouseClicked
-        dispose();
-        Utang utangFrame = new Utang();
-        utangFrame.setVisible(true);
-    }//GEN-LAST:event_tmblutangMouseClicked
-
-    private void tmblpiutangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblpiutangMouseClicked
-        dispose();
-        Piutang piutangFrame = new Piutang();
-        piutangFrame.setVisible(true);
-    }//GEN-LAST:event_tmblpiutangMouseClicked
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        System.out.println("Memulai aplikasi...");
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -292,13 +217,13 @@ public class UtangPiutang extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UtangPiutang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UtangPiutang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UtangPiutang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UtangPiutang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Profil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -312,7 +237,7 @@ public class UtangPiutang extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UtangPiutang().setVisible(true);
+                new Profil().setVisible(true);
             }
         });
     }
@@ -328,11 +253,5 @@ public class UtangPiutang extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblpiutang;
-    private javax.swing.JLabel lblutang;
-    private javax.swing.JPanel tmblpiutang;
-    private javax.swing.JPanel tmblutang;
     // End of variables declaration//GEN-END:variables
 }

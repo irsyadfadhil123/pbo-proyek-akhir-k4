@@ -162,7 +162,7 @@ public class Pelanggan extends javax.swing.JFrame {
         });
         header.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 6, -1, 32));
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton7.setText("Utang/Piutang");
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
@@ -336,33 +336,32 @@ public class Pelanggan extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         dispose();
-        dashboard1 dashboardFrame = new dashboard1();
-        dashboardFrame.setVisible(true);
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
         dispose();
         CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
         catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
         dispose();
         UtangPiutang utangpiutangFrame = new UtangPiutang();
         utangpiutangFrame.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
         dispose();
         Stok stokFrame = new Stok();
         stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        Profil stokFrame = new Profil();
+        stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void tombolpelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolpelangganMouseClicked
@@ -385,11 +384,10 @@ public class Pelanggan extends javax.swing.JFrame {
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
         int selectedRow = tabelPelanggan.getSelectedRow();
         if (selectedRow != -1) {
-            String idPelanggan = tabelPelanggan.getValueAt(selectedRow, 0).toString();
-            
-
+            String pelanggan_id_str = tabelPelanggan.getValueAt(selectedRow, 0).toString();
+            int pelanggan_id = Integer.parseInt(pelanggan_id_str);
             try {
-                EditPelanggan editPelangganWindow = new EditPelanggan(idPelanggan);
+                EditPelanggan editPelangganWindow = new EditPelanggan(pelanggan_id);
                 editPelangganWindow.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
