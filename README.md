@@ -10,11 +10,11 @@ Optimalisasi Efektivitas Manajemen Keuangan Toko melalui Penerapan Konsep Object
   - Pemilik Usaha
   - Menyediakan laporan keuangan yang terperinci, termasuk laporan penjualan dan pembelian.
 
-- [ ] **2. Manajemen Stok**
+- [x] **2. Manajemen Stok**
   - Pemilik Usaha
   - Melacak stok barang yang tersedia di toko, termasuk peringatan jika stok mulai menipis atau perlu diisi ulang.
 
-- [ ] **3. Pencatatan Utang Piutang**
+- [x] **3. Pencatatan Utang Piutang**
   - Pemilik Usaha 
   - Mencatat utang kepada supplier dan piutang dari pelanggan.
 
@@ -30,11 +30,11 @@ Optimalisasi Efektivitas Manajemen Keuangan Toko melalui Penerapan Konsep Object
   - Pemilik Usaha
   - Mengatur target jumlah pendapatan yang masuk per waktu yang telah ditentukan.
 
-- [ ] **7. Pemberian PIN**
+- [x] **7. Pemberian PIN**
   - Pemilik Usaha
   - Memberi opsi pada pengguna jika ingin memberi proteksi berupa PIN saat masuk ke dalam aplikasi.
 
-- [ ] **8. Panduan Pengguna** 
+- [x] **8. Panduan Pengguna** 
   - Pemilik Usaha
   - Memberi sebuah panduan singkat untuk menuntun pengguna dalam menggunakan aplikasi.
 
