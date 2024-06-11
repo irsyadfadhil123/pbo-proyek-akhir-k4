@@ -5,8 +5,18 @@
 package com.kelompok4.app;
 
 import com.kelompok4.design.PanelRound;
+import com.kelompok4.pboprojectakhir.Database;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -23,7 +33,10 @@ public class CatatanTransaksi extends javax.swing.JFrame {
     public CatatanTransaksi() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);   
+        setResizable(false); 
+        Database db = new Database();
+        con = Database.getConnection();
+        show_table();
         
         ((PanelRound) tmblcttjual).setRoundTopLeft(40); //set round
         ((PanelRound) tmblcttjual).setRoundTopRight(40);
@@ -42,6 +55,50 @@ public class CatatanTransaksi extends javax.swing.JFrame {
         ((PanelRound) contentpanel).setOpacity(0.7f); // set opacity
     }
     
+    private static final Logger LOGGER = Logger.getLogger(CatatanPenjualan.class.getName());
+    private final Connection con;
+    private PreparedStatement pst;
+    private PreparedStatement pst2;
+    private ResultSet rs;
+    
+private void show_table() {
+    int CC;
+
+    try {
+        String sql = "SELECT 'penjualan' AS tipe, p.tanggal, sb.nama_barang COLLATE utf8mb4_general_ci AS nama_barang, " +
+                     "p.jumlah_barang, p.uang_masuk, p.catatan " +
+                     "FROM penjualan p " +
+                     "JOIN stokbarang sb ON p.id_barang = sb.id_barang " +
+                     "UNION " +
+                     "SELECT 'pembelian' AS tipe, b.tanggal, sb.nama_barang COLLATE utf8mb4_general_ci AS nama_barang, " +
+                     "b.jumlah_barang, b.uang_keluar, b.catatan " +
+                     "FROM pembelian b " +
+                     "JOIN stokbarang sb ON b.id_barang = sb.id_barang " +
+                     "ORDER BY tanggal DESC";
+        pst = con.prepareStatement(sql);
+        rs = pst.executeQuery();
+        ResultSetMetaData RSMD = rs.getMetaData();
+        CC = RSMD.getColumnCount();
+
+        DefaultTableModel DFT = (DefaultTableModel) TabelTransaksi.getModel();
+
+        DFT.setRowCount(0);
+
+        while (rs.next()) {
+            Vector v2 = new Vector();
+
+            for (int i = 1; i <= CC; i++) {
+                v2.add(rs.getString(i));
+            }
+
+            DFT.addRow(v2);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(CatatanTransaksi.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,7 +117,7 @@ public class CatatanTransaksi extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TabelTransaksi = new javax.swing.JTable();
         tmblcttjual = new com.kelompok4.design.PanelRound();
         lblcttjual = new javax.swing.JLabel();
         tmblcttbeli = new com.kelompok4.design.PanelRound();
@@ -176,18 +233,26 @@ public class CatatanTransaksi extends javax.swing.JFrame {
         contentpanel.setAlignmentX(0.0F);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TabelTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Tipe", "Tanggal", "Nama Barang", "Jumlah Barang", "Uang Masuk/Keluar", "Catatan"
             }
-        ));
-        jScrollPane2.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TabelTransaksi);
 
         contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 670, 280));
 
@@ -318,6 +383,7 @@ public class CatatanTransaksi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JTable TabelTransaksi;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton5;
@@ -327,7 +393,6 @@ public class CatatanTransaksi extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblcttbeli;
     private javax.swing.JLabel lblcttjual;
     private javax.swing.JPanel tmblcttbeli;

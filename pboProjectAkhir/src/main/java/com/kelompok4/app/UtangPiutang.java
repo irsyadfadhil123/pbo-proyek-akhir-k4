@@ -5,8 +5,18 @@
 package com.kelompok4.app;
 
 import com.kelompok4.design.PanelRound;
+import com.kelompok4.pboprojectakhir.Database;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -23,7 +33,10 @@ public class UtangPiutang extends javax.swing.JFrame {
     public UtangPiutang() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);   
+        setResizable(false);  
+        Database db = new Database();
+        con = Database.getConnection();
+        show_table();
         
         ((PanelRound) tmblutang).setRoundTopLeft(40); //set round
         ((PanelRound) tmblutang).setRoundTopRight(40);
@@ -41,6 +54,48 @@ public class UtangPiutang extends javax.swing.JFrame {
         ((PanelRound) contentpanel).setRoundBottomRight(40);
         ((PanelRound) contentpanel).setOpacity(0.7f); // set opacity
     }
+    
+    private static final Logger LOGGER = Logger.getLogger(CatatanPenjualan.class.getName());
+    private final Connection con;
+    private PreparedStatement pst;
+    private PreparedStatement pst2;
+    private ResultSet rs;
+    
+private void show_table() {
+    int CC;
+
+    try {
+        String sql = "SELECT 'utang' AS tipe, u.tanggal, s.nama_supplier COLLATE utf8mb4_general_ci AS nama_supplier, " +
+                     "u.jumlah, u.catatan " +
+                     "FROM utang u " +
+                     "JOIN supplier s ON u.id_supplier = s.id_supplier " +  
+                     "UNION " +
+                     "SELECT 'piutang' AS tipe, p.tanggal, pl.nama_pelanggan COLLATE utf8mb4_general_ci AS nama_pelanggan, " +
+                     "p.jumlah, p.catatan " +
+                     "FROM piutang p " +
+                     "JOIN pelanggan pl ON p.id_pelanggan = pl.id_pelanggan " +  
+                     "ORDER BY tanggal DESC";
+        pst = con.prepareStatement(sql);
+        rs = pst.executeQuery();
+        ResultSetMetaData RSMD = rs.getMetaData();
+        CC = RSMD.getColumnCount();
+
+        DefaultTableModel DFT = (DefaultTableModel) TabelUtangPiutang.getModel();
+        DFT.setRowCount(0);
+
+        while (rs.next()) {
+            Object[] row = new Object[CC];
+            for (int i = 1; i <= CC; i++) {
+                row[i - 1] = rs.getString(i);
+            }
+            DFT.addRow(row);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(CatatanTransaksi.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +115,7 @@ public class UtangPiutang extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TabelUtangPiutang = new javax.swing.JTable();
         tmblutang = new com.kelompok4.design.PanelRound();
         lblutang = new javax.swing.JLabel();
         tmblpiutang = new com.kelompok4.design.PanelRound();
@@ -175,18 +230,26 @@ public class UtangPiutang extends javax.swing.JFrame {
         contentpanel.setAlignmentX(0.0F);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TabelUtangPiutang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Tipe", "Tanggal", "Nama Supplier/Pelanggan", "Jumlah", "Catatan"
             }
-        ));
-        jScrollPane2.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TabelUtangPiutang);
 
         contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 670, 280));
 
@@ -320,6 +383,7 @@ public class UtangPiutang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JTable TabelUtangPiutang;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton5;
@@ -329,7 +393,6 @@ public class UtangPiutang extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblpiutang;
     private javax.swing.JLabel lblutang;
     private javax.swing.JPanel tmblpiutang;
