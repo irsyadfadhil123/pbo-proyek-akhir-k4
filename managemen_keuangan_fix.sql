@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jun 2024 pada 05.59
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 7.3.31
+-- Waktu pembuatan: 11 Jun 2024 pada 15.46
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `laporankeuangan` (
   `id_laporan` int(11) NOT NULL,
-  `tanggal` date DEFAULT NULL,
-  `total_penjualan` decimal(15,2) DEFAULT NULL,
-  `total_pembelian` decimal(15,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `tanggal` date NOT NULL,
+  `total_penjualan` varchar(250) NOT NULL,
+  `total_pembelian` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `laporankeuangan`
+--
+
+INSERT INTO `laporankeuangan` (`id_laporan`, `tanggal`, `total_penjualan`, `total_pembelian`) VALUES
+(1, '2024-06-06', 'Total Penjualan:90000', 'Total Pembelian80000'),
+(2, '2024-06-06', '2000000', '300000');
 
 -- --------------------------------------------------------
 
@@ -44,7 +52,7 @@ CREATE TABLE `pelanggan` (
   `id_pelanggan` int(11) NOT NULL,
   `nama_pelanggan` varchar(100) DEFAULT NULL,
   `kontak_pelanggan` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pelanggan`
@@ -66,7 +74,7 @@ CREATE TABLE `pembelian` (
   `jumlah_barang` int(11) DEFAULT NULL,
   `uang_keluar` int(20) NOT NULL,
   `catatan` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pembelian`
@@ -115,17 +123,17 @@ DELIMITER ;
 
 CREATE TABLE `pemilikusaha` (
   `id_pemilik` int(11) NOT NULL,
-  `full_name` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pemilikusaha`
 --
 
 INSERT INTO `pemilikusaha` (`id_pemilik`, `full_name`, `email`, `password`) VALUES
-(1, 'Admin', 'admin', 'admin'),
+(1, 'Admin', 'admin', 'admin1'),
 (2, 'mario', 'mario@gmail.com', '123');
 
 -- --------------------------------------------------------
@@ -141,7 +149,7 @@ CREATE TABLE `penjualan` (
   `jumlah_barang` int(11) DEFAULT NULL,
   `uang_masuk` int(20) NOT NULL,
   `catatan` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `penjualan`
@@ -196,7 +204,7 @@ CREATE TABLE `piutang` (
   `tanggal` date NOT NULL,
   `jumlah` int(11) NOT NULL,
   `catatan` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `piutang`
@@ -217,15 +225,15 @@ CREATE TABLE `stokbarang` (
   `jumlah` int(11) DEFAULT NULL,
   `harga_satuan` decimal(15,2) DEFAULT NULL,
   `peringatan_minimum` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `stokbarang`
 --
 
 INSERT INTO `stokbarang` (`id_barang`, `nama_barang`, `jumlah`, `harga_satuan`, `peringatan_minimum`) VALUES
-(1, 'snack', 100, '5000.00', 10),
-(3, 'Roti', 0, '3000.00', 5);
+(1, 'snack', 100, 5000.00, 10),
+(3, 'Roti', 0, 3000.00, 5);
 
 -- --------------------------------------------------------
 
@@ -237,7 +245,7 @@ CREATE TABLE `supplier` (
   `id_supplier` int(11) NOT NULL,
   `nama_supplier` varchar(100) DEFAULT NULL,
   `kontak_supplier` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `supplier`
@@ -256,7 +264,16 @@ CREATE TABLE `targetkeuangan` (
   `id_target` int(11) NOT NULL,
   `target_pendapatan` decimal(15,2) DEFAULT NULL,
   `periode` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `targetkeuangan`
+--
+
+INSERT INTO `targetkeuangan` (`id_target`, `target_pendapatan`, `periode`) VALUES
+(1, 100000000.00, 'abs'),
+(2, 1000000.00, '2022-2024'),
+(3, 3000.00, 'wqsd');
 
 -- --------------------------------------------------------
 
@@ -270,7 +287,7 @@ CREATE TABLE `utang` (
   `tanggal` date DEFAULT NULL,
   `jumlah` int(11) NOT NULL,
   `catatan` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `utang`
@@ -356,7 +373,7 @@ ALTER TABLE `utang`
 -- AUTO_INCREMENT untuk tabel `laporankeuangan`
 --
 ALTER TABLE `laporankeuangan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
@@ -404,7 +421,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT untuk tabel `targetkeuangan`
 --
 ALTER TABLE `targetkeuangan`
-  MODIFY `id_target` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_target` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `utang`
