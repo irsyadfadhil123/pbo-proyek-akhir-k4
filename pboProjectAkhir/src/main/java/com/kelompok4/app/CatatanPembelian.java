@@ -35,7 +35,6 @@ public class CatatanPembelian extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setImageToLabel();
         Database db = new Database();
         con = Database.getConnection();
         show_table();
@@ -61,6 +60,11 @@ public class CatatanPembelian extends javax.swing.JFrame {
         ((PanelRound) ButtonEdit).setRoundBottomLeft(40);
         ((PanelRound) ButtonEdit).setRoundBottomRight(40);
         
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
+        
     }
     
     private static final Logger LOGGER = Logger.getLogger(CatatanPembelian.class.getName());
@@ -68,18 +72,6 @@ public class CatatanPembelian extends javax.swing.JFrame {
     private PreparedStatement pst;
     private PreparedStatement pst2;
     private ResultSet rs;
-    
-    private void setImageToLabel() {
-        String imagePath = "/back_icon.png";
-        
-        ImageIcon originalIcon = new ImageIcon(getClass().getResource(imagePath));
-        Image image = originalIcon.getImage();
-        Image resizedImage = image.getScaledInstance(logobuttonback.getWidth(), logobuttonback.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon resizedIcon = new ImageIcon(resizedImage);
-        
-        logobuttonback.setIcon(resizedIcon);
-    }
-
     
     private void show_table() {
         int CC;
@@ -133,7 +125,8 @@ public class CatatanPembelian extends javax.swing.JFrame {
         contentpanel = new com.kelompok4.design.PanelRound();
         backbutton = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        logobuttonback = new javax.swing.JLabel();
+        buttonBack = new com.kelompok4.design.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelPembelian = new javax.swing.JTable();
         ButtonTambah = new com.kelompok4.design.PanelRound();
@@ -266,8 +259,41 @@ public class CatatanPembelian extends javax.swing.JFrame {
         jLabel2.setText("Catatan Pembelian");
         backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 170, 20));
 
-        logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
+        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBackMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("<");
+        jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
+        buttonBack.setLayout(buttonBackLayout);
+        buttonBackLayout.setHorizontalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBackLayout.setVerticalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        backbutton.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 30));
 
@@ -295,6 +321,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
         contentpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 670, 260));
 
         ButtonTambah.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonTambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonTambahMouseClicked(evt);
@@ -310,6 +337,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
         contentpanel.add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 200, 40));
 
         ButtonHapus.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonHapus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonHapusMouseClicked(evt);
@@ -325,6 +353,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
         contentpanel.add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 200, 40));
 
         ButtonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonEditMouseClicked(evt);
@@ -438,6 +467,16 @@ public class CatatanPembelian extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonHapusMouseClicked
 
+    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
+        dispose();
+        CatatanTransaksi catatanTransaksiFrame = new CatatanTransaksi();
+        catatanTransaksiFrame.setVisible(true);
+    }//GEN-LAST:event_buttonBackMouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -499,6 +538,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
     private javax.swing.JPanel ButtonTambah;
     private javax.swing.JTable TabelPembelian;
     private javax.swing.JPanel backbutton;
+    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -506,12 +546,12 @@ public class CatatanPembelian extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel logobuttonback;
     // End of variables declaration//GEN-END:variables
 }

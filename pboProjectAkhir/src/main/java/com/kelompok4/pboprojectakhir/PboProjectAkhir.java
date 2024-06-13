@@ -4,7 +4,7 @@
 
 package com.kelompok4.pboprojectakhir;
 
-import com.kelompok4.app.LoginPage;
+import com.kelompok4.app.LandingPage;
 
 /**
  *
@@ -16,7 +16,7 @@ public class PboProjectAkhir {
         Database conn = new Database();
         conn.getConnection();
         
-        LoginPage start = new LoginPage();
+        LandingPage start = new LandingPage();
         start.setVisible(true);
     }
 }

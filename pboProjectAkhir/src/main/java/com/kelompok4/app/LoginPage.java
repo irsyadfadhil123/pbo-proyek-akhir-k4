@@ -48,6 +48,7 @@ public class LoginPage extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -90,7 +91,7 @@ public class LoginPage extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +111,7 @@ public class LoginPage extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 370, -1));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -151,11 +152,11 @@ public class LoginPage extends javax.swing.JFrame {
                 }
 
                 if (notFound == 1 && Password.equals(passDb)) {
-                    Dashboard dsh = new Dashboard();
-                    dsh.setVisible (true);
+                    Dasbor dsh = new Dasbor();
+                    dsh.setVisible(true);
                     dsh.pack();
                     dsh.setLocationRelativeTo(null);
-                    this.dispose();
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(new JFrame(), "Incorrect email or password", "Error", JOptionPane.ERROR_MESSAGE);
                 }

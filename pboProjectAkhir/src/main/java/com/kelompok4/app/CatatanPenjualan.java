@@ -58,6 +58,11 @@ public class CatatanPenjualan extends javax.swing.JFrame {
         ((PanelRound) ButtonEdit).setRoundBottomLeft(40);
         ((PanelRound) ButtonEdit).setRoundBottomRight(40);
         
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
+        
     }
     
     private static final Logger LOGGER = Logger.getLogger(CatatanPenjualan.class.getName());
@@ -116,9 +121,6 @@ private void show_table() {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
-        backbutton = new javax.swing.JPanel();
-        logobuttonback = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelPenjualan = new javax.swing.JTable();
         ButtonTambah = new com.kelompok4.design.PanelRound();
@@ -127,6 +129,10 @@ private void show_table() {
         jLabel4 = new javax.swing.JLabel();
         ButtonEdit = new com.kelompok4.design.PanelRound();
         jLabel5 = new javax.swing.JLabel();
+        backbutton = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        buttonBack = new com.kelompok4.design.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -239,24 +245,6 @@ private void show_table() {
         contentpanel.setRequestFocusEnabled(false);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backbutton.setBackground(new java.awt.Color(255, 255, 255));
-        backbutton.setOpaque(false);
-        backbutton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backbuttonMouseClicked(evt);
-            }
-        });
-        backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Catatan Penjualan");
-        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 130, 20));
-
-        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 180, 30));
-
         TabelPenjualan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -281,6 +269,7 @@ private void show_table() {
         contentpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 670, 260));
 
         ButtonTambah.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonTambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonTambahMouseClicked(evt);
@@ -296,6 +285,7 @@ private void show_table() {
         contentpanel.add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 200, 40));
 
         ButtonHapus.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonHapus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonHapusMouseClicked(evt);
@@ -311,6 +301,7 @@ private void show_table() {
         contentpanel.add(ButtonHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 200, 40));
 
         ButtonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonEditMouseClicked(evt);
@@ -324,6 +315,57 @@ private void show_table() {
         ButtonEdit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 210, -1));
 
         contentpanel.add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 210, 40));
+
+        backbutton.setBackground(new java.awt.Color(255, 255, 255));
+        backbutton.setOpaque(false);
+        backbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backbuttonMouseClicked(evt);
+            }
+        });
+        backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("Catatan Penjualan");
+        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 170, 20));
+
+        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBackMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("<");
+        jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
+        buttonBack.setLayout(buttonBackLayout);
+        buttonBackLayout.setHorizontalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBackLayout.setVerticalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        backbutton.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 30));
 
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 770, 380));
 
@@ -361,15 +403,9 @@ private void show_table() {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         dispose();
-        dashboard1 dashboardFrame = new dashboard1();
-        dashboardFrame.setVisible(true);
+        Dasbor dasborFrame = new Dasbor();
+        dasborFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
-        dispose();
-        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
-        catatantransaksiFrame.setVisible(true);
-    }//GEN-LAST:event_backbuttonMouseClicked
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
         dispose();
@@ -424,6 +460,19 @@ private void show_table() {
         }
     }//GEN-LAST:event_ButtonHapusMouseClicked
 
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
+    }//GEN-LAST:event_buttonBackMouseClicked
+
+    private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
+    }//GEN-LAST:event_backbuttonMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -477,6 +526,7 @@ private void show_table() {
     private javax.swing.JPanel ButtonTambah;
     private javax.swing.JTable TabelPenjualan;
     private javax.swing.JPanel backbutton;
+    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -484,12 +534,12 @@ private void show_table() {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel logobuttonback;
     // End of variables declaration//GEN-END:variables
 }

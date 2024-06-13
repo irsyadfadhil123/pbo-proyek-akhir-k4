@@ -31,10 +31,17 @@ private int barangId;
         ((PanelRound) panelContent).setRoundTopRight(40);
         ((PanelRound) panelContent).setRoundBottomLeft(40);
         ((PanelRound) panelContent).setRoundBottomRight(40);
+        
         ((PanelRound) buttonEdit).setRoundTopLeft(40);
         ((PanelRound) buttonEdit).setRoundTopRight(40);
         ((PanelRound) buttonEdit).setRoundBottomLeft(40);
         ((PanelRound) buttonEdit).setRoundBottomRight(40);
+        
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
+
     }
 
     private void tampilkanDataBarang() {
@@ -99,14 +106,16 @@ private int barangId;
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         inputJumlahBarang = new javax.swing.JTextField();
         inputHargaSatuan = new javax.swing.JTextField();
         inputPeringatanMinimum = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         buttonEdit = new com.kelompok4.design.PanelRound();
         jLabel9 = new javax.swing.JLabel();
         inputNamaBarang = new javax.swing.JTextField();
+        backbutton = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        buttonBack = new com.kelompok4.design.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -118,55 +127,54 @@ private int barangId;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(854, 480));
-        setPreferredSize(new java.awt.Dimension(854, 480));
         setSize(new java.awt.Dimension(854, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Nama Barang:");
+        panelContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 129, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        panelContent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 70, 75, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Jumlah Barang:");
+        panelContent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 129, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Harga Satuan:");
+        panelContent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 129, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Peringatan Minimum:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Edit Stok Barang");
+        panelContent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
         inputJumlahBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputJumlahBarangActionPerformed(evt);
             }
         });
+        panelContent.add(inputJumlahBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 131, 388, 25));
 
         inputHargaSatuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputHargaSatuanActionPerformed(evt);
             }
         });
+        panelContent.add(inputHargaSatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 174, 387, 25));
 
         inputPeringatanMinimum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputPeringatanMinimumActionPerformed(evt);
             }
         });
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
+        panelContent.add(inputPeringatanMinimum, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 217, 387, 25));
 
         buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        buttonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonEdit.setMaximumSize(new java.awt.Dimension(500, 500));
         buttonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,74 +202,65 @@ private int barangId;
                 .addContainerGap())
         );
 
+        panelContent.add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 308, -1, -1));
+
         inputNamaBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputNamaBarangActionPerformed(evt);
             }
         });
+        panelContent.add(inputNamaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 88, 388, 25));
 
-        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
-        panelContent.setLayout(panelContentLayout);
-        panelContentLayout.setHorizontalGroup(
-            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContentLayout.createSequentialGroup()
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelContentLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
-                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-                                    .addComponent(inputNamaBarang)))
-                            .addGroup(panelContentLayout.createSequentialGroup()
-                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+        backbutton.setBackground(new java.awt.Color(255, 255, 255));
+        backbutton.setOpaque(false);
+        backbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backbuttonMouseClicked(evt);
+            }
+        });
+        backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setText("Edit Stok");
+        backbutton.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 20));
+
+        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBackMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("<");
+        jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
+        buttonBack.setLayout(buttonBackLayout);
+        buttonBackLayout.setHorizontalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
         );
-        panelContentLayout.setVerticalGroup(
-            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inputNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(inputJumlahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(inputHargaSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(inputPeringatanMinimum, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+        buttonBackLayout.setVerticalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        backbutton.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        panelContent.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 50));
 
         getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 740, 380));
 
@@ -396,7 +395,7 @@ private int barangId;
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 490));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -434,9 +433,6 @@ private int barangId;
     private void inputJumlahBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJumlahBarangActionPerformed
     }//GEN-LAST:event_inputJumlahBarangActionPerformed
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-    }//GEN-LAST:event_jLabel8MouseClicked
-
     private void buttonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditMouseClicked
         
         updateDataBarang();
@@ -453,6 +449,20 @@ private int barangId;
 
     private void inputPeringatanMinimumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPeringatanMinimumActionPerformed
     }//GEN-LAST:event_inputPeringatanMinimumActionPerformed
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
+        dispose();
+        Stok stokFrame = new Stok();
+        stokFrame.setVisible(true);
+    }//GEN-LAST:event_buttonBackMouseClicked
+
+    private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
+
+    }//GEN-LAST:event_backbuttonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -487,19 +497,21 @@ private int barangId;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JPanel backbutton;
+    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel buttonEdit;
     private javax.swing.JTextField inputHargaSatuan;
     private javax.swing.JTextField inputJumlahBarang;
     private javax.swing.JTextField inputNamaBarang;
     private javax.swing.JTextField inputPeringatanMinimum;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel panelContent;

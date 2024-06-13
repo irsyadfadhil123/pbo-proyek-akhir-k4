@@ -31,10 +31,17 @@ public class TambahPelanggan extends javax.swing.JFrame {
         ((PanelRound) panelContent).setRoundTopRight(40);
         ((PanelRound) panelContent).setRoundBottomLeft(40);
         ((PanelRound) panelContent).setRoundBottomRight(40);
+        
         ((PanelRound) buttonTambah).setRoundTopLeft(40);
         ((PanelRound) buttonTambah).setRoundTopRight(40);
         ((PanelRound) buttonTambah).setRoundBottomLeft(40);
-        ((PanelRound) buttonTambah).setRoundBottomRight(40);
+        ((PanelRound) buttonTambah).setRoundBottomRight(40);        
+        
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
+
     }
 
     /**
@@ -54,10 +61,11 @@ public class TambahPelanggan extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         inputNamaPelanggan = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         buttonTambah = new com.kelompok4.design.PanelRound();
         jLabel9 = new javax.swing.JLabel();
         inputKontakPelanggan = new javax.swing.JTextField();
+        buttonBack = new com.kelompok4.design.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -74,36 +82,38 @@ public class TambahPelanggan extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Nama Pelanggan:");
+        panelContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        panelContent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 104, 75, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Kontak Pelanggan:");
+        panelContent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        panelContent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 218, 129, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        panelContent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 225, 129, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("Tambah Pelanggan");
+        panelContent.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 190, -1));
 
         inputNamaPelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputNamaPelangganActionPerformed(evt);
             }
         });
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
+        panelContent.add(inputNamaPelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 410, 25));
 
         buttonTambah.setBackground(new java.awt.Color(124, 195, 223));
+        buttonTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonTambah.setMaximumSize(new java.awt.Dimension(500, 500));
         buttonTambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,72 +141,50 @@ public class TambahPelanggan extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        panelContent.add(buttonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
+
         inputKontakPelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputKontakPelangganActionPerformed(evt);
             }
         });
+        panelContent.add(inputKontakPelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 410, 25));
 
-        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
-        panelContent.setLayout(panelContentLayout);
-        panelContentLayout.setHorizontalGroup(
-            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContentLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContentLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelContentLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelContentLayout.createSequentialGroup()
-                                    .addGap(58, 58, 58)
-                                    .addComponent(inputNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(panelContentLayout.createSequentialGroup()
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(inputKontakPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(32, Short.MAX_VALUE))
+        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBackMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("<");
+        jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
+        buttonBack.setLayout(buttonBackLayout);
+        buttonBackLayout.setHorizontalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
         );
-        panelContentLayout.setVerticalGroup(
-            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContentLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inputNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(inputKontakPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(45, Short.MAX_VALUE))
+        buttonBackLayout.setVerticalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelContent.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 740, 270));
 
@@ -331,7 +319,7 @@ public class TambahPelanggan extends javax.swing.JFrame {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -369,9 +357,6 @@ public class TambahPelanggan extends javax.swing.JFrame {
     private void inputNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaPelangganActionPerformed
     }//GEN-LAST:event_inputNamaPelangganActionPerformed
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-    }//GEN-LAST:event_jLabel8MouseClicked
-
     private void buttonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTambahMouseClicked
 
         String namaPelanggan = inputNamaPelanggan.getText();
@@ -403,6 +388,16 @@ public class TambahPelanggan extends javax.swing.JFrame {
 
     private void inputKontakPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputKontakPelangganActionPerformed
     }//GEN-LAST:event_inputKontakPelangganActionPerformed
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
+        dispose();
+        Pelanggan pelangganFrame = new Pelanggan();
+        pelangganFrame.setVisible(true);
+    }//GEN-LAST:event_buttonBackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -441,17 +436,18 @@ public class TambahPelanggan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel buttonTambah;
     private javax.swing.JTextField inputKontakPelanggan;
     private javax.swing.JTextField inputNamaPelanggan;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel panelContent;

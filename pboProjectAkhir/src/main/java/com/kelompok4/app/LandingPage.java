@@ -32,7 +32,13 @@ public class LandingPage extends javax.swing.JFrame {
         ((PanelRound) buttonMulai).setRoundTopLeft(40);
         ((PanelRound) buttonMulai).setRoundTopRight(40);
         ((PanelRound) buttonMulai).setRoundBottomLeft(40);
-        ((PanelRound) buttonMulai).setRoundBottomRight(40);
+        ((PanelRound) buttonMulai).setRoundBottomRight(40);        
+        
+        ((PanelRound) buttonPanduan).setRoundTopLeft(40);
+        ((PanelRound) buttonPanduan).setRoundTopRight(40);
+        ((PanelRound) buttonPanduan).setRoundBottomLeft(40);
+        ((PanelRound) buttonPanduan).setRoundBottomRight(40);
+
 
     }
 
@@ -50,6 +56,8 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         buttonMulai = new com.kelompok4.design.PanelRound();
         jLabel9 = new javax.swing.JLabel();
+        buttonPanduan = new com.kelompok4.design.PanelRound();
+        jLabel10 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,15 +75,17 @@ public class LandingPage extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Selamat Datang di Artha");
+        jLabel1.setText("<html>Selamat Datang di <b>Artha</b></html?");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("<html>Artha adalah aplikasi keuangan usaha yang dirancang untuk membantu pemilik usaha dalam mengelola keuangan  dengan lebih efisien dan terorganisir.  Dengan fitur-fitur yang komprehensif, Artha memberikan  solusi yang lengkap untuk kebutuhan keuangan bisnis Anda. </html>");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         buttonMulai.setBackground(new java.awt.Color(124, 195, 223));
+        buttonMulai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonMulai.setMaximumSize(new java.awt.Dimension(500, 500));
         buttonMulai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,16 +95,14 @@ public class LandingPage extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Masuk");
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Masuk ->  ");
 
         javax.swing.GroupLayout buttonMulaiLayout = new javax.swing.GroupLayout(buttonMulai);
         buttonMulai.setLayout(buttonMulaiLayout);
         buttonMulaiLayout.setHorizontalGroup(
             buttonMulaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonMulaiLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel9)
-                .addContainerGap(76, Short.MAX_VALUE))
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         buttonMulaiLayout.setVerticalGroup(
             buttonMulaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,33 +112,64 @@ public class LandingPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        buttonPanduan.setBackground(new java.awt.Color(124, 195, 223));
+        buttonPanduan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonPanduan.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonPanduan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonPanduanMouseClicked(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Panduan Pengguna");
+
+        javax.swing.GroupLayout buttonPanduanLayout = new javax.swing.GroupLayout(buttonPanduan);
+        buttonPanduan.setLayout(buttonPanduanLayout);
+        buttonPanduanLayout.setHorizontalGroup(
+            buttonPanduanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+        );
+        buttonPanduanLayout.setVerticalGroup(
+            buttonPanduanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonPanduanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
         panelContent.setLayout(panelContentLayout);
         panelContentLayout.setHorizontalGroup(
             panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContentLayout.createSequentialGroup()
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(34, 34, 34)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel1))
-                    .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(buttonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(743, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))
+                    .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
+                            .addComponent(buttonPanduan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(717, Short.MAX_VALUE))
         );
         panelContentLayout.setVerticalGroup(
             panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContentLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
-                .addComponent(buttonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addGap(112, 112, 112)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonMulai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPanduan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(345, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 600, 400));
@@ -148,6 +187,12 @@ public class LandingPage extends javax.swing.JFrame {
         LoginPage loginFrame = new LoginPage();
         loginFrame.setVisible(true);
     }//GEN-LAST:event_buttonMulaiMouseClicked
+
+    private void buttonPanduanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonPanduanMouseClicked
+        dispose();
+        PanduanPengguna panduanPenggunaFrame = new PanduanPengguna();
+        panduanPenggunaFrame.setVisible(true);
+    }//GEN-LAST:event_buttonPanduanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,7 +235,9 @@ public class LandingPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JPanel buttonMulai;
+    private javax.swing.JPanel buttonPanduan;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel panelContent;

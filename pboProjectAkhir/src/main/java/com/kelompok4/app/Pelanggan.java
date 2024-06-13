@@ -248,6 +248,7 @@ public class Pelanggan extends javax.swing.JFrame {
         contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 670, 260));
 
         ButtonTambah.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonTambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonTambahMouseClicked(evt);
@@ -263,6 +264,7 @@ public class Pelanggan extends javax.swing.JFrame {
         contentpanel.add(ButtonTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 200, 40));
 
         ButtonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonEditMouseClicked(evt);
@@ -278,6 +280,7 @@ public class Pelanggan extends javax.swing.JFrame {
         contentpanel.add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 210, 40));
 
         ButtonHapus.setBackground(new java.awt.Color(124, 195, 223));
+        ButtonHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ButtonHapus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ButtonHapusMouseClicked(evt);
@@ -295,6 +298,7 @@ public class Pelanggan extends javax.swing.JFrame {
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 770, 340));
 
         tombolpelanggan.setBackground(new java.awt.Color(124, 195, 223));
+        tombolpelanggan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tombolpelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tombolpelangganMouseClicked(evt);
@@ -311,6 +315,7 @@ public class Pelanggan extends javax.swing.JFrame {
         getContentPane().add(tombolpelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 230, -1));
 
         tombolsupplier.setBackground(new java.awt.Color(124, 195, 223));
+        tombolsupplier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tombolsupplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tombolsupplierMouseClicked(evt);
@@ -329,7 +334,7 @@ public class Pelanggan extends javax.swing.JFrame {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 480));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

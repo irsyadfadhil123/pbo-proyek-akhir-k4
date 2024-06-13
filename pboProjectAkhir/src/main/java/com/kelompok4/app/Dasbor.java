@@ -5,7 +5,14 @@
 package com.kelompok4.app;
 
 import com.kelompok4.design.PanelRound;
-import java.awt.Color;
+import com.kelompok4.pboprojectakhir.Database;
+
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 
@@ -21,16 +28,153 @@ public class Dasbor extends javax.swing.JFrame {
      * Creates new form landingPage
      */
     public Dasbor() {
+        Date today = new Date();
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);   
+        totalPembelian(today);
+        totalPenjualan(today);
+        totalUtang(today);
+        totalPiutang(today);
+        peringatanStok();
                 
-        ((PanelRound) contentpanel).setRoundTopLeft(40); // set round
+        ((PanelRound) contentpanel).setRoundTopLeft(40); 
         ((PanelRound) contentpanel).setRoundTopRight(40);
         ((PanelRound) contentpanel).setRoundBottomLeft(40);
         ((PanelRound) contentpanel).setRoundBottomRight(40);
-        ((PanelRound) contentpanel).setOpacity(0.7f); // set opacity
+        ((PanelRound) contentpanel).setOpacity(0.7f); 
+
+        ((PanelRound) buttonCari).setRoundTopLeft(40); 
+        ((PanelRound) buttonCari).setRoundTopRight(40);
+        ((PanelRound) buttonCari).setRoundBottomLeft(40);
+        ((PanelRound) buttonCari).setRoundBottomRight(40);
     }
+    
+    public Dasbor(Date tanggal) {
+        initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);   
+        totalPembelian(tanggal);
+        totalPenjualan(tanggal);
+        totalUtang(tanggal);
+        totalPiutang(tanggal);
+        peringatanStok();
+
+        ((PanelRound) contentpanel).setRoundTopLeft(40); 
+        ((PanelRound) contentpanel).setRoundTopRight(40);
+        ((PanelRound) contentpanel).setRoundBottomLeft(40);
+        ((PanelRound) contentpanel).setRoundBottomRight(40);
+        ((PanelRound) contentpanel).setOpacity(0.7f); 
+
+        ((PanelRound) buttonCari).setRoundTopLeft(40); 
+        ((PanelRound) buttonCari).setRoundTopRight(40);
+        ((PanelRound) buttonCari).setRoundBottomLeft(40);
+        ((PanelRound) buttonCari).setRoundBottomRight(40);
+
+    }
+
+    public void totalPembelian(java.util.Date tanggal) {
+        java.sql.Date sqlDate = new java.sql.Date(tanggal.getTime());
+
+        try (Connection conn = Database.getConnection()){
+            String sql = "SELECT SUM(uang_keluar) AS total_pembelian FROM pembelian WHERE tanggal = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setDate(1, sqlDate);
+            ResultSet resultSet = pst.executeQuery();
+
+            if (resultSet.next()) {
+                String total_pembelian = resultSet.getString("total_pembelian");
+                labelTotalPembelian.setText(total_pembelian != null ? total_pembelian : "0");
+            } else {
+                labelTotalPembelian.setText("0");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    }
+
+    public void totalPenjualan(java.util.Date tanggal) {
+        java.sql.Date sqlDate = new java.sql.Date(tanggal.getTime());
+
+        try (Connection conn = Database.getConnection()){
+            String sql = "SELECT SUM(uang_masuk) AS total_penjualan FROM penjualan WHERE tanggal = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setDate(1, sqlDate);
+            ResultSet resultSet = pst.executeQuery();
+
+            if (resultSet.next()) {
+                String total_penjualan = resultSet.getString("total_penjualan");
+                labelTotalPenjualan.setText(total_penjualan != null ? total_penjualan : "0");
+            } else {
+                labelTotalPenjualan.setText("0");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    }
+
+    public void totalUtang(java.util.Date tanggal) {
+        java.sql.Date sqlDate = new java.sql.Date(tanggal.getTime());
+
+        try (Connection conn = Database.getConnection()){
+            String sql = "SELECT SUM(jumlah) AS total_utang FROM utang WHERE tanggal = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setDate(1, sqlDate);
+            ResultSet resultSet = pst.executeQuery();
+
+            if (resultSet.next()) {
+                String total_utang = resultSet.getString("total_utang");
+                labelTotalUtang.setText(total_utang != null ? total_utang : "0");
+            } else {
+                labelTotalUtang.setText("0");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    }
+
+    public void totalPiutang(java.util.Date tanggal) {
+        java.sql.Date sqlDate = new java.sql.Date(tanggal.getTime());
+
+        try (Connection conn = Database.getConnection()){
+            String sql = "SELECT SUM(jumlah) AS total_piutang FROM piutang WHERE tanggal = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setDate(1, sqlDate);
+            ResultSet resultSet = pst.executeQuery();
+
+            if (resultSet.next()) {
+                String total_piutang = resultSet.getString("total_piutang");
+                labelTotalPiutang.setText(total_piutang != null ? total_piutang : "0");
+            } else {
+                labelTotalPiutang.setText("0");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    }
+
+    public void peringatanStok() {
+        try (Connection conn = Database.getConnection()){
+            String sql = "SELECT COUNT(*) AS total_data FROM stokbarang WHERE jumlah <= peringatan_minimum";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet resultSet = pst.executeQuery();
+
+            if (resultSet.next()) {
+                String total_data = resultSet.getString("total_data");
+                labelStok.setText(total_data != null ? "<html><b>" + total_data + "</b> Stok Barang Menipis" : "Stok Barang Aman</html>");
+            } else {
+                labelStok.setText("Stok Barang Aman");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +193,21 @@ public class Dasbor extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
+        jLabel2 = new javax.swing.JLabel();
+        labelTotalPiutang = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        labelTotalPembelian = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        labelTotalPenjualan = new javax.swing.JLabel();
+        labelTotalUtang = new javax.swing.JLabel();
+        inputTanggal = new com.toedter.calendar.JDateChooser();
+        buttonCari = new com.kelompok4.design.PanelRound();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        labelStok = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -158,6 +317,99 @@ public class Dasbor extends javax.swing.JFrame {
         contentpanel.setBackground(new java.awt.Color(255, 255, 255));
         contentpanel.setAlignmentX(0.0F);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Laporan Keuangan");
+        contentpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        labelTotalPiutang.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelTotalPiutang.setForeground(new java.awt.Color(0, 0, 0));
+        labelTotalPiutang.setText("totalPiutang");
+        contentpanel.add(labelTotalPiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Total Penjualan:");
+        contentpanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        labelTotalPembelian.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelTotalPembelian.setForeground(new java.awt.Color(0, 0, 0));
+        labelTotalPembelian.setText("totalPembelian");
+        contentpanel.add(labelTotalPembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Total Pembelian:");
+        contentpanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Utang:");
+        contentpanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Piutang:");
+        contentpanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Masukkan Tanggal Laporan Keuangan:");
+        contentpanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        labelTotalPenjualan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelTotalPenjualan.setForeground(new java.awt.Color(0, 0, 0));
+        labelTotalPenjualan.setText("totalPenjualan");
+        contentpanel.add(labelTotalPenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
+
+        labelTotalUtang.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelTotalUtang.setForeground(new java.awt.Color(0, 0, 0));
+        labelTotalUtang.setText("totalUtang");
+        contentpanel.add(labelTotalUtang, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
+        contentpanel.add(inputTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 312, 190, 30));
+
+        buttonCari.setBackground(new java.awt.Color(124, 195, 223));
+        buttonCari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonCari.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonCari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCariMouseClicked(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Cari");
+        jLabel11.setAlignmentX(0.5F);
+
+        javax.swing.GroupLayout buttonCariLayout = new javax.swing.GroupLayout(buttonCari);
+        buttonCari.setLayout(buttonCariLayout);
+        buttonCariLayout.setHorizontalGroup(
+            buttonCariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+        );
+        buttonCariLayout.setVerticalGroup(
+            buttonCariLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonCariLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addContainerGap())
+        );
+
+        contentpanel.add(buttonCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 120, 30));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Stok:");
+        contentpanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        labelStok.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelStok.setForeground(new java.awt.Color(0, 0, 0));
+        labelStok.setText("stok");
+        contentpanel.add(labelStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, -1, -1));
+
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 770, 370));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
@@ -198,11 +450,17 @@ public class Dasbor extends javax.swing.JFrame {
         stokFrame.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void buttonCariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCariMouseClicked
+        Date tanggal = inputTanggal.getDate();
+        dispose();
+        Dasbor dasborFrame = new Dasbor(tanggal);
+        dasborFrame.setVisible(true);
+    }//GEN-LAST:event_buttonCariMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        System.out.println("Memulai aplikasi...");
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -253,13 +511,28 @@ public class Dasbor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JPanel buttonCari;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JPanel header;
+    private com.toedter.calendar.JDateChooser inputTanggal;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel labelStok;
+    private javax.swing.JLabel labelTotalPembelian;
+    private javax.swing.JLabel labelTotalPenjualan;
+    private javax.swing.JLabel labelTotalPiutang;
+    private javax.swing.JLabel labelTotalUtang;
     // End of variables declaration//GEN-END:variables
 }

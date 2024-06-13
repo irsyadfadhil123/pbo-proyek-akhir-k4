@@ -24,6 +24,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
         cardLayout = (CardLayout) (cardPanel.getLayout());
         
         cardPanel.add(panelGuideMain, "Main");
+        cardPanel.add(panelGuideLogin1, "Login 1");
         cardPanel.add(panelGuideCatatanTransaksi1, "Catatan Transaksi 1");
         cardPanel.add(panelGuideCatatanTransaksi2, "Catatan Transaksi 2");
         cardPanel.add(panelGuideCatatanTransaksi3, "Catatan Transaksi 3");
@@ -35,6 +36,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
         cardPanel.add(panelGuideLaporanKeuangan1, "Laporan Keuangan 1");
         cardPanel.add(panelGuideTargetKeuangan1, "Target Keuangan 1");
         cardPanel.add(panelGuideProfil1, "Profil 1");
+        cardLayout.show(cardPanel, "Main");
         
         //Design
         ((PanelRound) cardPanel).setOpacity(0.0f);
@@ -80,8 +82,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         setRoundedCorners((PanelRound) buttonNextUP1, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextUP2, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextS1, 1.0f, 20);
-        setRoundedCorners((PanelRound) buttonNextD1, 1.0f, 20);
-        setRoundedCorners((PanelRound) buttonNextLK1, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextTK1, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextP1, 1.0f, 20);
 
@@ -93,7 +93,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
         
     }
 
-        private void setRoundedCorners(PanelRound panel, float opacity, int radius) {
+    private void setRoundedCorners(PanelRound panel, float opacity, int radius) {
         panel.setOpacity(opacity);
         panel.setRoundTopLeft(radius);
         panel.setRoundTopRight(radius);
@@ -139,15 +139,11 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         buttonBack7 = new com.kelompok4.design.PanelRound();
         jLabel45 = new javax.swing.JLabel();
-        buttonNextL1 = new com.kelompok4.design.PanelRound();
-        jLabel46 = new javax.swing.JLabel();
         panelGuideDasbor1 = new com.kelompok4.design.PanelRound();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         buttonBack8 = new com.kelompok4.design.PanelRound();
         jLabel49 = new javax.swing.JLabel();
-        buttonNextD1 = new com.kelompok4.design.PanelRound();
-        jLabel50 = new javax.swing.JLabel();
         panelGuideCatatanTransaksi1 = new com.kelompok4.design.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -206,8 +202,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         buttonBack9 = new com.kelompok4.design.PanelRound();
         jLabel53 = new javax.swing.JLabel();
-        buttonNextLK1 = new com.kelompok4.design.PanelRound();
-        jLabel54 = new javax.swing.JLabel();
         panelGuideTargetKeuangan1 = new com.kelompok4.design.PanelRound();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -254,7 +248,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("<");
         jLabel19.setAlignmentX(0.5F);
@@ -275,19 +268,16 @@ public class PanduanPengguna extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Panduan Pengguna");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Memulai");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Fitur");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -302,7 +292,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Login");
         jLabel11.setAlignmentX(0.5F);
@@ -333,7 +322,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Catatan Transaksi");
         jLabel12.setAlignmentX(0.5F);
@@ -364,7 +352,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Dasbor");
         jLabel13.setAlignmentX(0.5F);
@@ -395,7 +382,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Utang/Piutang");
         jLabel14.setAlignmentX(0.5F);
@@ -426,7 +412,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Stok");
         jLabel15.setAlignmentX(0.5F);
@@ -457,7 +442,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Laporan Keuangan");
         jLabel16.setAlignmentX(0.5F);
@@ -488,7 +472,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Target Keuangan");
         jLabel17.setAlignmentX(0.5F);
@@ -519,7 +502,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Profil");
         jLabel18.setAlignmentX(0.5F);
@@ -615,10 +597,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideLogin1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("<html>Login diperlukan untuk mengakses Aplikasi, gunakan email dan password yang terdaftar dan tekan tombol login. Gunakan email <b>admin</b> dan password <b>admin</b> jika pertama kali menggunakan aplikasi</html>");
 
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideLogin1.png"))); // NOI18N
         jLabel44.setText("jLabel5");
 
         buttonBack7.setBackground(new java.awt.Color(124, 195, 223));
@@ -631,7 +612,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel45.setText("<");
         jLabel45.setAlignmentX(0.5F);
@@ -651,36 +631,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        buttonNextL1.setBackground(new java.awt.Color(124, 195, 223));
-        buttonNextL1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNextL1.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonNextL1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNextL1MouseClicked(evt);
-            }
-        });
-
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel46.setText("->");
-        jLabel46.setAlignmentX(0.5F);
-
-        javax.swing.GroupLayout buttonNextL1Layout = new javax.swing.GroupLayout(buttonNextL1);
-        buttonNextL1.setLayout(buttonNextL1Layout);
-        buttonNextL1Layout.setHorizontalGroup(
-            buttonNextL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextL1Layout.createSequentialGroup()
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonNextL1Layout.setVerticalGroup(
-            buttonNextL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextL1Layout.createSequentialGroup()
-                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panelGuideLogin1Layout = new javax.swing.GroupLayout(panelGuideLogin1);
         panelGuideLogin1.setLayout(panelGuideLogin1Layout);
         panelGuideLogin1Layout.setHorizontalGroup(
@@ -692,9 +642,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLogin1Layout.createSequentialGroup()
                         .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNextL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(53, 53, 53))
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -706,10 +654,8 @@ public class PanduanPengguna extends javax.swing.JFrame {
                     .addComponent(jLabel44)
                     .addComponent(buttonBack7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelGuideLogin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonNextL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         cardPanel.add(panelGuideLogin1, "card3");
@@ -717,10 +663,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideDasbor1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("<html>Dasbor memiliki fungsi untuk menampilkan target keuangan dan laporan keuangan. Pilih periode waktu untuk target keuangan dan laporan keuangan yang sudah dibuat. </html>");
 
-        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideLaporanKeuangan.png"))); // NOI18N
         jLabel48.setText("jLabel5");
 
         buttonBack8.setBackground(new java.awt.Color(124, 195, 223));
@@ -733,7 +678,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel49.setText("<");
         jLabel49.setAlignmentX(0.5F);
@@ -753,36 +697,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        buttonNextD1.setBackground(new java.awt.Color(124, 195, 223));
-        buttonNextD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNextD1.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonNextD1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNextD1MouseClicked(evt);
-            }
-        });
-
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel50.setText("->");
-        jLabel50.setAlignmentX(0.5F);
-
-        javax.swing.GroupLayout buttonNextD1Layout = new javax.swing.GroupLayout(buttonNextD1);
-        buttonNextD1.setLayout(buttonNextD1Layout);
-        buttonNextD1Layout.setHorizontalGroup(
-            buttonNextD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextD1Layout.createSequentialGroup()
-                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonNextD1Layout.setVerticalGroup(
-            buttonNextD1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextD1Layout.createSequentialGroup()
-                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panelGuideDasbor1Layout = new javax.swing.GroupLayout(panelGuideDasbor1);
         panelGuideDasbor1.setLayout(panelGuideDasbor1Layout);
         panelGuideDasbor1Layout.setHorizontalGroup(
@@ -794,9 +708,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideDasbor1Layout.createSequentialGroup()
                         .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNextD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(53, 53, 53))
                     .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -808,10 +720,8 @@ public class PanduanPengguna extends javax.swing.JFrame {
                     .addComponent(jLabel48)
                     .addComponent(buttonBack8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelGuideDasbor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonNextD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         cardPanel.add(panelGuideDasbor1, "card3");
@@ -819,10 +729,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideCatatanTransaksi1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("<html>Catatan Transaksi menampilkan sebuah tabel yang berisi Catatan Penjualan dan Pembelian. Catatan yang ditampilkan sudah diurutkan sesuai dengan tanggal terbaru Catatan tersebut ditambahkan.</html>");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideCatatanTransaksi2.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideCatatanTransaksi1.png"))); // NOI18N
         jLabel7.setText("jLabel5");
 
         buttonBack0.setBackground(new java.awt.Color(124, 195, 223));
@@ -835,7 +744,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("<");
         jLabel23.setAlignmentX(0.5F);
@@ -865,7 +773,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("->");
         jLabel24.setAlignmentX(0.5F);
@@ -913,7 +820,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideCatatanTransaksi1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(buttonNextCT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         cardPanel.add(panelGuideCatatanTransaksi1, "card3");
@@ -921,7 +828,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideCatatanTransaksi2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("<html>Menekan tombol di Catatan Transaksi akan menampilkan Catatan Pembelian/Penjualan secara lengkap. Serta terdapat opsi untuk menambah, mengedit, dan menghapus Catatan Pembelian/Penjualan.</html>");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideCatatanTransaksi2.png"))); // NOI18N
@@ -937,7 +843,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("<");
         jLabel20.setAlignmentX(0.5F);
@@ -967,7 +872,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("->");
         jLabel21.setAlignmentX(0.5F);
@@ -997,7 +901,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("<-");
         jLabel22.setAlignmentX(0.5F);
@@ -1056,7 +959,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideCatatanTransaksi3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("<html>Menambah/mengedit Catatan Pembelian/Penjualan akan mengeluarkan jendela untuk mengisi data yang diperlukan.</html>");
 
@@ -1073,7 +975,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("<");
         jLabel25.setAlignmentX(0.5F);
@@ -1103,7 +1004,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("<-");
         jLabel27.setAlignmentX(0.5F);
@@ -1159,10 +1059,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideUtangPiutang1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("<html>Utang/Piutang menampilkan tabel yang berisi data Utang dan Piutang yang diurutkan berdasarkan tanggal terbaru. Menekan tombol Utang/Piutang akan menampilkan data Utang/Piutang secara spesifik.</html>");
 
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideCatatanTransaksi2.png"))); // NOI18N
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideUtangPiutang1.png"))); // NOI18N
         jLabel32.setText("jLabel5");
 
         buttonBack3.setBackground(new java.awt.Color(124, 195, 223));
@@ -1175,7 +1074,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setText("<");
         jLabel33.setAlignmentX(0.5F);
@@ -1205,7 +1103,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel34.setText("->");
         jLabel34.setAlignmentX(0.5F);
@@ -1253,7 +1150,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideUtangPiutang1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(buttonNextUP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         cardPanel.add(panelGuideUtangPiutang1, "card3");
@@ -1261,7 +1158,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideUtangPiutang2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("<html>Setelah menekan tombol Utang/Piutang terdapat tombol untuk tambah, edit, dan hapus Utang/Piutang. Pilih data yang ingin dihapus/diedit pada tabel lalu tekan tombol Edit/Hapus.</html>");
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideUtangPiutang2.png"))); // NOI18N
@@ -1277,7 +1173,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("<");
         jLabel28.setAlignmentX(0.5F);
@@ -1307,7 +1202,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("->");
         jLabel29.setAlignmentX(0.5F);
@@ -1337,7 +1231,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("<-");
         jLabel30.setAlignmentX(0.5F);
@@ -1396,7 +1289,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideUtangPiutang3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
         jLabel36.setText("<html>Menambah atau Mengedit Utang/Piutang akan menampilkan jendela untuk mengisi data, masukkan data sesuai yang diinginkan.</html>");
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideUtangPiutang3.png"))); // NOI18N
@@ -1412,7 +1304,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel38.setText("<");
         jLabel38.setAlignmentX(0.5F);
@@ -1442,7 +1333,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setText("<-");
         jLabel40.setAlignmentX(0.5F);
@@ -1498,7 +1388,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideStok1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("<html>Stok barang menampilkan sebuah tabel yang berisi data Stok barang yang ditambahkan. Serta opsi untuk menambah, mengedit, dan menghapus Stok barang</html>");
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
@@ -1514,7 +1403,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel41.setText("<");
         jLabel41.setAlignmentX(0.5F);
@@ -1544,7 +1432,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel42.setText("->");
         jLabel42.setAlignmentX(0.5F);
@@ -1600,10 +1487,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideLaporanKeuangan1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel51.setForeground(new java.awt.Color(0, 0, 0));
         jLabel51.setText("<html>Laporan Keuangan akan menampilkan informasi seputar keuangan sesuai tanggal yang diinginkan. </html>");
 
-        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideLaporanKeuangan.png"))); // NOI18N
         jLabel52.setText("jLabel5");
 
         buttonBack9.setBackground(new java.awt.Color(124, 195, 223));
@@ -1616,7 +1502,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(0, 0, 0));
         jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel53.setText("<");
         jLabel53.setAlignmentX(0.5F);
@@ -1636,36 +1521,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        buttonNextLK1.setBackground(new java.awt.Color(124, 195, 223));
-        buttonNextLK1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNextLK1.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonNextLK1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNextLK1MouseClicked(evt);
-            }
-        });
-
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel54.setText("->");
-        jLabel54.setAlignmentX(0.5F);
-
-        javax.swing.GroupLayout buttonNextLK1Layout = new javax.swing.GroupLayout(buttonNextLK1);
-        buttonNextLK1.setLayout(buttonNextLK1Layout);
-        buttonNextLK1Layout.setHorizontalGroup(
-            buttonNextLK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextLK1Layout.createSequentialGroup()
-                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonNextLK1Layout.setVerticalGroup(
-            buttonNextLK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextLK1Layout.createSequentialGroup()
-                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panelGuideLaporanKeuangan1Layout = new javax.swing.GroupLayout(panelGuideLaporanKeuangan1);
         panelGuideLaporanKeuangan1.setLayout(panelGuideLaporanKeuangan1Layout);
         panelGuideLaporanKeuangan1Layout.setHorizontalGroup(
@@ -1677,9 +1532,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLaporanKeuangan1Layout.createSequentialGroup()
                         .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNextLK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(53, 53, 53))
                     .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -1691,10 +1544,8 @@ public class PanduanPengguna extends javax.swing.JFrame {
                     .addComponent(jLabel52)
                     .addComponent(buttonBack9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelGuideLaporanKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonNextLK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         cardPanel.add(panelGuideLaporanKeuangan1, "card3");
@@ -1702,7 +1553,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideTargetKeuangan1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("<html>Target Keuangan melacak penghasilan/pengeluaran dalam bisnis pada periode yang diinginkan.</html>");
 
         jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
@@ -1718,7 +1568,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel57.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel57.setForeground(new java.awt.Color(0, 0, 0));
         jLabel57.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel57.setText("<");
         jLabel57.setAlignmentX(0.5F);
@@ -1748,7 +1597,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel58.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel58.setText("->");
         jLabel58.setAlignmentX(0.5F);
@@ -1804,7 +1652,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         panelGuideProfil1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel59.setForeground(new java.awt.Color(0, 0, 0));
         jLabel59.setText("<html>Profil menampilkan informasi pengguna serta opsi untuk mengedit informasi tersebut.</html>");
 
         jLabel60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panduan/imageGuideStok1.png"))); // NOI18N
@@ -1820,7 +1667,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel61.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
         jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel61.setText("<");
         jLabel61.setAlignmentX(0.5F);
@@ -1850,7 +1696,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         });
 
         jLabel62.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel62.setForeground(new java.awt.Color(0, 0, 0));
         jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel62.setText("->");
         jLabel62.setAlignmentX(0.5F);
@@ -1914,7 +1759,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonGuideLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideLoginMouseClicked
-        System.out.println("login");
+        cardLayout.show(cardPanel, "Login 1");
     }//GEN-LAST:event_buttonGuideLoginMouseClicked
 
     private void buttonGuideCatatanTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGuideCatatanTransaksiMouseClicked
@@ -2018,25 +1863,13 @@ public class PanduanPengguna extends javax.swing.JFrame {
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack7MouseClicked
 
-    private void buttonNextL1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextL1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNextL1MouseClicked
-
     private void buttonBack8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack8MouseClicked
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack8MouseClicked
 
-    private void buttonNextD1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextD1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNextD1MouseClicked
-
     private void buttonBack9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack9MouseClicked
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack9MouseClicked
-
-    private void buttonNextLK1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextLK1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNextLK1MouseClicked
 
     private void buttonBack10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack10MouseClicked
         cardLayout.show(cardPanel, "Main");        
@@ -2119,9 +1952,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JPanel buttonGuideUtangPiutang;
     private javax.swing.JPanel buttonNextCT1;
     private javax.swing.JPanel buttonNextCT2;
-    private javax.swing.JPanel buttonNextD1;
-    private javax.swing.JPanel buttonNextL1;
-    private javax.swing.JPanel buttonNextLK1;
     private javax.swing.JPanel buttonNextP1;
     private javax.swing.JPanel buttonNextS1;
     private javax.swing.JPanel buttonNextTK1;
@@ -2172,16 +2002,13 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;

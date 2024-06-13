@@ -32,7 +32,6 @@ public class EditPiutang extends javax.swing.JFrame {
         setTitle("Artha: Aplikasi Keuangan Bisnis");
         initComponents();
         dataSupplier();
-        setImageToLabel();
         setLocationRelativeTo(null);
         setResizable(false);
         
@@ -46,6 +45,11 @@ public class EditPiutang extends javax.swing.JFrame {
         ((PanelRound) buttonEdit).setRoundTopRight(40);
         ((PanelRound) buttonEdit).setRoundBottomLeft(40);
         ((PanelRound) buttonEdit).setRoundBottomRight(40);
+        
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
     }
     
         public EditPiutang(int id_piutang) {
@@ -54,7 +58,6 @@ public class EditPiutang extends javax.swing.JFrame {
         initComponents();
         dataSupplier();
         dataUtang(id_piutang);
-        setImageToLabel();
         setLocationRelativeTo(null);
         setResizable(false);
         
@@ -68,6 +71,11 @@ public class EditPiutang extends javax.swing.JFrame {
         ((PanelRound) buttonEdit).setRoundTopRight(40);
         ((PanelRound) buttonEdit).setRoundBottomLeft(40);
         ((PanelRound) buttonEdit).setRoundBottomRight(40);
+        
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
 
     }
     
@@ -130,17 +138,6 @@ public class EditPiutang extends javax.swing.JFrame {
         }        
     }
     
-    private void setImageToLabel() {
-        String imagePath = "/back_icon.png";
-        
-        ImageIcon originalIcon = new ImageIcon(getClass().getResource(imagePath));
-        Image image = originalIcon.getImage();
-        Image resizedImage = image.getScaledInstance(labelBack.getWidth(), labelBack.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon resizedIcon = new ImageIcon(resizedImage);
-        
-        labelBack.setIcon(resizedIcon);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,14 +152,16 @@ public class EditPiutang extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         inputJumlahPiutang = new javax.swing.JTextField();
         inputCatatan = new javax.swing.JTextField();
         inputNamaPelanggan = new javax.swing.JComboBox<>();
-        labelBack = new javax.swing.JLabel();
         inputTanggal = new com.toedter.calendar.JDateChooser();
         buttonEdit = new com.kelompok4.design.PanelRound();
         jLabel9 = new javax.swing.JLabel();
+        backbutton = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        buttonBack = new com.kelompok4.design.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         toDasborButton = new javax.swing.JButton();
@@ -179,33 +178,36 @@ public class EditPiutang extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nama Pelanggan:");
+        panelContent.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 113, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setLabelFor(inputTanggal);
         jLabel3.setText("Tanggal:");
+        panelContent.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 70, 75, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Jumlah Piutang:");
+        panelContent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 156, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Catatan:");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Tambah Piutang");
+        panelContent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 199, 129, -1));
 
         inputJumlahPiutang.setBackground(new java.awt.Color(255, 255, 255));
         inputJumlahPiutang.setForeground(new java.awt.Color(0, 0, 0));
+        panelContent.add(inputJumlahPiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 156, 447, 25));
 
         inputCatatan.setBackground(new java.awt.Color(255, 255, 255));
         inputCatatan.setForeground(new java.awt.Color(0, 0, 0));
+        panelContent.add(inputCatatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 199, 447, 25));
 
         inputNamaPelanggan.setBackground(new java.awt.Color(255, 255, 255));
         inputNamaPelanggan.setForeground(new java.awt.Color(0, 0, 0));
@@ -215,17 +217,13 @@ public class EditPiutang extends javax.swing.JFrame {
                 inputNamaPelangganActionPerformed(evt);
             }
         });
-
-        labelBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        labelBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelBackMouseClicked(evt);
-            }
-        });
+        panelContent.add(inputNamaPelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 113, 447, 25));
 
         inputTanggal.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.add(inputTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 70, 447, -1));
 
         buttonEdit.setBackground(new java.awt.Color(124, 195, 223));
+        buttonEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonEdit.setMaximumSize(new java.awt.Dimension(500, 500));
         buttonEdit.setPreferredSize(new java.awt.Dimension(210, 38));
         buttonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -255,69 +253,58 @@ public class EditPiutang extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
-        panelContent.setLayout(panelContentLayout);
-        panelContentLayout.setHorizontalGroup(
-            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContentLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(labelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panelContentLayout.createSequentialGroup()
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(panelContentLayout.createSequentialGroup()
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(61, 61, 61))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContentLayout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(inputJumlahPiutang, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-                                .addComponent(inputCatatan, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)))
-                        .addGroup(panelContentLayout.createSequentialGroup()
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2))
-                            .addGap(45, 45, 45)
-                            .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(inputNamaPelanggan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(262, 262, 262))
+        panelContent.add(buttonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 311, -1, -1));
+
+        backbutton.setBackground(new java.awt.Color(255, 255, 255));
+        backbutton.setOpaque(false);
+        backbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backbuttonMouseClicked(evt);
+            }
+        });
+        backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setText("Edit Piutang");
+        backbutton.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 20));
+
+        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBackMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("<");
+        jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
+        buttonBack.setLayout(buttonBackLayout);
+        buttonBackLayout.setHorizontalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
         );
-        panelContentLayout.setVerticalGroup(
-            panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContentLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(inputTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(inputNamaPelanggan)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(inputJumlahPiutang, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(inputCatatan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+        buttonBackLayout.setVerticalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        backbutton.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        panelContent.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 50));
 
         getContentPane().add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 740, 380));
 
@@ -502,12 +489,6 @@ public class EditPiutang extends javax.swing.JFrame {
     private void inputNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamaPelangganActionPerformed
     }//GEN-LAST:event_inputNamaPelangganActionPerformed
 
-    private void labelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBackMouseClicked
-        dispose();
-        Piutang piutangFrame = new Piutang();
-        piutangFrame.setVisible(true);
-    }//GEN-LAST:event_labelBackMouseClicked
-
     private void buttonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEditMouseClicked
         String tanggal = null;
         if (inputTanggal.getDate() != null) {
@@ -613,6 +594,20 @@ public class EditPiutang extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());            
         }
     }//GEN-LAST:event_buttonEditMouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
+        dispose();
+        Piutang piutangFrame = new Piutang();
+        piutangFrame.setVisible(true);
+    }//GEN-LAST:event_buttonBackMouseClicked
+
+    private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
+
+    }//GEN-LAST:event_backbuttonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -779,20 +774,22 @@ public class EditPiutang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JPanel backbutton;
+    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel buttonEdit;
     private javax.swing.JTextField inputCatatan;
     private javax.swing.JTextField inputJumlahPiutang;
     private javax.swing.JComboBox<String> inputNamaPelanggan;
     private com.toedter.calendar.JDateChooser inputTanggal;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel labelBack;
     private javax.swing.JPanel panelContent;
     private javax.swing.JButton toCatatanTransaksiButton;
     private javax.swing.JButton toDasborButton;

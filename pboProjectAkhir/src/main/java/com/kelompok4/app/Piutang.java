@@ -34,7 +34,6 @@ public class Piutang extends javax.swing.JFrame {
      * Creates new form landingPage
      */
     
-    
     public Piutang() {
         initComponents();
         setLocationRelativeTo(null);
@@ -62,7 +61,13 @@ public class Piutang extends javax.swing.JFrame {
         ((PanelRound) ButtonEdit).setRoundTopLeft(40);
         ((PanelRound) ButtonEdit).setRoundTopRight(40);
         ((PanelRound) ButtonEdit).setRoundBottomLeft(40);
-        ((PanelRound) ButtonEdit).setRoundBottomRight(40);
+        ((PanelRound) ButtonEdit).setRoundBottomRight(40);        
+        
+        ((PanelRound) buttonBack).setRoundTopLeft(40);
+        ((PanelRound) buttonBack).setRoundTopRight(40);
+        ((PanelRound) buttonBack).setRoundBottomLeft(40);
+        ((PanelRound) buttonBack).setRoundBottomRight(40);
+
         
     }
     
@@ -122,7 +127,6 @@ private void show_table() {
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
         backbutton = new javax.swing.JPanel();
-        logobuttonback = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelPiutang = new javax.swing.JTable();
@@ -132,6 +136,8 @@ private void show_table() {
         jLabel4 = new javax.swing.JLabel();
         ButtonEdit = new com.kelompok4.design.PanelRound();
         jLabel5 = new javax.swing.JLabel();
+        buttonBack = new com.kelompok4.design.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -240,6 +246,7 @@ private void show_table() {
 
         contentpanel.setBackground(new java.awt.Color(255, 255, 255));
         contentpanel.setAlignmentX(0.0F);
+        contentpanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         contentpanel.setRequestFocusEnabled(false);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -252,19 +259,11 @@ private void show_table() {
         });
         backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logobuttonback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back_icon.png"))); // NOI18N
-        logobuttonback.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logobuttonbackMouseClicked(evt);
-            }
-        });
-        backbutton.add(logobuttonback, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 20, 20));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Catatan Utang/Piutang");
-        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 160, 20));
+        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 210, 20));
 
-        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 220, 30));
+        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 230, 30));
 
         TabelPiutang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -333,6 +332,42 @@ private void show_table() {
         ButtonEdit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 210, -1));
 
         contentpanel.add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 210, 40));
+
+        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
+        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
+        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonBackMouseClicked(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("<");
+        jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
+        buttonBack.setLayout(buttonBackLayout);
+        buttonBackLayout.setHorizontalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+        );
+        buttonBackLayout.setVerticalGroup(
+            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonBackLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        contentpanel.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 770, 380));
 
@@ -432,9 +467,15 @@ private void show_table() {
         }
     }//GEN-LAST:event_ButtonHapusMouseClicked
 
-    private void logobuttonbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logobuttonbackMouseClicked
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_logobuttonbackMouseClicked
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
+        dispose();
+        UtangPiutang utangPiutangFrame = new UtangPiutang();
+        utangPiutangFrame.setVisible(true);
+    }//GEN-LAST:event_buttonBackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -513,6 +554,7 @@ private void show_table() {
     private javax.swing.JPanel ButtonTambah;
     private javax.swing.JTable TabelPiutang;
     private javax.swing.JPanel backbutton;
+    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -520,12 +562,12 @@ private void show_table() {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel logobuttonback;
     // End of variables declaration//GEN-END:variables
 }

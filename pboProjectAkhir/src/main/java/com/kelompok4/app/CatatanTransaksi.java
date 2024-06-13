@@ -7,6 +7,7 @@ package com.kelompok4.app;
 import com.kelompok4.design.PanelRound;
 import com.kelompok4.pboprojectakhir.Database;
 import java.awt.Color;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,9 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -24,9 +27,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Irsyad Fadhil
  */
 public class CatatanTransaksi extends javax.swing.JFrame {
-    
-    
-    
+        
     /**
      * Creates new form landingPage
      */
@@ -37,6 +38,8 @@ public class CatatanTransaksi extends javax.swing.JFrame {
         Database db = new Database();
         con = Database.getConnection();
         show_table();
+        
+        TabelTransaksi.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
         
         ((PanelRound) tmblcttjual).setRoundTopLeft(40); //set round
         ((PanelRound) tmblcttjual).setRoundTopRight(40);
@@ -61,43 +64,63 @@ public class CatatanTransaksi extends javax.swing.JFrame {
     private PreparedStatement pst2;
     private ResultSet rs;
     
-private void show_table() {
-    int CC;
+    private void show_table() {
+        int CC;
 
-    try {
-        String sql = "SELECT 'penjualan' AS tipe, p.tanggal, sb.nama_barang COLLATE utf8mb4_general_ci AS nama_barang, " +
-                     "p.jumlah_barang, p.uang_masuk, p.catatan " +
-                     "FROM penjualan p " +
-                     "JOIN stokbarang sb ON p.id_barang = sb.id_barang " +
-                     "UNION " +
-                     "SELECT 'pembelian' AS tipe, b.tanggal, sb.nama_barang COLLATE utf8mb4_general_ci AS nama_barang, " +
-                     "b.jumlah_barang, b.uang_keluar, b.catatan " +
-                     "FROM pembelian b " +
-                     "JOIN stokbarang sb ON b.id_barang = sb.id_barang " +
-                     "ORDER BY tanggal DESC";
-        pst = con.prepareStatement(sql);
-        rs = pst.executeQuery();
-        ResultSetMetaData RSMD = rs.getMetaData();
-        CC = RSMD.getColumnCount();
+        try {
+            String sql = "SELECT 'penjualan' AS tipe, p.tanggal, sb.nama_barang COLLATE utf8mb4_general_ci AS nama_barang, " +
+                         "p.jumlah_barang, p.uang_masuk, p.catatan " +
+                         "FROM penjualan p " +
+                         "JOIN stokbarang sb ON p.id_barang = sb.id_barang " +
+                         "UNION " +
+                         "SELECT 'pembelian' AS tipe, b.tanggal, sb.nama_barang COLLATE utf8mb4_general_ci AS nama_barang, " +
+                         "b.jumlah_barang, b.uang_keluar, b.catatan " +
+                         "FROM pembelian b " +
+                         "JOIN stokbarang sb ON b.id_barang = sb.id_barang " +
+                         "ORDER BY tanggal DESC";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            ResultSetMetaData RSMD = rs.getMetaData();
+            CC = RSMD.getColumnCount();
 
-        DefaultTableModel DFT = (DefaultTableModel) TabelTransaksi.getModel();
+            DefaultTableModel DFT = (DefaultTableModel) TabelTransaksi.getModel();
 
-        DFT.setRowCount(0);
+            DFT.setRowCount(0);
 
-        while (rs.next()) {
-            Vector v2 = new Vector();
+            while (rs.next()) {
+                Vector v2 = new Vector();
 
-            for (int i = 1; i <= CC; i++) {
-                v2.add(rs.getString(i));
+                for (int i = 1; i <= CC; i++) {
+                    v2.add(rs.getString(i));
+                }
+
+                DFT.addRow(v2);
             }
-
-            DFT.addRow(v2);
+        } catch (SQLException ex) {
+            Logger.getLogger(CatatanTransaksi.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(CatatanTransaksi.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    public class CustomTableCellRenderer extends DefaultTableCellRenderer {
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        
+        // Mendapatkan nilai kolom "tipe" dari model
+        String tipe = (String) table.getModel().getValueAt(row, 0);
+
+        if (tipe.equals("pembelian")) {
+            c.setBackground(Color.LIGHT_GRAY);
+        } else if (tipe.equals("penjualan")) {
+            c.setBackground(Color.WHITE);
+        } else {
+            c.setBackground(Color.WHITE); // Default color
+        }
+
+        return c;
     }
 }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -257,6 +280,7 @@ private void show_table() {
         contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 670, 280));
 
         tmblcttjual.setBackground(new java.awt.Color(124, 195, 223));
+        tmblcttjual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tmblcttjual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tmblcttjualMouseClicked(evt);
@@ -273,6 +297,7 @@ private void show_table() {
         contentpanel.add(tmblcttjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 230, 40));
 
         tmblcttbeli.setBackground(new java.awt.Color(124, 195, 223));
+        tmblcttbeli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tmblcttbeli.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tmblcttbeliMouseClicked(evt);

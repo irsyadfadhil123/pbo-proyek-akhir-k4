@@ -7,6 +7,7 @@ package com.kelompok4.app;
 import com.kelompok4.design.PanelRound;
 import com.kelompok4.pboprojectakhir.Database;
 import java.awt.Color;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,9 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -24,9 +27,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Irsyad Fadhil
  */
 public class UtangPiutang extends javax.swing.JFrame {
-    
-    
-    
+        
     /**
      * Creates new form landingPage
      */
@@ -37,6 +38,9 @@ public class UtangPiutang extends javax.swing.JFrame {
         Database db = new Database();
         con = Database.getConnection();
         show_table();
+        
+        TabelUtangPiutang.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
+
         
         ((PanelRound) tmblutang).setRoundTopLeft(40); //set round
         ((PanelRound) tmblutang).setRoundTopRight(40);
@@ -95,6 +99,25 @@ private void show_table() {
     }
 }
 
+    public class CustomTableCellRenderer extends DefaultTableCellRenderer {
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        
+        String tipe = (String) table.getModel().getValueAt(row, 0);
+
+        if (tipe.equals("utang")) {
+            c.setBackground(Color.LIGHT_GRAY);
+        } else if (tipe.equals("piutang")) {
+            c.setBackground(Color.WHITE);
+        } else {
+            c.setBackground(Color.WHITE); 
+        }
+
+        return c;
+    }
+}
 
     
     /**
@@ -254,6 +277,7 @@ private void show_table() {
         contentpanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 670, 280));
 
         tmblutang.setBackground(new java.awt.Color(124, 195, 223));
+        tmblutang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tmblutang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tmblutangMouseClicked(evt);
@@ -270,6 +294,7 @@ private void show_table() {
         contentpanel.add(tmblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 230, 40));
 
         tmblpiutang.setBackground(new java.awt.Color(124, 195, 223));
+        tmblpiutang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tmblpiutang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tmblpiutangMouseClicked(evt);
