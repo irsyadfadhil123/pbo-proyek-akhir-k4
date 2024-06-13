@@ -164,8 +164,8 @@ public class Dasbor extends javax.swing.JFrame {
             ResultSet resultSet = pst.executeQuery();
 
             if (resultSet.next()) {
-                String total_data = resultSet.getString("total_data");
-                labelStok.setText(total_data != null ? "<html><b>" + total_data + "</b> Stok Barang Menipis" : "Stok Barang Aman</html>");
+                int total_data = resultSet.getInt("total_data");
+                labelStok.setText(total_data == 0 ? "<html><b>" + total_data + "</b> Stok Barang Menipis" : "Stok Barang Aman</html>");
             } else {
                 labelStok.setText("Stok Barang Aman");
             }
@@ -415,7 +415,7 @@ public class Dasbor extends javax.swing.JFrame {
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
         Background.setMaximumSize(new java.awt.Dimension(1920, 1080));
         Background.setName(""); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, -1));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

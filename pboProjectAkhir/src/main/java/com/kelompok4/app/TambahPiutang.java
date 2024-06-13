@@ -510,7 +510,9 @@ public class TambahPiutang extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTambahMouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        // TODO add your handling code here:
+        dispose();
+        Piutang piutangFrame = new Piutang();
+        piutangFrame.setVisible(true);
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked

@@ -129,7 +129,6 @@ private void show_table() {
         jLabel4 = new javax.swing.JLabel();
         ButtonEdit = new com.kelompok4.design.PanelRound();
         jLabel5 = new javax.swing.JLabel();
-        backbutton = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         buttonBack = new com.kelompok4.design.PanelRound();
         jLabel19 = new javax.swing.JLabel();
@@ -316,18 +315,9 @@ private void show_table() {
 
         contentpanel.add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 210, 40));
 
-        backbutton.setBackground(new java.awt.Color(255, 255, 255));
-        backbutton.setOpaque(false);
-        backbutton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backbuttonMouseClicked(evt);
-            }
-        });
-        backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Catatan Penjualan");
-        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 170, 20));
+        contentpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 170, 20));
 
         buttonBack.setBackground(new java.awt.Color(124, 195, 223));
         buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -337,6 +327,7 @@ private void show_table() {
                 buttonBackMouseClicked(evt);
             }
         });
+        buttonBack.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -347,25 +338,9 @@ private void show_table() {
                 jLabel19MouseClicked(evt);
             }
         });
+        buttonBack.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 31, 29));
 
-        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
-        buttonBack.setLayout(buttonBackLayout);
-        buttonBackLayout.setHorizontalGroup(
-            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonBackLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonBackLayout.setVerticalGroup(
-            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonBackLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        backbutton.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 30));
+        contentpanel.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 770, 380));
 
@@ -461,7 +436,9 @@ private void show_table() {
     }//GEN-LAST:event_ButtonHapusMouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
+        catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
@@ -469,9 +446,6 @@ private void show_table() {
         CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
         catatantransaksiFrame.setVisible(true);
     }//GEN-LAST:event_buttonBackMouseClicked
-
-    private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
-    }//GEN-LAST:event_backbuttonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -525,7 +499,6 @@ private void show_table() {
     private javax.swing.JPanel ButtonHapus;
     private javax.swing.JPanel ButtonTambah;
     private javax.swing.JTable TabelPenjualan;
-    private javax.swing.JPanel backbutton;
     private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JButton jButton5;

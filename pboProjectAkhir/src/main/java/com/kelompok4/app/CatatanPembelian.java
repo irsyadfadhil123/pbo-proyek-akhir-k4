@@ -123,7 +123,6 @@ public class CatatanPembelian extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         contentpanel = new com.kelompok4.design.PanelRound();
-        backbutton = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         buttonBack = new com.kelompok4.design.PanelRound();
         jLabel19 = new javax.swing.JLabel();
@@ -246,18 +245,9 @@ public class CatatanPembelian extends javax.swing.JFrame {
         contentpanel.setRequestFocusEnabled(false);
         contentpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backbutton.setBackground(new java.awt.Color(255, 255, 255));
-        backbutton.setOpaque(false);
-        backbutton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backbuttonMouseClicked(evt);
-            }
-        });
-        backbutton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Catatan Pembelian");
-        backbutton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 170, 20));
+        contentpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 170, 20));
 
         buttonBack.setBackground(new java.awt.Color(124, 195, 223));
         buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -293,9 +283,7 @@ public class CatatanPembelian extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        backbutton.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        contentpanel.add(backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 30));
+        contentpanel.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         TabelPembelian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -408,12 +396,6 @@ public class CatatanPembelian extends javax.swing.JFrame {
         dasborFrame.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void backbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonMouseClicked
-        dispose();
-        CatatanTransaksi catatantransaksiFrame = new CatatanTransaksi();
-        catatantransaksiFrame.setVisible(true);
-    }//GEN-LAST:event_backbuttonMouseClicked
-
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
         dispose();
         TambahCatatanPembelian tambahCatatanPembelianFrame = new TambahCatatanPembelian();
@@ -474,7 +456,9 @@ public class CatatanPembelian extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonBackMouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        // TODO add your handling code here:
+        dispose();
+        CatatanTransaksi catatanTransaksiFrame = new CatatanTransaksi();
+        catatanTransaksiFrame.setVisible(true);
     }//GEN-LAST:event_jLabel19MouseClicked
 
     /**
@@ -537,7 +521,6 @@ public class CatatanPembelian extends javax.swing.JFrame {
     private javax.swing.JPanel ButtonHapus;
     private javax.swing.JPanel ButtonTambah;
     private javax.swing.JTable TabelPembelian;
-    private javax.swing.JPanel backbutton;
     private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JButton jButton5;

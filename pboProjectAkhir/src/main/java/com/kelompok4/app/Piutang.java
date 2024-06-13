@@ -468,7 +468,9 @@ private void show_table() {
     }//GEN-LAST:event_ButtonHapusMouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        // TODO add your handling code here:
+        dispose();
+        UtangPiutang utangPiutangFrame = new UtangPiutang();
+        utangPiutangFrame.setVisible(true);
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked

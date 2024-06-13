@@ -374,7 +374,7 @@
           <Color blue="df" green="c3" red="7c" type="rgb"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Hand Cursor"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>

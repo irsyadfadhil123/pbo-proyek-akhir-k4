@@ -53,11 +53,6 @@ public class Stok extends javax.swing.JFrame {
         ((PanelRound) ButtonEdit).setRoundBottomLeft(40);
         ((PanelRound) ButtonEdit).setRoundBottomRight(40);        
         
-        ((PanelRound) buttonBack).setRoundTopLeft(40);
-        ((PanelRound) buttonBack).setRoundTopRight(40);
-        ((PanelRound) buttonBack).setRoundBottomLeft(40);
-        ((PanelRound) buttonBack).setRoundBottomRight(40);
-
     }
     
      private void loadData() {
@@ -135,8 +130,6 @@ public class Stok extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         ButtonEdit = new com.kelompok4.design.PanelRound();
         jLabel5 = new javax.swing.JLabel();
-        buttonBack = new com.kelompok4.design.PanelRound();
-        jLabel19 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -337,42 +330,6 @@ public class Stok extends javax.swing.JFrame {
 
         contentpanel.add(ButtonEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 210, 40));
 
-        buttonBack.setBackground(new java.awt.Color(124, 195, 223));
-        buttonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonBack.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonBackMouseClicked(evt);
-            }
-        });
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("<");
-        jLabel19.setAlignmentX(0.5F);
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
-        buttonBack.setLayout(buttonBackLayout);
-        buttonBackLayout.setHorizontalGroup(
-            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonBackLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonBackLayout.setVerticalGroup(
-            buttonBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonBackLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        contentpanel.add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 770, 380));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Background.png"))); // NOI18N
@@ -465,16 +422,6 @@ public class Stok extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dihapus.");
         }
     }//GEN-LAST:event_ButtonHapusMouseClicked
-
-    private void buttonBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBackMouseClicked
-        dispose();
-        Stok stokFrame = new Stok();
-        stokFrame.setVisible(true);
-    }//GEN-LAST:event_buttonBackMouseClicked
-
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel19MouseClicked
      
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -515,7 +462,6 @@ public class Stok extends javax.swing.JFrame {
     private javax.swing.JPanel ButtonTambah;
     private javax.swing.JTable TabelStok;
     private javax.swing.JPanel backbutton;
-    private javax.swing.JPanel buttonBack;
     private javax.swing.JPanel contentpanel;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -523,7 +469,6 @@ public class Stok extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

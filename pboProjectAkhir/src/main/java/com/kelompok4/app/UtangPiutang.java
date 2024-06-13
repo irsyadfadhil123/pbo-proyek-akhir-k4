@@ -42,21 +42,26 @@ public class UtangPiutang extends javax.swing.JFrame {
         TabelUtangPiutang.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
 
         
-        ((PanelRound) tmblutang).setRoundTopLeft(40); //set round
+        ((PanelRound) tmblutang).setRoundTopLeft(40); 
         ((PanelRound) tmblutang).setRoundTopRight(40);
         ((PanelRound) tmblutang).setRoundBottomLeft(40);
         ((PanelRound) tmblutang).setRoundBottomRight(40);
         
-        ((PanelRound) tmblpiutang).setRoundTopLeft(40); // set round
+        ((PanelRound) tmblpiutang).setRoundTopLeft(40); 
         ((PanelRound) tmblpiutang).setRoundTopRight(40);
         ((PanelRound) tmblpiutang).setRoundBottomLeft(40);
-        ((PanelRound) tmblpiutang).setRoundBottomRight(40);
+        ((PanelRound) tmblpiutang).setRoundBottomRight(40);        
         
-        ((PanelRound) contentpanel).setRoundTopLeft(40); // set round
+        ((PanelRound) tmblPelangganSupplier).setRoundTopLeft(40); 
+        ((PanelRound) tmblPelangganSupplier).setRoundTopRight(40);
+        ((PanelRound) tmblPelangganSupplier).setRoundBottomLeft(40);
+        ((PanelRound) tmblPelangganSupplier).setRoundBottomRight(40);
+        
+        ((PanelRound) contentpanel).setRoundTopLeft(40); 
         ((PanelRound) contentpanel).setRoundTopRight(40);
         ((PanelRound) contentpanel).setRoundBottomLeft(40);
         ((PanelRound) contentpanel).setRoundBottomRight(40);
-        ((PanelRound) contentpanel).setOpacity(0.7f); // set opacity
+        ((PanelRound) contentpanel).setOpacity(0.7f);
     }
     
     private static final Logger LOGGER = Logger.getLogger(CatatanPenjualan.class.getName());
@@ -109,10 +114,13 @@ private void show_table() {
 
         if (tipe.equals("utang")) {
             c.setBackground(Color.LIGHT_GRAY);
+            c.setForeground(Color.BLACK);
         } else if (tipe.equals("piutang")) {
-            c.setBackground(Color.WHITE);
+            c.setBackground(Color.WHITE);            
+            c.setForeground(Color.BLACK);
         } else {
-            c.setBackground(Color.WHITE); 
+            c.setBackground(Color.WHITE);            
+            c.setForeground(Color.BLACK);
         }
 
         return c;
@@ -141,6 +149,8 @@ private void show_table() {
         TabelUtangPiutang = new javax.swing.JTable();
         tmblutang = new com.kelompok4.design.PanelRound();
         lblutang = new javax.swing.JLabel();
+        tmblPelangganSupplier = new com.kelompok4.design.PanelRound();
+        lblpiutang1 = new javax.swing.JLabel();
         tmblpiutang = new com.kelompok4.design.PanelRound();
         lblpiutang = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
@@ -289,12 +299,28 @@ private void show_table() {
         lblutang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblutang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblutang.setText("Catatan Utang");
-        tmblutang.add(lblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 40));
+        tmblutang.add(lblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
 
-        contentpanel.add(tmblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 230, 40));
+        contentpanel.add(tmblutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 180, 40));
+
+        tmblPelangganSupplier.setBackground(new java.awt.Color(124, 195, 223));
+        tmblPelangganSupplier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tmblPelangganSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tmblPelangganSupplierMouseClicked(evt);
+            }
+        });
+        tmblPelangganSupplier.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblpiutang1.setBackground(new java.awt.Color(124, 195, 223));
+        lblpiutang1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblpiutang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblpiutang1.setText("Pelanggan/Supplier");
+        tmblPelangganSupplier.add(lblpiutang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
+
+        contentpanel.add(tmblPelangganSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 180, 40));
 
         tmblpiutang.setBackground(new java.awt.Color(124, 195, 223));
-        tmblpiutang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tmblpiutang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tmblpiutangMouseClicked(evt);
@@ -306,9 +332,9 @@ private void show_table() {
         lblpiutang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblpiutang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblpiutang.setText("Catatan Piutang");
-        tmblpiutang.add(lblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 40));
+        tmblpiutang.add(lblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 40));
 
-        contentpanel.add(tmblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 230, 40));
+        contentpanel.add(tmblpiutang, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 180, 40));
 
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 770, 370));
 
@@ -361,6 +387,12 @@ private void show_table() {
         Piutang piutangFrame = new Piutang();
         piutangFrame.setVisible(true);
     }//GEN-LAST:event_tmblpiutangMouseClicked
+
+    private void tmblPelangganSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tmblPelangganSupplierMouseClicked
+        dispose();
+        Pelanggan pelangganFrame = new Pelanggan();
+        pelangganFrame.setVisible(true);
+    }//GEN-LAST:event_tmblPelangganSupplierMouseClicked
 
     /**
      * @param args the command line arguments
@@ -419,7 +451,9 @@ private void show_table() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblpiutang;
+    private javax.swing.JLabel lblpiutang1;
     private javax.swing.JLabel lblutang;
+    private javax.swing.JPanel tmblPelangganSupplier;
     private javax.swing.JPanel tmblpiutang;
     private javax.swing.JPanel tmblutang;
     // End of variables declaration//GEN-END:variables

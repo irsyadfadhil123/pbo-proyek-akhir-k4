@@ -43,6 +43,8 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 
         //panel design
         setRoundedCorners((PanelRound) panelGuideMain, 0.7f, 40);
+        setRoundedCorners((PanelRound) panelGuideProfil1, 0.7f, 40);
+        setRoundedCorners((PanelRound) panelGuideDasbor1, 0.7f, 40);
         setRoundedCorners((PanelRound) panelGuideCatatanTransaksi1, 0.7f, 40);
         setRoundedCorners((PanelRound) panelGuideCatatanTransaksi2, 0.7f, 40);
         setRoundedCorners((PanelRound) panelGuideCatatanTransaksi3, 0.7f, 40);
@@ -50,6 +52,9 @@ public class PanduanPengguna extends javax.swing.JFrame {
         setRoundedCorners((PanelRound) panelGuideUtangPiutang2, 0.7f, 40);
         setRoundedCorners((PanelRound) panelGuideUtangPiutang3, 0.7f, 40);
         setRoundedCorners((PanelRound) panelGuideStok1, 0.7f, 40);
+        setRoundedCorners((PanelRound) panelGuideLaporanKeuangan1, 0.7f, 40);
+        setRoundedCorners((PanelRound) panelGuideTargetKeuangan1, 0.7f, 40);
+        setRoundedCorners((PanelRound) panelGuideProfil1, 0.7f, 40);
 
         //button main design
         setRoundedCorners((PanelRound) buttonBack, 1.0f, 40);
@@ -81,9 +86,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         setRoundedCorners((PanelRound) buttonNextCT2, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextUP1, 1.0f, 20);
         setRoundedCorners((PanelRound) buttonNextUP2, 1.0f, 20);
-        setRoundedCorners((PanelRound) buttonNextS1, 1.0f, 20);
-        setRoundedCorners((PanelRound) buttonNextTK1, 1.0f, 20);
-        setRoundedCorners((PanelRound) buttonNextP1, 1.0f, 20);
 
         //button previous design
         setRoundedCorners((PanelRound) buttonPreviousCT2, 1.0f, 20);
@@ -195,8 +197,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         buttonBack6 = new com.kelompok4.design.PanelRound();
         jLabel41 = new javax.swing.JLabel();
-        buttonNextS1 = new com.kelompok4.design.PanelRound();
-        jLabel42 = new javax.swing.JLabel();
         panelGuideLaporanKeuangan1 = new com.kelompok4.design.PanelRound();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
@@ -207,15 +207,11 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         buttonBack10 = new com.kelompok4.design.PanelRound();
         jLabel57 = new javax.swing.JLabel();
-        buttonNextTK1 = new com.kelompok4.design.PanelRound();
-        jLabel58 = new javax.swing.JLabel();
         panelGuideProfil1 = new com.kelompok4.design.PanelRound();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         buttonBack11 = new com.kelompok4.design.PanelRound();
         jLabel61 = new javax.swing.JLabel();
-        buttonNextP1 = new com.kelompok4.design.PanelRound();
-        jLabel62 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -251,6 +247,11 @@ public class PanduanPengguna extends javax.swing.JFrame {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("<");
         jLabel19.setAlignmentX(0.5F);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout buttonBackLayout = new javax.swing.GroupLayout(buttonBack);
         buttonBack.setLayout(buttonBackLayout);
@@ -1422,35 +1423,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        buttonNextS1.setBackground(new java.awt.Color(124, 195, 223));
-        buttonNextS1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNextS1.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonNextS1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNextS1MouseClicked(evt);
-            }
-        });
-
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setText("->");
-        jLabel42.setAlignmentX(0.5F);
-
-        javax.swing.GroupLayout buttonNextS1Layout = new javax.swing.GroupLayout(buttonNextS1);
-        buttonNextS1.setLayout(buttonNextS1Layout);
-        buttonNextS1Layout.setHorizontalGroup(
-            buttonNextS1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextS1Layout.createSequentialGroup()
-                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonNextS1Layout.setVerticalGroup(
-            buttonNextS1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextS1Layout.createSequentialGroup()
-                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panelGuideStok1Layout = new javax.swing.GroupLayout(panelGuideStok1);
         panelGuideStok1.setLayout(panelGuideStok1Layout);
         panelGuideStok1Layout.setHorizontalGroup(
@@ -1462,9 +1434,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideStok1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideStok1Layout.createSequentialGroup()
                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNextS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(53, 53, 53))
                     .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -1476,9 +1446,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                     .addComponent(jLabel39)
                     .addComponent(buttonBack6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelGuideStok1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonNextS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -1587,35 +1555,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        buttonNextTK1.setBackground(new java.awt.Color(124, 195, 223));
-        buttonNextTK1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNextTK1.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonNextTK1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNextTK1MouseClicked(evt);
-            }
-        });
-
-        jLabel58.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel58.setText("->");
-        jLabel58.setAlignmentX(0.5F);
-
-        javax.swing.GroupLayout buttonNextTK1Layout = new javax.swing.GroupLayout(buttonNextTK1);
-        buttonNextTK1.setLayout(buttonNextTK1Layout);
-        buttonNextTK1Layout.setHorizontalGroup(
-            buttonNextTK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextTK1Layout.createSequentialGroup()
-                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonNextTK1Layout.setVerticalGroup(
-            buttonNextTK1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextTK1Layout.createSequentialGroup()
-                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panelGuideTargetKeuangan1Layout = new javax.swing.GroupLayout(panelGuideTargetKeuangan1);
         panelGuideTargetKeuangan1.setLayout(panelGuideTargetKeuangan1Layout);
         panelGuideTargetKeuangan1Layout.setHorizontalGroup(
@@ -1627,9 +1566,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideTargetKeuangan1Layout.createSequentialGroup()
                         .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNextTK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(53, 53, 53))
                     .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -1641,9 +1578,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                     .addComponent(jLabel56)
                     .addComponent(buttonBack10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelGuideTargetKeuangan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonNextTK1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -1686,35 +1621,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        buttonNextP1.setBackground(new java.awt.Color(124, 195, 223));
-        buttonNextP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNextP1.setMaximumSize(new java.awt.Dimension(500, 500));
-        buttonNextP1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNextP1MouseClicked(evt);
-            }
-        });
-
-        jLabel62.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel62.setText("->");
-        jLabel62.setAlignmentX(0.5F);
-
-        javax.swing.GroupLayout buttonNextP1Layout = new javax.swing.GroupLayout(buttonNextP1);
-        buttonNextP1.setLayout(buttonNextP1Layout);
-        buttonNextP1Layout.setHorizontalGroup(
-            buttonNextP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextP1Layout.createSequentialGroup()
-                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        buttonNextP1Layout.setVerticalGroup(
-            buttonNextP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNextP1Layout.createSequentialGroup()
-                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout panelGuideProfil1Layout = new javax.swing.GroupLayout(panelGuideProfil1);
         panelGuideProfil1.setLayout(panelGuideProfil1Layout);
         panelGuideProfil1Layout.setHorizontalGroup(
@@ -1726,9 +1632,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                 .addGroup(panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideProfil1Layout.createSequentialGroup()
                         .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNextP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(53, 53, 53))
                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -1740,9 +1644,7 @@ public class PanduanPengguna extends javax.swing.JFrame {
                     .addComponent(jLabel60)
                     .addComponent(buttonBack11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelGuideProfil1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonNextP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -1855,10 +1757,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack6MouseClicked
 
-    private void buttonNextS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextS1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNextS1MouseClicked
-
     private void buttonBack7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack7MouseClicked
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack7MouseClicked
@@ -1875,17 +1773,15 @@ public class PanduanPengguna extends javax.swing.JFrame {
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack10MouseClicked
 
-    private void buttonNextTK1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextTK1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNextTK1MouseClicked
-
     private void buttonBack11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBack11MouseClicked
         cardLayout.show(cardPanel, "Main");        
     }//GEN-LAST:event_buttonBack11MouseClicked
 
-    private void buttonNextP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNextP1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNextP1MouseClicked
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        dispose();
+        LandingPage landingPageFrame = new LandingPage();
+        landingPageFrame.setVisible(true);
+    }//GEN-LAST:event_jLabel19MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1952,9 +1848,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JPanel buttonGuideUtangPiutang;
     private javax.swing.JPanel buttonNextCT1;
     private javax.swing.JPanel buttonNextCT2;
-    private javax.swing.JPanel buttonNextP1;
-    private javax.swing.JPanel buttonNextS1;
-    private javax.swing.JPanel buttonNextTK1;
     private javax.swing.JPanel buttonNextUP1;
     private javax.swing.JPanel buttonNextUP2;
     private javax.swing.JPanel buttonPreviousCT2;
@@ -1998,7 +1891,6 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
@@ -2012,12 +1904,10 @@ public class PanduanPengguna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

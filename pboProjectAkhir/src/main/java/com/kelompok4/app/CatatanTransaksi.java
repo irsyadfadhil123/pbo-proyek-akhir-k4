@@ -111,11 +111,14 @@ public class CatatanTransaksi extends javax.swing.JFrame {
         String tipe = (String) table.getModel().getValueAt(row, 0);
 
         if (tipe.equals("pembelian")) {
-            c.setBackground(Color.LIGHT_GRAY);
+            c.setBackground(Color.LIGHT_GRAY);            
+            c.setForeground(Color.BLACK);
         } else if (tipe.equals("penjualan")) {
-            c.setBackground(Color.WHITE);
+            c.setBackground(Color.WHITE);            
+            c.setForeground(Color.BLACK);
         } else {
-            c.setBackground(Color.WHITE); // Default color
+            c.setBackground(Color.WHITE);            
+            c.setForeground(Color.BLACK);
         }
 
         return c;

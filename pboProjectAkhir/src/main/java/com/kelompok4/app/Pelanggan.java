@@ -23,7 +23,9 @@ public class Pelanggan extends javax.swing.JFrame {
      */
     public Pelanggan() {
         initComponents();
-        loadData();
+        loadData();        
+        setLocationRelativeTo(null);
+        setResizable(false);
         
         ((PanelRound) contentpanel).setOpacity(0.7f);
         ((PanelRound) contentpanel).setRoundTopLeft(40);
@@ -298,7 +300,7 @@ public class Pelanggan extends javax.swing.JFrame {
         getContentPane().add(contentpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 770, 340));
 
         tombolpelanggan.setBackground(new java.awt.Color(124, 195, 223));
-        tombolpelanggan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tombolpelanggan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tombolpelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tombolpelangganMouseClicked(evt);
@@ -371,19 +373,18 @@ public class Pelanggan extends javax.swing.JFrame {
 
     private void tombolpelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolpelangganMouseClicked
         
-
     }//GEN-LAST:event_tombolpelangganMouseClicked
 
     private void tombolsupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolsupplierMouseClicked
+        dispose();
         Supplier SupplierWindow = new Supplier();
-                SupplierWindow.setVisible(true);
-
+        SupplierWindow.setVisible(true);
     }//GEN-LAST:event_tombolsupplierMouseClicked
 
     private void ButtonTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTambahMouseClicked
+        dispose();
         TambahPelanggan TambahPelangganWindow = new TambahPelanggan();
-                TambahPelangganWindow.setVisible(true);
-
+        TambahPelangganWindow.setVisible(true);
     }//GEN-LAST:event_ButtonTambahMouseClicked
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
